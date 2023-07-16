@@ -114,63 +114,164 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{route('capacitaciones')}}" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Capacitaciones
+                Recursos Humanos
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              @if (auth()->user()->username=='admin')
+                <li class="nav-item">
+                  <a href="{{route('usuarios')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Personal</p>
+                  </a>
+                </li>
+              @endif
+                <li class="nav-item">
+                  <a href="{{route('capacitaciones')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Capacitaciones</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Evaluaciones</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Reclutamiento</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Horarios</p>
+                  </a>
+                </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                DOS
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>A</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>B</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>C</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Evaluaciones
+                TRES
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
-                {{-- @foreach ($abm as $item)
-                    <li class="nav-item">
-                      <a href="{{route('album', [$item->idartista, $item->idalbum])}}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>{{$item->nmalbum}}</p>
-                      </a>
-                    </li>
-                @endforeach --}}
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>A</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>B</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>C</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Reclutamiento
+                CUATRO
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
-                {{-- @foreach ($ccn as $item)
-                    <li class="nav-item">
-                      <a href="{{route('cancion', [$item->idartista, $item->idalbum, $item->idcancion])}}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>{{$item->nmcancion}}</p>
-                      </a>
-                    </li>
-                @endforeach --}}
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>A</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>B</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>C</p>
+                </a>
+              </li>
             </ul>
           </li>
-          @if (auth()->user()->username=='admin')
-            <li class="nav-item">
-              <a href="{{route('usuarios')}}" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Usuarios
-                  {{-- <i class="fas fa-angle-left right"></i> --}}
-                </p>
-              </a>
-            </li>
-          @endif
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                CINCO
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>A</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>B</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>C</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
