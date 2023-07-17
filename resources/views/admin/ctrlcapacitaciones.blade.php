@@ -39,7 +39,7 @@
                                     <td>{{($personal->find($item->idEmpleado))->apellidos}} {{($personal->find($item->idEmpleado))->nombre}}</td>
                                     <td>
                                         <a href="{{route('inscripciones', [$item->idCapacitacion])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Inscribir</a>
-                                        <a href="{{-- {{route('editarCapacitacion', [$item->idCapacitacion])}} --}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Puntuar</a>
+                                        <a href="{{route('inscritos', [$item->idCapacitacion])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Puntuar</a>
                                     </td>
                                 </tr>
                             @endforeach

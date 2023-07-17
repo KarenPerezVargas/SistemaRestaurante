@@ -55,6 +55,8 @@ Route::post('/eliminarCapacitacion/{id}', [CapacitacionController::class, 'destr
 
 Route::get('/inscripciones/{id}', [CapacitacionController::class, 'inscripciones'])->name('inscripciones');
 Route::post('/inscribir/{id}', [CapacitacionController::class, 'inscribir'])->name('inscribir');
+Route::get('/inscritos/{id}', [CapacitacionController::class, 'inscritos'])->name('inscritos');
+Route::post('/puntuar/{id}', [CapacitacionController::class, 'puntuar'])->name('puntuar');
 
 Route::get('/verPerfil', [UserController::class, 'showPerfil'])->name('perfil');
 Route::get('/editarPerfil', [UserController::class, 'editPerfil'])->name('editar');

@@ -149,4 +149,26 @@ class CapacitacionController extends Controller
         }
         return redirect()->route('capacitaciones');
     }
+
+    public function inscritos($id)
+    {
+        $registrados = EmpleadoCapacitacion::where('idcapa', $id)->get();
+        $personal = Empleado::all();
+        return view('admin.inscritos', compact('personal','registrados', 'id'));
+    }
+
+    public function puntuar(Request $request, $id)
+    {
+        $puntuaciones = $request->input('puntuaciones');
+
+        foreach ($puntuaciones as $idEmpleado => $puntuacion) {
+            // Guardar la puntuación en una nueva tabla o realizar operaciones necesarias
+            // Ejemplo:
+            $registro = EmpleadoCapacitacion::where('idcapa', $id)->where('idemple', $idEmpleado)->first();
+            $registro->puntuacion = $puntuacion;
+            $registro->save();
+        }
+
+        return redirect()->route('capacitaciones');
+    }
 }
