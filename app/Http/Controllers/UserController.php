@@ -23,8 +23,8 @@ class UserController extends Controller
                 return view('home');
             } else {
                 if (auth()->user()->idEmpleado == 1) {
-                    $users = User::all();
-                    return view('admin.home', compact('users'));
+                    //$users = User::all();
+                    return view('admin.home'/* , compact('users') */);
                 } else {
                     return view('admin.home');
                 }
@@ -34,24 +34,12 @@ class UserController extends Controller
 
     public function show()
     {
-        if (!Auth::check()) {
-            return redirect('');
-        }
-        if (auth()->user()->idEmpleado == 1) {
-            $roles = Role::all();
-            $contratos = Contrato::all();
-            $personal = Empleado::all();
-            $users = User::all();
-            return view('admin.usuarios', compact('roles', 'contratos', 'personal', 'users'));
-        } else {
-            return view('admin.home');
-        }
+        
     }
 
     public function create()
     {
-        $roles = Role::all();
-        return view('admin.crearUsuario', compact('roles'));
+        
     }
 
     

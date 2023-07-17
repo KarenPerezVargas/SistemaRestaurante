@@ -9,7 +9,7 @@
                 <div class="navbar">
                     <div class="container-fluid">
                         <h3><i>Usuario</i></h3>
-                        <a href="{{route('crearUsuario')}}" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Nuevo Registro</a>
+                        <a href="{{route('crearEmpleado')}}" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Nuevo Registro</a>
                     </div>
                 </div>
                 <div class="text-center">
@@ -17,25 +17,29 @@
                         <thead class="table-dark">
                           <tr>
                             <th>#</th>
-                            <th>Nombre Completo</th>
-                            <th>Correo Electronico</th>
+                            <th>Apellidos</th>
+                            <th>Nombre</th>
+                            <th>DNI</th>
+                            <th>Telefono</th>
                             <th>Rol</th>
                             <th>Acciones</th>
                           </tr>
                         </thead>
                         <tbody>
-                            @if ($users->count() == 0)
+                            @if ($personal->count() == 0)
                                 <tr><td>No hay capacitaciones</td></tr>
                             @endif
                             @php
                                 $nb=1;
                             @endphp
-                            @foreach ($users as $item)
+                            @foreach ($personal as $item)
                                 @if ($item->idRole != 1)
                                     <tr>
                                         <td>{{$nb++}}</td>
-                                        <td>{{$item->name}}</td>
-                                        <td>{{$item->email}}</td>
+                                        <td>{{$item->nombre}}</td>
+                                        <td>{{$item->apellidos}}</td>
+                                        <td>{{$item->DNI}}</td>
+                                        <td>{{$item->telefono}}</td>
                                         <td>{{($roles->find(($contratos->find(($personal->find($item->idEmpleado))->idContrato))->idRole))->nmRole}}</td>
                                         <td>
                                             <a href="{{-- {{route('editarUsuario', [$item->id])}} --}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>

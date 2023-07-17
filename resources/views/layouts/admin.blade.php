@@ -124,7 +124,7 @@
             <ul class="nav nav-treeview">
               @if (auth()->user()->idEmpleado==1)
                 <li class="nav-item">
-                  <a href="{{route('usuarios')}}" class="nav-link">
+                  <a href="{{route('personal')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Personal</p>
                   </a>

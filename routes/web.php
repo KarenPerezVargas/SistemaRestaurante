@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\CapacitacionController;
 
 /*
@@ -31,8 +32,13 @@ Route::get('/logout', [LoginController::class,'logout'])->name('salir');
 
 Route::get('/home', [UserController::class, 'index'])->name('home');
 
-Route::get('/usuarios', [UserController::class, 'show'])->name('usuarios');
-Route::get('/crearUsuario', [UserController::class, 'create'])->name('crearUsuario');
+Route::get('/personal', [PersonalController::class, 'index'])->name('personal');
+Route::get('/registrarPersonal', [PersonalController::class, 'create1'])->name('crearEmpleado');
+Route::post('/registrarPersonal/paso1', [PersonalController::class, 'store1'])->name('guardarEmpleado');
+Route::get('/registrarPersonal/paso2', [PersonalController::class, 'create2'])->name('personaldos');
+Route::post('/registrarPersonal/paso2', [PersonalController::class, 'store2'])->name('guardardos');
+Route::get('/registrarPersonal/paso3', [PersonalController::class, 'create3'])->name('personaltres');
+Route::post('/registrarPersonal/paso3', [PersonalController::class, 'store3'])->name('guardartres');
 
 Route::get('/capacitaciones', [CapacitacionController::class, 'index'])->name('capacitaciones');
 Route::get('/crearCapacitacion', [CapacitacionController::class, 'create'])->name('crearCapacitacion');
