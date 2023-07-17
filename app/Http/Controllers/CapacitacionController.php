@@ -84,8 +84,8 @@ class CapacitacionController extends Controller
      */
     public function edit($id)
     {
-        $capacitacion = Capacitacion::find($id);
         $users = User::all();
+        $capacitacion = Capacitacion::find($id);
         return view('admin.editarCapacitacion', compact('capacitacion', 'users'));
     }
 
