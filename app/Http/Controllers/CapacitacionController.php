@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Capacitacion;
 use App\Models\Empleado;
 use App\Models\Contrato;
-use App\Models\User;
+use App\Models\EmpleadoCapacitacion;
 
 class CapacitacionController extends Controller
 {
@@ -21,16 +21,21 @@ class CapacitacionController extends Controller
         if (!Auth::check()) {
             return redirect('');
         }
-        /* $roles = Role::all(); */
         $contratos = Contrato::all();
         $personal = Empleado::all();
-        $rol = ($contratos->find(($personal->find(auth()->user()->idEmpleado))->idContrato))->idRole;
+        $idemp = auth()->user()->idEmpleado;
+        $rol = ($contratos->find(($personal->find($idemp))->idContrato))->idRole;
         if ($rol != null) {
-            if ($rol == 1 || $rol == 2) {
+            if ($rol == 1) {
                 $capacitaciones = Capacitacion::all();
-                return view('admin.capacitaciones', compact('capacitaciones', 'personal', 'rol'));
+                return view('admin.capacitaciones', compact('capacitaciones', 'personal'));
             } else {
-                return view('admin.home');
+                if ($rol == 2) {
+                    $capacitaciones = Capacitacion::where('idEmpleado', $idemp)->get();
+                    return view('admin.ctrlcapacitaciones', compact('capacitaciones', 'personal'));
+                } else {
+                    return view('admin.home');
+                }
             }
         } else {
             return view('home');
@@ -120,5 +125,28 @@ class CapacitacionController extends Controller
         $capacitacion = Capacitacion::find($id);
         $capacitacion->delete();
         return redirect()->route('home');
+    }
+
+    public function inscripciones($id)
+    {
+        $contratos = Contrato::all();
+        $personal = Empleado::all();
+        $registrados = EmpleadoCapacitacion::where('idcapa', $id)->get();
+        return view('admin.inscripciones', compact('personal', 'contratos', 'registrados', 'id'));
+    }
+
+    public function inscribir(Request $request, $id)
+    {
+        $marcados = $request->input('inscritos');
+        foreach ($marcados as $idEmpleado) {
+            if (!is_null($idEmpleado)) {
+                $enca = new EmpleadoCapacitacion();
+                // dd($idEmpleado);
+                $enca->idemple = intval($idEmpleado);
+                $enca->idcapa = $id;
+                $enca->save();
+            }
+        }
+        return redirect()->route('capacitaciones');
     }
 }

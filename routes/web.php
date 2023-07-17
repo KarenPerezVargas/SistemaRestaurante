@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\CapacitacionController;
+use App\Http\Controllers\ContratoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,10 @@ Route::post('/registrarPersonal/paso2', [PersonalController::class, 'store2'])->
 Route::get('/registrarPersonal/paso3', [PersonalController::class, 'create3'])->name('personaltres');
 Route::post('/registrarPersonal/paso3', [PersonalController::class, 'store3'])->name('guardartres');
 
+Route::get('/contratos', [ContratoController::class, 'index'])->name('contratos');
+Route::get('/crearContrato', [ContratoController::class, 'create'])->name('crearContrato');
+Route::post('/guardarContrato', [ContratoController::class, 'store'])->name('guardarContrato');
+
 Route::get('/capacitaciones', [CapacitacionController::class, 'index'])->name('capacitaciones');
 Route::get('/crearCapacitacion', [CapacitacionController::class, 'create'])->name('crearCapacitacion');
 Route::post('/guardarCapacitacion', [CapacitacionController::class, 'store'])->name('guardarCapacitacion');
@@ -47,6 +52,9 @@ Route::post('/guardarCapacitacion', [CapacitacionController::class, 'store'])->n
 Route::get('/editarCapacitacion/{id}', [CapacitacionController::class, 'edit'])->name('editarCapacitacion');
 Route::post('/actualizarCapacitacion', [CapacitacionController::class, 'update'])->name('actualizarCapacitacion');
 Route::post('/eliminarCapacitacion/{id}', [CapacitacionController::class, 'destroy'])->name('eliminarCapacitacion');
+
+Route::get('/inscripciones/{id}', [CapacitacionController::class, 'inscripciones'])->name('inscripciones');
+Route::post('/inscribir/{id}', [CapacitacionController::class, 'inscribir'])->name('inscribir');
 
 Route::get('/verPerfil', [UserController::class, 'showPerfil'])->name('perfil');
 Route::get('/editarPerfil', [UserController::class, 'editPerfil'])->name('editar');

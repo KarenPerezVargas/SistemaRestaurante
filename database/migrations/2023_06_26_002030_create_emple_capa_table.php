@@ -14,14 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('emple_capa', function (Blueprint $table) {
-            // $table->id();
+            $table->id('idEC');
             $table->unsignedBigInteger('idemple');
             $table->unsignedBigInteger('idcapa');
-            $table->float('calificacion');
+            $table->float('puntuacion')->nullable();
             $table->timestamps();
 
-            $table->primary('idemple', 'idcapa');
-            $table->foreign('idemple')->references('id')->on('users');
+            $table->foreign('idemple')->references('idEmpleado')->on('personal');
             $table->foreign('idcapa')->references('idCapacitacion')->on('capacitaciones');
         });
     }
