@@ -8,7 +8,7 @@
             <div class="row gx-lg-5">
                 <div class="navbar">
                     <div class="container-fluid">
-                        <h3><i>Usuario</i></h3>
+                        <h3><i>Personal</i></h3>
                         <a href="{{route('crearEmpleado')}}" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Nuevo Registro</a>
                     </div>
                 </div>
@@ -33,14 +33,14 @@
                                 $nb=1;
                             @endphp
                             @foreach ($personal as $item)
-                                @if ($item->idRole != 1)
+                                @if (($contratos->find($item->idContrato))->idRole != 1)
                                     <tr>
                                         <td>{{$nb++}}</td>
                                         <td>{{$item->nombre}}</td>
                                         <td>{{$item->apellidos}}</td>
                                         <td>{{$item->DNI}}</td>
                                         <td>{{$item->telefono}}</td>
-                                        <td>{{($roles->find(($contratos->find(($personal->find($item->idEmpleado))->idContrato))->idRole))->nmRole}}</td>
+                                        <td>{{($roles->find(($contratos->find($item->idContrato))->idRole))->nmRole}}</td>
                                         <td>
                                             <a href="{{-- {{route('editarUsuario', [$item->id])}} --}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
                                             &nbsp; &nbsp; &nbsp;

@@ -122,14 +122,18 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              @if (auth()->user()->idEmpleado==1)
-                <li class="nav-item">
-                  <a href="{{route('personal')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Personal</p>
-                  </a>
-                </li>
-              @endif
+              <li class="nav-item">
+                <a href="{{route('personal')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Personal</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Contratos</p>
+                </a>
+              </li>
                 <li class="nav-item">
                   <a href="{{route('capacitaciones')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
@@ -146,12 +150,6 @@
                   <a href="#" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Reclutamiento</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Horarios</p>
                   </a>
                 </li>
             </ul>

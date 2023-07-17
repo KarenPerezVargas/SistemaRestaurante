@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Empleado;
 use App\Models\Contrato;
 use App\Models\Role;
 use App\Models\Horario;
-use Illuminate\Support\Facades\Session;
-
-use Illuminate\Http\Request;
 
 class PersonalController extends Controller
 {
@@ -21,7 +21,10 @@ class PersonalController extends Controller
         if (!Auth::check()) {
             return redirect('');
         }
-        if (auth()->user()->idEmpleado == 1) {
+        $contratos = Contrato::all();
+        $personal = Empleado::all();
+        $rol = ($contratos->find(($personal->find(auth()->user()->idEmpleado))->idContrato))->idRole;
+        if ($rol == 1) {
             $request->session()->forget(['apellidos', 'nombre', 'dni', 'telefono', 'direccion', 'fechaInicio', 'duracionMeses', 'sueldo', 'idRole', 'idHorario']);
             $roles = Role::all();
             $contratos = Contrato::all();

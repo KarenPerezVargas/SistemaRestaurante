@@ -19,7 +19,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
             <div class="container px-5">
-                <a class="navbar-brand" href="#page-top">Proyecto Personal</a>
+                <a class="navbar-brand" href="#page-top">Proyecto Restaurante</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
@@ -33,8 +33,8 @@
         <header class="masthead text-center text-white">
             <div class="masthead-content">
                 <div class="container px-5">
-                    <h1 class="masthead-heading mb-0">La Mejor Página</h1>
-                    <h2 class="masthead-subheading mb-0">Para Los Amantes De La Música</h2>
+                    <h1 class="masthead-heading mb-0">MISKYCHALLWA</h1>
+                    <h2 class="masthead-subheading mb-0">La mejor experiencia gastronomica</h2>
                     <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
                 </div>
             </div>
@@ -48,11 +48,11 @@
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="nd/assets/img/rap.jpg" alt="..." /></div>
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="nd/assets/img/img1.jpg" alt="..." /></div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
-                            <h2 class="display-4">Éxitos del Rap</h2>
+                            <h2 class="display-4">Ceviche Mixto</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
                         </div>
                     </div>
@@ -64,11 +64,11 @@
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="nd/assets/img/rock.jpg" alt="..." /></div>
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="nd/assets/img/img2.jpg" alt="..." /></div>
                     </div>
                     <div class="col-lg-6">
                         <div class="p-5">
-                            <h2 class="display-4">Ganas de Rock</h2>
+                            <h2 class="display-4">Lomo saltado</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
                         </div>
                     </div>
@@ -80,11 +80,11 @@
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="nd/assets/img/reggaeton.jpg" alt="..." /></div>
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="nd/assets/img/img3.jpg" alt="..." /></div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
-                            <h2 class="display-4">Variedad Musical</h2>
+                            <h2 class="display-4">Causa limeña</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
                         </div>
                     </div>

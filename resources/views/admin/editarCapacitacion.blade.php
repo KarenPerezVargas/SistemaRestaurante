@@ -9,21 +9,19 @@
             <input type="text" class="form-control" name="temaCapacitacion" id="" value="{{$capacitacion->temaCapacitacion}}">
         </div>
         <div class="mb-3">
+            <label for="" class="form-label">Area</label>
+            <input type="text" class="form-control" name="areaCapacitacion" id="" value="{{$capacitacion->areaCapacitacion}}">
+        </div>
+        <div class="mb-3">
             <label for="" class="form-label">Fecha</label>
             <input type="date" class="form-control" name="fechaCapacitacion" id="" value="{{$capacitacion->fechaCapacitacion}}">
         </div>
         <div class="mb-3">
-            <label for="" class="form-label">Lugar</label>
-            <input type="text" class="form-control" name="lugarCapacitacion" id="" value="{{$capacitacion->lugarCapacitacion}}">
-        </div>
-        <div class="mb-3">
             <label for="" class="form-label">Instructor</label>
-            <select class="form-select" name="idUser" aria-label="Default select example">
-                @foreach ($users as $item)
-                    @if ($capacitacion->iduser==$item->id)
-                        <option value="{{$item->id}}" selected>{{$item->username}}</option>
-                    @else
-                        <option value="{{$item->id}}">{{$item->username}}</option>
+            <select class="form-select" name="idEmpleado" aria-label="Default select example">
+                @foreach ($personal as $item)
+                    @if (($contratos->find($item->idContrato))->idRole == 2)
+                        <option value="{{$item->idEmpleado}}" @if ($item->idEmpleado == $capacitacion->idEmpleado) selected @endif>{{$item->apellidos}} {{$item->nombre}}</option>
                     @endif
                 @endforeach
             </select>

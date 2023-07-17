@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id('idCapacitacion');
             $table->string('temaCapacitacion', 60);
             $table->date('fechaCapacitacion');
-            $table->string('lugarCapacitacion', 20);
-            $table->unsignedBigInteger('idUser');
+            $table->string('areaCapacitacion', 20);
+            $table->unsignedBigInteger('idEmpleado');
             $table->timestamps();
 
-            $table->foreign('idUser')->references('id')->on('users');
+            $table->foreign('idEmpleado')->references('idEmpleado')->on('personal');
         });
     }
 

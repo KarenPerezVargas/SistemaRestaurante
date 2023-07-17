@@ -10,6 +10,6 @@ class Capacitacion extends Model
     use HasFactory;
     protected $table='capacitaciones';
     protected $primaryKey='idCapacitacion';
-    protected $fillable = ['temaCapacitacion', 'fechaCapacitacion', 'lugarCapacitacion', 'iduser'];
+    protected $fillable = ['temaCapacitacion', 'fechaCapacitacion', 'areaCapacitacion', 'idEmpleado'];
     public $timestamps = false;
 }

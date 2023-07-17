@@ -25,10 +25,10 @@ class CapacitacionController extends Controller
         $contratos = Contrato::all();
         $personal = Empleado::all();
         $rol = ($contratos->find(($personal->find(auth()->user()->idEmpleado))->idContrato))->idRole;
-        if ($rol != 1) {
-            if ($rol == 2 || $rol == 3) {
+        if ($rol != null) {
+            if ($rol == 1 || $rol == 2) {
                 $capacitaciones = Capacitacion::all();
-                return view('admin.capacitaciones', compact('capacitaciones'));
+                return view('admin.capacitaciones', compact('capacitaciones', 'personal', 'rol'));
             } else {
                 return view('admin.home');
             }
@@ -44,8 +44,9 @@ class CapacitacionController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-        return view('admin.crearCapacitacion', compact('users'));
+        $contratos = Contrato::all();
+        $personal = Empleado::all();
+        return view('admin.crearCapacitacion', compact('contratos', 'personal'));
     }
 
     /**
@@ -58,9 +59,9 @@ class CapacitacionController extends Controller
     {
         $capacitacion = new Capacitacion();
         $capacitacion->temaCapacitacion = $request->temaCapacitacion;
+        $capacitacion->areaCapacitacion = $request->areaCapacitacion;
         $capacitacion->fechaCapacitacion = $request->fechaCapacitacion;
-        $capacitacion->lugarCapacitacion = $request->lugarCapacitacion;
-        $capacitacion->iduser = $request->idUser;
+        $capacitacion->idEmpleado = $request->idEmpleado;
         $capacitacion->save();
         return redirect()->route('capacitaciones');
     }
@@ -84,9 +85,10 @@ class CapacitacionController extends Controller
      */
     public function edit($id)
     {
-        $users = User::all();
+        $contratos = Contrato::all();
+        $personal = Empleado::all();
         $capacitacion = Capacitacion::find($id);
-        return view('admin.editarCapacitacion', compact('capacitacion', 'users'));
+        return view('admin.editarCapacitacion', compact('capacitacion', 'personal', 'contratos'));
     }
 
     /**
@@ -100,9 +102,9 @@ class CapacitacionController extends Controller
     {
         $capacitacion = Capacitacion::find($request->idCapacitacion);
         $capacitacion->temaCapacitacion = $request->temaCapacitacion;
+        $capacitacion->areaCapacitacion = $request->areaCapacitacion;
         $capacitacion->fechaCapacitacion = $request->fechaCapacitacion;
-        $capacitacion->lugarCapacitacion = $request->lugarCapacitacion;
-        $capacitacion->iduser = $request->idUser;
+        $capacitacion->idEmpleado = $request->idEmpleado;
         $capacitacion->save();
         return redirect()->route('capacitaciones');
     }
