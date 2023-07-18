@@ -9,6 +9,7 @@ use App\Http\Controllers\PermisoController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\ContratoController;
 use App\Http\Controllers\CapacitacionController;
+use App\Http\Controllers\CostosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,3 +79,35 @@ Route::get('/verPerfil', [UserController::class, 'showPerfil'])->name('perfil');
 Route::get('/editarPerfil', [UserController::class, 'editPerfil'])->name('editar');
 Route::post('/actualizarPerfil', [UserController::class, 'updatePerfil'])->name('actualizar');
 Route::post('/eliminarPerfil/{id}', [UserController::class, 'destroyPerfil'])->name('eliminar');
+
+
+//========================PEDIDOS==============================
+Route::get('/costos', [CostosController::class, 'index'])->name('costos');
+
+Route::resource('procesarPedido', procesarPedidosController::class);
+
+// -------------------
+Route::resource('pedido', PedidosController::class);
+
+Route::get('cancelar-pedido',function(){
+    return redirect()->route('pedido.index')->with('datos','Acción Cancelada');
+})->name('cancelar-pedido');
+
+Route::get('pedido/{id}/confirmar',[PedidosController::class,'confirmar'
+])->name('pedido.confirmar');
+
+// -------------------
+Route::resource('pago', PagosController::class);
+
+Route::get('cancelar-pago',function(){
+    return redirect()->route('pago.index')->with('datos','Acción Cancelada');
+})->name('cancelar-pago');
+
+Route::get('pago/{id}/confirmar',[PagosController::class,'confirmar'
+])->name('pago.confirmar');
+
+Route::get('pagos',[PagosController::class,'pagos'
+])->name('pago.pagos');
+
+Route::get('pago/{id}/anular',[PagosController::class,'anular'
+])->name('pago.anular');
