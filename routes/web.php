@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PermisoController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\CapacitacionController;
 use App\Http\Controllers\ContratoController;
@@ -32,6 +34,20 @@ Route::post('/login', [LoginController::class, 'login'])->name('iniciar');
 Route::get('/logout', [LoginController::class,'logout'])->name('salir');
 
 Route::get('/home', [UserController::class, 'index'])->name('home');
+
+Route::get('/roles', [RoleController::class, 'index'])->name('roles');
+Route::get('/crearRol', [RoleController::class, 'create'])->name('crearRol');
+Route::post('/guardarRol', [RoleController::class, 'store'])->name('guardarRol');
+Route::get('/editarRol/{id}', [RoleController::class, 'edit'])->name('editarRol');
+Route::post('/actualizarRol/{id}', [RoleController::class, 'update'])->name('actualizarRol');
+Route::post('/eliminarRol/{id}', [RoleController::class, 'destroy'])->name('eliminarRol');
+
+Route::get('/permisos', [PermisoController::class, 'index'])->name('permisos');
+Route::get('/crearPermiso', [PermisoController::class, 'create'])->name('crearPermiso');
+Route::post('/guardarPermiso', [PermisoController::class, 'store'])->name('guardarPermiso');
+Route::get('/editarPermiso/{id}', [PermisoController::class, 'edit'])->name('editarPermiso');
+Route::post('/actualizarPermiso/{id}', [PermisoController::class, 'update'])->name('actualizarPermiso');
+Route::post('/eliminarPermiso/{id}', [PermisoController::class, 'destroy'])->name('eliminarPermiso');
 
 Route::get('/personal', [PersonalController::class, 'index'])->name('personal');
 Route::get('/registrarPersonal', [PersonalController::class, 'create1'])->name('crearEmpleado');
