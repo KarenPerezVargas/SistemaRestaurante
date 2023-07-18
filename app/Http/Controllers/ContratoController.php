@@ -21,7 +21,7 @@ class ContratoController extends Controller
         $idemp = auth()->user()->idEmpleado;
         $rol = ($contratos->find(($personal->find($idemp))->idContrato))->idRole;
         if ($rol == 1) {
-            return view('admin.contratos', compact('personal', 'contratos'));
+            return view('rrhh.contratos', compact('personal', 'contratos'));
         } else {
             return view('admin.home');
         }
@@ -36,7 +36,7 @@ class ContratoController extends Controller
         $personal = Empleado::all();
         $roles = Role::all();
         $horarios = Horario::all();
-        return view('admin.crearContrato', compact('personal', 'roles', 'horarios'));
+        return view('rrhh.crearContrato', compact('personal', 'roles', 'horarios'));
     }
 
     /**

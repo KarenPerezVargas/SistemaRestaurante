@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 use App\Models\Capacitacion;
 use App\Models\Empleado;
@@ -28,11 +29,11 @@ class CapacitacionController extends Controller
         if ($rol != null) {
             if ($rol == 1) {
                 $capacitaciones = Capacitacion::all();
-                return view('admin.capacitaciones', compact('capacitaciones', 'personal'));
+                return view('rrhh.capacitaciones', compact('capacitaciones', 'personal'));
             } else {
                 if ($rol == 2) {
                     $capacitaciones = Capacitacion::where('idEmpleado', $idemp)->get();
-                    return view('admin.ctrlcapacitaciones', compact('capacitaciones', 'personal'));
+                    return view('rrhh.ctrlcapacitaciones', compact('capacitaciones', 'personal'));
                 } else {
                     return view('admin.home');
                 }
@@ -51,7 +52,7 @@ class CapacitacionController extends Controller
     {
         $contratos = Contrato::all();
         $personal = Empleado::all();
-        return view('admin.crearCapacitacion', compact('contratos', 'personal'));
+        return view('rrhh.crearCapacitacion', compact('contratos', 'personal'));
     }
 
     /**
@@ -93,7 +94,7 @@ class CapacitacionController extends Controller
         $contratos = Contrato::all();
         $personal = Empleado::all();
         $capacitacion = Capacitacion::find($id);
-        return view('admin.editarCapacitacion', compact('capacitacion', 'personal', 'contratos'));
+        return view('rrhh.editarCapacitacion', compact('capacitacion', 'personal', 'contratos'));
     }
 
     /**
@@ -132,7 +133,7 @@ class CapacitacionController extends Controller
         $contratos = Contrato::all();
         $personal = Empleado::all();
         $registrados = EmpleadoCapacitacion::where('idcapa', $id)->get();
-        return view('admin.inscripciones', compact('personal', 'contratos', 'registrados', 'id'));
+        return view('rrhh.inscripciones', compact('personal', 'contratos', 'registrados', 'id'));
     }
 
     public function inscribir(Request $request, $id)
@@ -154,7 +155,7 @@ class CapacitacionController extends Controller
     {
         $registrados = EmpleadoCapacitacion::where('idcapa', $id)->get();
         $personal = Empleado::all();
-        return view('admin.inscritos', compact('personal','registrados', 'id'));
+        return view('rrhh.inscritos', compact('personal','registrados', 'id'));
     }
 
     public function puntuar(Request $request, $id)
@@ -162,8 +163,6 @@ class CapacitacionController extends Controller
         $puntuaciones = $request->input('puntuaciones');
 
         foreach ($puntuaciones as $idEmpleado => $puntuacion) {
-            // Guardar la puntuación en una nueva tabla o realizar operaciones necesarias
-            // Ejemplo:
             $registro = EmpleadoCapacitacion::where('idcapa', $id)->where('idemple', $idEmpleado)->first();
             $registro->puntuacion = $puntuacion;
             $registro->save();

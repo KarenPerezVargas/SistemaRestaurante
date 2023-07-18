@@ -29,7 +29,7 @@ class PersonalController extends Controller
             $roles = Role::all();
             $contratos = Contrato::all();
             $personal = Empleado::all();
-            return view('admin.personal', compact('roles', 'contratos', 'personal'));
+            return view('rrhh.personal', compact('roles', 'contratos', 'personal'));
         } else {
             return view('admin.home');
         }
@@ -46,7 +46,7 @@ class PersonalController extends Controller
         $telefono = $request->session()->get('telefono');
         $direccion = $request->session()->get('direccion');
 
-        return view('admin.crearEmpleado', compact('apellidos', 'nombre', 'dni', 'telefono', 'direccion'));
+        return view('rrhh.crearEmpleado', compact('apellidos', 'nombre', 'dni', 'telefono', 'direccion'));
     }
 
     /**
@@ -84,7 +84,7 @@ class PersonalController extends Controller
 
         $horarios = Horario::all();
         $roles = Role::all();
-        return view('admin.personalContrato', compact('horarios', 'roles', 'fechaInicio', 'duracionMeses', 'sueldo', 'idRole', 'idHorario'));
+        return view('rrhh.personalContrato', compact('horarios', 'roles', 'fechaInicio', 'duracionMeses', 'sueldo', 'idRole', 'idHorario'));
     }
 
     /**
@@ -117,7 +117,7 @@ class PersonalController extends Controller
         $username = $request->session()->get('username');
         $email = $request->session()->get('email');
 
-        return view('admin.personalUsuario', compact('username', 'email'));
+        return view('rrhh.personalUsuario', compact('username', 'email'));
     }
 
     /**

@@ -7,11 +7,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermisoController;
 use App\Http\Controllers\PersonalController;
-use App\Http\Controllers\CapacitacionController;
 use App\Http\Controllers\ContratoController;
 use App\Http\Controllers\CapacidadController;
-use App\Models\Capacidad;
-
+use App\Http\Controllers\CapacitacionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +21,7 @@ use App\Models\Capacidad;
 |
 */
 
-Route::get('/', [UserController::class, 'index'])->name('index');
+Route::get('/', [RegisterController::class, 'index'])->name('index');
 
 Route::get('/register', [RegisterController::class, 'show'])->name('registro');
 
