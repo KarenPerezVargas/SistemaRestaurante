@@ -8,7 +8,9 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermisoController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\ContratoController;
+use App\Http\Controllers\CapacidadController;
 use App\Http\Controllers\CapacitacionController;
+
 use App\Http\Controllers\CostosController;
 
 /*
@@ -111,3 +113,11 @@ Route::get('pagos',[PagosController::class,'pagos'
 
 Route::get('pago/{id}/anular',[PagosController::class,'anular'
 ])->name('pago.anular');
+////////////////////////////////////////////////////////////////
+
+Route::get('/asistencia', [CapacidadController::class, 'index'])->name('asistencia');
+Route::get('/registrarCliente', [CapacidadController::class, 'create'])->name('crearCliente');
+Route::post('/cearCliente', [CapacidadController::class, 'store'])->name('guardarAsistencia');
+Route::get('/editarCliente/{id}', [CapacidadController::class, 'edit'])->name('editarCliente');
+Route::post('/actualizarCliente/{id}', [CapacidadController::class, 'update'])->name('actualizarCliente');
+Route::post('/eliminarCliente/{id}', [CapacidadController::class, 'destroy'])->name('eliminarCliente');

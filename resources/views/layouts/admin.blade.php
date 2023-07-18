@@ -187,9 +187,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('asistencia')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>A</p>
+                  <p>Asistencia</p>
                 </a>
               </li>
               <li class="nav-item">
