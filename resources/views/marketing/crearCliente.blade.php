@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('mainContent')
-    <form action="{{route('editar',$id)}}" method="post">
+    <form action="{{route('guardarAsistencia')}}" method="post">
         @csrf
         <h5 ><center>Datos del Cliente</center></h5>
         <div class="mb-3">
