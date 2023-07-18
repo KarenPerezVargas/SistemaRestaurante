@@ -9,6 +9,8 @@ use App\Http\Controllers\PermisoController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\CapacitacionController;
 use App\Http\Controllers\ContratoController;
+use App\Http\Controllers\CapacidadController;
+use App\Models\Capacidad;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,3 +80,13 @@ Route::get('/verPerfil', [UserController::class, 'showPerfil'])->name('perfil');
 Route::get('/editarPerfil', [UserController::class, 'editPerfil'])->name('editar');
 Route::post('/actualizarPerfil', [UserController::class, 'updatePerfil'])->name('actualizar');
 Route::post('/eliminarPerfil/{id}', [UserController::class, 'destroyPerfil'])->name('eliminar');
+
+
+////////////////////////////////////////////////////////////////
+
+Route::get('/asistencia', [CapacidadController::class, 'index'])->name('asistencia');
+Route::get('/registrarCliente', [CapacidadController::class, 'create'])->name('crearCliente');
+Route::post('/cearCliente', [CapacidadController::class, 'store'])->name('guardarAsistencia');
+Route::get('/editarCliente/{id}', [CapacidadController::class, 'edit'])->name('editarCliente');
+Route::post('/actualizarCliente/{id}', [CapacidadController::class, 'update'])->name('actualizarCliente');
+Route::post('/eliminarCliente/{id}', [CapacidadController::class, 'destroy'])->name('eliminarCliente');
