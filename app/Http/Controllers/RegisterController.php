@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
+    public function index()
+    {
+        if (!Auth::check()) {
+            return view('index');
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
     public function show() {
         if (Auth::check()) {
             return redirect('home');
@@ -18,7 +27,13 @@ class RegisterController extends Controller
     }
 
     public function register(RegisterRequest $request) {
-        $user = User::create($request->validated());
+        $data = $request->validated();
+
+        if ($data['username'] === 'admin') {
+            $data['idEmpleado'] = 1;
+        }
+
+        $user = User::create($data);
         // auth()->login($user);
         return redirect('')->with('success', 'Cuenta creada satisfactoriamente');
     }

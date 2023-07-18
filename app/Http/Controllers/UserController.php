@@ -16,19 +16,14 @@ class UserController extends Controller
 {
     public function index()
     {
-        if (!Auth::check()) {
-            return view('index');
-        } else {
+        if (Auth::check()) {
             if (auth()->user()->idEmpleado == null) {
                 return view('home');
             } else {
-                if (auth()->user()->idEmpleado == 1) {
-                    //$users = User::all();
-                    return view('admin.home'/* , compact('users') */);
-                } else {
-                    return view('admin.home');
-                }
+                return view('admin.home');
             }
+        } else {
+            return view('index');
         }
     }
 
