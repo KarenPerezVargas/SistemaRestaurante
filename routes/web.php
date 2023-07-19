@@ -10,6 +10,9 @@ use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\ContratoController;
 use App\Http\Controllers\CapacidadController;
 use App\Http\Controllers\CapacitacionController;
+use App\Http\Controllers\BlogController;
+use App\Models\Blog;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,3 +91,10 @@ Route::post('/cearCliente', [CapacidadController::class, 'store'])->name('guarda
 Route::get('/editarCliente/{id}', [CapacidadController::class, 'edit'])->name('editarCliente');
 Route::post('/actualizarCliente/{id}', [CapacidadController::class, 'update'])->name('actualizarCliente');
 Route::post('/eliminarCliente/{id}', [CapacidadController::class, 'destroy'])->name('eliminarCliente');
+//
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/crearBlog', [BlogController::class, 'create'])->name('crearBlog');
+Route::post('/guardarBlog', [BlogController::class, 'store'])->name('guardarBlog');
+Route::get('/editarBlog/{id}', [BlogController::class, 'edit'])->name('editarBlog');
+Route::post('/actualizarBlog/{id}', [BlogController::class, 'update'])->name('actualizarBlog');
+Route::post('/eliminarBlog/{id}', [BlogController::class, 'destroy'])->name('eliminarBlog');

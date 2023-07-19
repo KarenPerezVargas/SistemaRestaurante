@@ -193,17 +193,12 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('blog')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>B</p>
+                  <p>Contenido</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>C</p>
-                </a>
-              </li>
+              
             </ul>
           </li>
           <li class="nav-item">

@@ -13,7 +13,7 @@ class CapacidadController extends Controller
     public function index()
     {   
         $registrar = Capacidad::all();
-        return view('marketing.asistencia', compact('registrar'));
+        return view('marketing.asistenciaa.asistencia', compact('registrar'));
 
 
     }
@@ -23,7 +23,7 @@ class CapacidadController extends Controller
      */
     public function create()
     {
-        return view('marketing.crearCliente');
+        return view('marketing.asistenciaa.crearCliente');
 
     }
 
@@ -54,7 +54,7 @@ class CapacidadController extends Controller
     public function edit($id)
     {   
         $asistencia = Capacidad::find($id);
-        return view('marketing.editarAsistente', compact('asistencia', 'id'));
+        return view('marketing.asistenciaa.editarAsistente', compact('asistencia', 'id'));
 
     }
 
