@@ -20,7 +20,9 @@
             <label for="" class="form-label">Rol</label>
             <select class="form-select" name="idRole" aria-label="Default select example">
                 @foreach ($roles as $item)
-                    <option value="{{$item->idRole}}" @if ($item->idRole == $idRole) selected @endif>{{$item->nmRole}}</option>
+                    @if ($item->idRole != 1)
+                        <option value="{{$item->idRole}}" @if ($item->idRole == $idRole) selected @endif>{{$item->nmRole}}</option>
+                    @endif
                 @endforeach
             </select>
         </div>

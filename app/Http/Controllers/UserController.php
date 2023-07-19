@@ -17,12 +17,21 @@ class UserController extends Controller
     public function index()
     {
         if (Auth::check()) {
+        //     if (auth()->user()->idEmpleado == null) {
+        //         return view('home');
+        //     } else {
+        //         return view('admin.home');
+        //     }
+        // } else {
             if (auth()->user()->idEmpleado == null) {
                 return view('home');
-            } else {
+            }
+            if (auth()->user()->idEmpleado == 1) {
                 return view('admin.home');
             }
-        } else {
+            if (auth()->user()->idEmpleado == 5) {
+                return view('pedidos.personalPedidos.asesoramiento.index');
+            }
             return view('index');
         }
     }

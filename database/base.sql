@@ -3,7 +3,16 @@ create database restaurant;
 use restaurant;
 
 create table roles (idRole int auto_increment, nmRole varchar(20), primary key (idRole));
-insert into roles values (1, 'admin'), (2, 'Instructor'), (3, 'Supervisor'), (4, 'Reclutador');
+insert into roles values (1, 'admin'),
+                         (2, 'Instructor'), 
+                         (3, 'Supervisor'), 
+                         (4, 'Reclutador'), 
+                         (5, 'Administrador Pedidos'),
+                         (6, 'Administrador Bebidas'),
+                         (7, 'Administrador Productos'),
+                         (8, 'Administrador Catering'),
+                         (9, 'Repartidor'),
+                         (10, 'Administrador Sistema');
 
 create table permisos (idPermiso int auto_increment, nmPermiso varchar(30), idRole int, primary key(idPermiso), foreign key(idRole) references roles(idRole));
 
@@ -20,3 +29,9 @@ insert into contratos values (1, '2023-02-23', 6, 1800.00, 1, 1);
 
 create table personal (idEmpleado bigint unsigned auto_increment, nombre varchar(20), apellidos varchar(20), DNI char(8), telefono char(9), direccion varchar(40), idContrato int, primary key(idEmpleado), foreign key(idContrato) references contratos(idContrato));
 insert into personal values (1, 'Ingenieria', 'de Software I', '12345678', '987654321', 'Universidad Nacional de Trujillo', 1);
+
+create table pedidos(idpedido integer auto_increment, descripcion varchar(100), precio float, cantidad int, tipo varchar(80), estado tinyint(4), primary key(idpedido));
+
+create table bebidas(idbebida integer auto_increment, descripcion varchar(100), precio float, cantidad int, tipo varchar(80), estado tinyint(4), primary key(idbebida));
+
+create table productos(idproducto integer auto_increment, descripcion varchar(100), precio float, cantidad int, tipo varchar(80), estado tinyint(4), primary key(idproducto));
