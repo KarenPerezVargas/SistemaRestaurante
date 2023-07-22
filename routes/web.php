@@ -8,9 +8,10 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermisoController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\ContratoController;
-use App\Http\Controllers\CapacidadController;
 use App\Http\Controllers\CapacitacionController;
+use App\Http\Controllers\EvaluacionController;
 
+use App\Http\Controllers\CapacidadController;
 use App\Http\Controllers\BlogController;
 use App\Models\Blog;
 
@@ -64,6 +65,9 @@ Route::get('/registrarPersonal/paso2', [PersonalController::class, 'create2'])->
 Route::post('/registrarPersonal/paso2', [PersonalController::class, 'store2'])->name('guardardos');
 Route::get('/registrarPersonal/paso3', [PersonalController::class, 'create3'])->name('personaltres');
 Route::post('/registrarPersonal/paso3', [PersonalController::class, 'store3'])->name('guardartres');
+Route::get('/editarEmpleado/{id}', [PersonalController::class, 'edit'])->name('editarEmpleado');
+Route::post('/actualizarEmpleado/{id}', [PersonalController::class, 'update'])->name('actualizarEmpleado');
+Route::post('/eliminarEmpleado/{id}', [PersonalController::class, 'destroy'])->name('eliminarEmpleado');
 
 Route::get('/contratos', [ContratoController::class, 'index'])->name('contratos');
 Route::get('/crearContrato', [ContratoController::class, 'create'])->name('crearContrato');
@@ -74,13 +78,26 @@ Route::get('/crearCapacitacion', [CapacitacionController::class, 'create'])->nam
 Route::post('/guardarCapacitacion', [CapacitacionController::class, 'store'])->name('guardarCapacitacion');
 //Route::get('/capacitacion/{id}', [CapacitacionController::class, 'show'])->name('capacitacion');
 Route::get('/editarCapacitacion/{id}', [CapacitacionController::class, 'edit'])->name('editarCapacitacion');
-Route::post('/actualizarCapacitacion', [CapacitacionController::class, 'update'])->name('actualizarCapacitacion');
+Route::post('/actualizarCapacitacion/{id}', [CapacitacionController::class, 'update'])->name('actualizarCapacitacion');
 Route::post('/eliminarCapacitacion/{id}', [CapacitacionController::class, 'destroy'])->name('eliminarCapacitacion');
 
 Route::get('/inscripciones/{id}', [CapacitacionController::class, 'inscripciones'])->name('inscripciones');
 Route::post('/inscribir/{id}', [CapacitacionController::class, 'inscribir'])->name('inscribir');
 Route::get('/inscritos/{id}', [CapacitacionController::class, 'inscritos'])->name('inscritos');
 Route::post('/puntuar/{id}', [CapacitacionController::class, 'puntuar'])->name('puntuar');
+
+Route::get('/evaluaciones', [EvaluacionController::class, 'index'])->name('evaluaciones');
+Route::get('/crearEvaluacion', [EvaluacionController::class, 'create'])->name('crearEvaluacion');
+Route::post('/guardarEvaluacion', [EvaluacionController::class, 'store'])->name('guardarEvaluacion');
+//Route::get('/capacitacion/{id}', [EvaluacionController::class, 'show'])->name('capacitacion');
+Route::get('/editarEvaluacion/{id}', [EvaluacionController::class, 'edit'])->name('editarEvaluacion');
+Route::post('/actualizarEvaluacion/{id}', [EvaluacionController::class, 'update'])->name('actualizarEvaluacion');
+Route::post('/eliminarEvaluacion/{id}', [EvaluacionController::class, 'destroy'])->name('eliminarEvaluacion');
+
+Route::get('/asignaciones/{id}', [EvaluacionController::class, 'asignaciones'])->name('asignaciones');
+Route::post('/asignar/{id}', [EvaluacionController::class, 'asignar'])->name('asignar');
+Route::get('/asignados/{id}', [EvaluacionController::class, 'asignados'])->name('asignados');
+Route::post('/calificar/{id}', [EvaluacionController::class, 'calificar'])->name('calificar');
 
 Route::get('/verPerfil', [UserController::class, 'showPerfil'])->name('perfil');
 Route::get('/editarPerfil', [UserController::class, 'editPerfil'])->name('editar');

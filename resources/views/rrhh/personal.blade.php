@@ -42,27 +42,27 @@
                                         <td>{{$item->telefono}}</td>
                                         <td>{{($roles->find(($contratos->find($item->idContrato))->idRole))->nmRole}}</td>
                                         <td>
-                                            <a href="{{-- {{route('editarUsuario', [$item->id])}} --}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
+                                            <a href="{{route('editarEmpleado', $item->idEmpleado)}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
                                             &nbsp; &nbsp; &nbsp;
                                             
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$item->id}}">
+                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$item->idEmpleado}}">
                                                 <i class="fas fa-trash"></i> Eliminar
                                             </button>
         
                                             <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal-{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="exampleModal-{{$item->idEmpleado}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
-                                                        <form action="{{-- {{route('eliminarUsuario', $item->id)}} --}}" method="post">
+                                                        <form action="{{route('eliminarEmpleado', $item->idEmpleado)}}" method="post">
                                                             @csrf
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Eliminacion de Usuario</h5>
+                                                                <h5 class="modal-title" id="exampleModalLabel">Eliminacion de Empleado</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                ¿Esta seguro que desea eliminar a <b>{{$item->name}}</b>? <br>
-                                                                <i>Se eliminara todo el contenido del usuario</i>
+                                                                ¿Esta seguro que desea eliminar a <b>{{$item->apellidos}} {{$item->nombre}}</b>? <br>
+                                                                <i>Se eliminara todo el contenido del empleado</i>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
