@@ -12,14 +12,14 @@ class PagosController extends Controller
     { 
         $buscarpor = $request->get('buscarpor');
         $pedido = Pedido::where('estado','=','1')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
-        return view('pago.index',compact('pedido','buscarpor'));
+        return view('pedidos.personalPedidos.pago.index',compact('pedido','buscarpor'));
     }
 
     public function pagos(Request $request)
     { 
         $buscarpor = $request->get('buscarpor');
         $pedido = Pedido::where('estado','=','2')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
-        return view('pago.pagos',compact('pedido','buscarpor'));
+        return view('pedidos.personalPedidos.pago.pagos',compact('pedido','buscarpor'));
     }
     
     public function show($id)
@@ -29,7 +29,7 @@ class PagosController extends Controller
 
     public function confirmar($id){
         $pedido = Pedido::findOrFail($id);
-        return view('pago.confirmar',compact('pedido'));
+        return view('pedidos.personalPedidos.pago.confirmar',compact('pedido'));
     }
 
     public function destroy($id)

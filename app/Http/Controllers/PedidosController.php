@@ -12,20 +12,20 @@ class PedidosController extends Controller
     { 
         $buscarpor = $request->get('buscarpor');
         $pedido = Pedido::where('estado','=','1')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
-        return view('pedido.index',compact('pedido','buscarpor'));
+        return view('pedidos.personalPedidos.pedido.index',compact('pedido','buscarpor'));
     }
 
     public function index2(Request $request)
     { 
         $buscarpor = $request->get('buscarpor');
         $pedido = Pedido::where('estado','=','2')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
-        return view('pago.index',compact('pedido','buscarpor'));
+        return view('pedidos.personalPedidos.pago.index',compact('pedido','buscarpor'));
     }
 
     public function create()
     {
         $pedidos=Pedido::all();
-        return view('pedido.create',compact('pedidos'));
+        return view('pedidos.personalPedidos.pedido.create',compact('pedidos'));
     }
 
     public function store(Request $request)
@@ -60,7 +60,7 @@ class PedidosController extends Controller
     public function edit($id)
     {
         $pedido = Pedido::findOrFail($id);
-        return view('pedido.edit', compact('pedido'));
+        return view('pedidos.personalPedidos.pedido.edit', compact('pedido'));
     }
 
     public function update(Request $request, $id)
@@ -90,7 +90,7 @@ class PedidosController extends Controller
 
     public function confirmar($id){
         $pedido = Pedido::findOrFail($id);
-        return view('pedido.confirmar',compact('pedido'));
+        return view('pedidos.personalPedidos.pedido.confirmar',compact('pedido'));
     }
 
     public function destroy($id)

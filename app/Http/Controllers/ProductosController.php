@@ -12,13 +12,13 @@ class ProductosController extends Controller
     { 
         $buscarpor = $request->get('buscarpor');
         $producto = Producto::where('estado','=','1')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
-        return view('producto.index',compact('producto','buscarpor'));
+        return view('pedidos.productos.producto.index',compact('producto','buscarpor'));
     }
 
     public function create()
     {
         $productos=Producto::all();
-        return view('producto.create',compact('productos'));
+        return view('pedidos.productos.producto.create',compact('productos'));
     }
 
     public function store(Request $request)
@@ -42,7 +42,7 @@ class ProductosController extends Controller
         $producto->tipo = $request->tipo;
         $producto->estado = 1;
         $producto->save();
-        return redirect()->route('producto.index')->with('datos', 'Registro Nuevo Guardado');
+        return redirect()->route('pedidos.productos.producto.index')->with('datos', 'Registro Nuevo Guardado');
     }
     
     public function show($id)
@@ -53,7 +53,7 @@ class ProductosController extends Controller
     public function edit($id)
     {
         $producto = Producto::findOrFail($id);
-        return view('producto.edit', compact('producto'));
+        return view('pedidos.productos.producto.edit', compact('producto'));
     }
 
     public function update(Request $request, $id)
@@ -77,13 +77,13 @@ class ProductosController extends Controller
         $producto->tipo = $request->tipo;
         $producto->estado = 1;
         $producto->save();
-        return redirect()->route('producto.index')->with('datos' . 'Registro Nuevo Actualizado...');
+        return redirect()->route('pedidos.productos.producto.index')->with('datos' . 'Registro Nuevo Actualizado...');
     }
 
 
     public function confirmar($id){
         $producto = Producto::findOrFail($id);
-        return view('producto.confirmar',compact('producto'));
+        return view('pedidos.productos.producto.confirmar',compact('producto'));
     }
 
     public function destroy($id)
@@ -91,6 +91,6 @@ class ProductosController extends Controller
         $producto = Producto::find($id);
         $producto->estado = 0;
         $producto->save();
-        return redirect()->route('producto.index')->with('datos','Registro eliminado');
+        return redirect()->route('pedidos.productos.producto.index')->with('datos','Registro eliminado');
     }
 }

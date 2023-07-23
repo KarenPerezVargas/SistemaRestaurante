@@ -170,9 +170,9 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a h3ref="#" class="nav-link">
+                  <a href="{{route('reportes')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Reclutamiento</p>
+                    <p>Reportes</p>
                   </a>
                 </li>
             </ul>
@@ -198,7 +198,7 @@
                   <p>Contenido</p>
                 </a>
               </li>
-
+              
             </ul>
           </li>
           <li class="nav-item">
@@ -281,21 +281,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('proveedor')}}" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Gestionar productos</p>
+                  <p>A</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('proveedor')}}" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Gestionar proveedor</p>
+                  <p>B</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('transporte')}}" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Gestionar transporte</p>
+                  <p>C</p>
                 </a>
               </li>
             </ul>
@@ -318,16 +318,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              @if (isset($artista) && isset($album))
-                <li class="breadcrumb-item active"><a href="{{route('reporte', [$artista, $album])}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>
-              @else
-                @if (isset($artista))
-                  <li class="breadcrumb-item active"><a href="{{route('reporte', [$artista, 0])}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>
-                @else
-                  <li class="breadcrumb-item active"><a href="{{-- {{route('reporte', [0, 0])}} --}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>
-                @endif
-              @endif
+              <li class="breadcrumb-item"><a href="">Home</a></li>
+              <li class="breadcrumb-item active"><a href="" style="text-decoration: none; color: gray;" {{-- target="_blank" --}}>Report</a></li>  
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

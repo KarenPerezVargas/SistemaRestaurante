@@ -37,6 +37,21 @@ class UserController extends Controller
             if ($rol == 5) {
                 return view('pedidos.personalPedidos.asesoramiento.index');
             }
+            if ($rol == 6) {
+                return view('pedidos.bebidas.bebida.index');
+            }
+            if ($rol == 7) {
+                return view('pedidos.productos.producto.index');
+            }
+            if ($rol == 8) {
+                return view('pedidos.catering.catering.index');
+            }
+            if ($rol == 9) {
+                return view('pedidos.repartidor.repartidor.index');
+            }
+            if ($rol == 10) {
+                return view('pedidos.sistema.sistema.index');
+            }
             return view('index');
         }
     }

@@ -9,20 +9,22 @@ use App\Http\Controllers\PermisoController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\ContratoController;
 use App\Http\Controllers\CapacitacionController;
-
-use App\Http\Controllers\ProveedorController;
-use App\Http\Controllers\TransporteController;
-
 use App\Http\Controllers\EvaluacionController;
-
+use App\Http\Controllers\ReporteController;
 
 use App\Http\Controllers\CapacidadController;
 use App\Http\Controllers\BlogController;
 use App\Models\Blog;
 
 
+//----------------SISTEMA PEDIDOS-------------------
 use App\Http\Controllers\CostosController;
-use App\Models\Transporte;
+use App\Http\Controllers\procesarPedidosController;
+use App\Http\Controllers\PedidosController;
+use App\Http\Controllers\PagosController;
+use App\Http\Controllers\AsesoramientoController;
+use App\Http\Controllers\BebidasController;
+use App\Http\Controllers\ProductosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,6 +106,12 @@ Route::post('/asignar/{id}', [EvaluacionController::class, 'asignar'])->name('as
 Route::get('/asignados/{id}', [EvaluacionController::class, 'asignados'])->name('asignados');
 Route::post('/calificar/{id}', [EvaluacionController::class, 'calificar'])->name('calificar');
 
+Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes');
+Route::get('/reporteDesarrollo/{id}', [ReporteController::class, 'show1'])->name('desarrollo');
+Route::get('/reporteDesarrollo/{id}/pdf', [ReporteController::class, 'pdf1'])->name('desarrollopdf');
+Route::get('/reporteValoracion/{id}', [ReporteController::class, 'show2'])->name('valoracion');
+Route::get('/reporteValoracion/{id}/pdf', [ReporteController::class, 'pdf2'])->name('valoracionpdf');
+
 Route::get('/verPerfil', [UserController::class, 'showPerfil'])->name('perfil');
 Route::get('/editarPerfil', [UserController::class, 'editPerfil'])->name('editar');
 Route::post('/actualizarPerfil', [UserController::class, 'updatePerfil'])->name('actualizar');
@@ -112,34 +120,48 @@ Route::post('/eliminarPerfil/{id}', [UserController::class, 'destroyPerfil'])->n
 
 //========================PEDIDOS==============================
 Route::get('/costos', [CostosController::class, 'index'])->name('costos');
-
 Route::resource('procesarPedido', procesarPedidosController::class);
 
 // -------------------
 Route::resource('pedido', PedidosController::class);
-
 Route::get('cancelar-pedido',function(){
     return redirect()->route('pedido.index')->with('datos','Acción Cancelada');
 })->name('cancelar-pedido');
-
 Route::get('pedido/{id}/confirmar',[PedidosController::class,'confirmar'
 ])->name('pedido.confirmar');
 
 // -------------------
 Route::resource('pago', PagosController::class);
-
 Route::get('cancelar-pago',function(){
     return redirect()->route('pago.index')->with('datos','Acción Cancelada');
 })->name('cancelar-pago');
-
 Route::get('pago/{id}/confirmar',[PagosController::class,'confirmar'
 ])->name('pago.confirmar');
-
 Route::get('pagos',[PagosController::class,'pagos'
 ])->name('pago.pagos');
-
 Route::get('pago/{id}/anular',[PagosController::class,'anular'
 ])->name('pago.anular');
+
+// ----------------------
+Route::resource('asesoramiento', AsesoramientoController::class);
+
+// --------BEBIDAS-----------
+Route::resource('bebida', BebidasController::class);
+Route::get('cancelar-bebida',function(){
+    return redirect()->route('bebida.index')->with('datos','Acción Cancelada');
+})->name('cancelar-bebida');
+Route::get('bebida/{id}/confirmar',[BebidasController::class,'confirmar'
+])->name('bebida.confirmar');
+
+
+// --------PRODUCTOS-----------
+Route::resource('producto', ProductosController::class);
+Route::get('cancelar-producto',function(){
+    return redirect()->route('producto.index')->with('datos','Acción Cancelada');
+})->name('cancelar-producto');
+Route::get('producto/{id}/confirmar',[ProductosController::class,'confirmar'
+])->name('producto.confirmar');
+
 ////////////////////////////////////////////////////////////////
 
 Route::get('/asistencia', [CapacidadController::class, 'index'])->name('asistencia');
@@ -155,18 +177,3 @@ Route::post('/guardarBlog', [BlogController::class, 'store'])->name('guardarBlog
 Route::get('/editarBlog/{id}', [BlogController::class, 'edit'])->name('editarBlog');
 Route::post('/actualizarBlog/{id}', [BlogController::class, 'update'])->name('actualizarBlog');
 Route::post('/eliminarBlog/{id}', [BlogController::class, 'destroy'])->name('eliminarBlog');
-
-//------------------------INVENTARIO--------------------------------//
-Route::get('/proveedor', [ProveedorController::class, 'index'])->name('proveedor');
-Route::get('/createProveedor', [ProveedorController::class, 'create'])->name('createProveedor');
-Route::post('/guardarProveedor', [ProveedorController::class, 'store'])->name('guardarProveedor');
-Route::get('/editProveedor/{id}', [ProveedorController::class, 'edit'])->name('editProveedor');
-Route::post('/actualizarProveedor/{id}', [ProveedorController::class, 'update'])->name('actualizarProveedor');
-Route::post('/eliminarProveedor/{id}', [ProveedorController::class, 'destroy'])->name('eliminarProveedor');
-
-Route::get('/transporte', [TransporteController::class, 'index'])->name('transporte');
-Route::get('/createTransporte', [TransporteController::class, 'create'])->name('createTransporte');
-Route::post('/guardarTransporte', [TransporteController::class, 'store'])->name('guardarTransporte');
-Route::get('/editTransporte/{id}', [TransporteController::class, 'edit'])->name('editTransporte');
-Route::post('/actualizarTransporte/{id}', [TransporteController::class, 'update'])->name('actualizarTransporte');
-Route::post('/eliminarTransporte/{id}', [TransporteController::class, 'destroy'])->name('eliminarTransporte');

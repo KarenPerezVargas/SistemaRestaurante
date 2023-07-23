@@ -12,13 +12,13 @@ class BebidasController extends Controller
     { 
         $buscarpor = $request->get('buscarpor');
         $bebida = Bebida::where('estado','=','1')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
-        return view('bebida.index',compact('bebida','buscarpor'));
+        return view('pedidos.bebidas.bebida.index',compact('bebida','buscarpor'));
     }
 
     public function create()
     {
         $bebidas=Bebida::all();
-        return view('bebida.create',compact('bebidas'));
+        return view('pedidos.bebidas.bebida.create',compact('bebidas'));
     }
 
     public function store(Request $request)
@@ -42,7 +42,7 @@ class BebidasController extends Controller
         $bebida->tipo = $request->tipo;
         $bebida->estado = 1;
         $bebida->save();
-        return redirect()->route('bebida.index')->with('datos', 'Registro Nuevo Guardado');
+        return redirect()->route('pedidos.bebidas.bebida.index')->with('datos', 'Registro Nuevo Guardado');
     }
     
     public function show($id)
@@ -53,7 +53,7 @@ class BebidasController extends Controller
     public function edit($id)
     {
         $bebida = Bebida::findOrFail($id);
-        return view('bebida.edit', compact('bebida'));
+        return view('pedidos.bebidas.bebida.edit', compact('bebida'));
     }
 
     public function update(Request $request, $id)
@@ -77,13 +77,13 @@ class BebidasController extends Controller
         $bebida->tipo = $request->tipo;
         $bebida->estado = 1;
         $bebida->save();
-        return redirect()->route('bebida.index')->with('datos' . 'Registro Nuevo Actualizado...');
+        return redirect()->route('pedidos.bebidas.bebida.index')->with('datos' . 'Registro Nuevo Actualizado...');
     }
 
 
     public function confirmar($id){
         $bebida = Bebida::findOrFail($id);
-        return view('bebida.confirmar',compact('bebida'));
+        return view('pedidos.bebidas.bebida.confirmar',compact('bebida'));
     }
 
     public function destroy($id)
@@ -91,6 +91,6 @@ class BebidasController extends Controller
         $bebida = Bebida::find($id);
         $bebida->estado = 0;
         $bebida->save();
-        return redirect()->route('bebida.index')->with('datos','Registro eliminado');
+        return redirect()->route('pedidos.bebidas.bebida.index')->with('datos','Registro eliminado');
     }
 }
