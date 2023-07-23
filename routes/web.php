@@ -27,6 +27,7 @@ use App\Http\Controllers\PagosController;
 use App\Http\Controllers\AsesoramientoController;
 use App\Http\Controllers\BebidasController;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\ReservaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -194,3 +195,13 @@ Route::post('/guardarTransporte', [TransporteController::class, 'store'])->name(
 Route::get('/editTransporte/{id}', [TransporteController::class, 'edit'])->name('editTransporte');
 Route::post('/actualizarTransporte/{id}', [TransporteController::class, 'update'])->name('actualizarTransporte');
 Route::post('/eliminarTransporte/{id}', [TransporteController::class, 'destroy'])->name('eliminarTransporte');
+
+
+//---------------------------RESERVAS-------------------------//
+Route::get('/reserva', [ReservaController::class, 'index'])->name('reserva');
+Route::get('/createReserva', [ReservaController::class, 'create'])->name('createReserva');
+Route::post('/guardarReserva', [ReservaController::class, 'store'])->name('guardarReserva');
+Route::get('/editReserva/{id}', [ReservaController::class, 'edit'])->name('editReserva');
+Route::post('/actualizarReserva/{id}', [ReservaController::class, 'update'])->name('actualizarReserva');
+Route::post('/eliminarReserva/{id}', [ReservaController::class, 'destroy'])->name('eliminarReserva');
+

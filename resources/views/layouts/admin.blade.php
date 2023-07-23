@@ -92,7 +92,7 @@
           {{-- <img src="@yield('puntos')db/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> --}}
         </div>
         <div class="info">
-          <a href="{{route('perfil')}}" class="d-block">{{auth()->user()->username}}</a>
+          <a href="" class="d-block">{{auth()->user()->username}}</a>
         </div>
       </div>
 
@@ -211,21 +211,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('reserva')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>A</p>
+                  <p>Reservar mesa</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>B</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>C</p>
+                  <p>Cliente</p>
                 </a>
               </li>
             </ul>

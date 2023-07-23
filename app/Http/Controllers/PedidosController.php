@@ -9,14 +9,14 @@ class PedidosController extends Controller
 {
     const PAGINATION = 5;
     public function index(Request $request)
-    { 
+    {
         $buscarpor = $request->get('buscarpor');
         $pedido = Pedido::where('estado','=','1')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
         return view('pedidos.personalPedidos.pedido.index',compact('pedido','buscarpor'));
     }
 
     public function index2(Request $request)
-    { 
+    {
         $buscarpor = $request->get('buscarpor');
         $pedido = Pedido::where('estado','=','2')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
         return view('pedidos.personalPedidos.pago.index',compact('pedido','buscarpor'));
@@ -30,7 +30,7 @@ class PedidosController extends Controller
 
     public function store(Request $request)
     {
-        $data = request()->validate( 
+        $data = request()->validate(
             [
                 'descripcion' => 'required|max:100',
                 'tipo' => 'required|max:80',
@@ -51,12 +51,12 @@ class PedidosController extends Controller
         $pedido->save();
         return redirect()->route('pedido.index')->with('datos', 'Registro Nuevo Guardado');
     }
-    
+
     public function show($id)
     {
         //
     }
-    
+
     public function edit($id)
     {
         $pedido = Pedido::findOrFail($id);
