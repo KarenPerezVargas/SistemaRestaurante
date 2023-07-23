@@ -174,7 +174,8 @@ class PersonalController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $empleado = Empleado::find($id);
+        return view('rrhh.editarEmpleado', compact('empleado', 'id'));
     }
 
     /**
@@ -182,7 +183,14 @@ class PersonalController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $empleado = Empleado::find($id);
+        $empleado->apellidos = $request->apellidos;
+        $empleado->nombre = $request->nombre;
+        $empleado->dni = $request->dni;
+        $empleado->telefono = $request->telefono;
+        $empleado->direccion = $request->direccion;
+        $empleado->save();
+        return redirect()->route('personal');
     }
 
     /**
@@ -190,6 +198,8 @@ class PersonalController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $empleado = Empleado::find($id);
+        $empleado->delete();
+        return redirect()->route('personal');
     }
 }

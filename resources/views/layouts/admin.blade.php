@@ -164,7 +164,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="{{route('evaluaciones')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Evaluaciones</p>
                   </a>

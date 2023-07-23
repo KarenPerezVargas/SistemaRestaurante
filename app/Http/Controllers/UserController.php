@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Empleado;
-use App\Models\Contrato;
-use App\Models\Role;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
+use App\Models\Contrato;
+use App\Models\Empleado;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -17,19 +17,24 @@ class UserController extends Controller
     public function index()
     {
         if (Auth::check()) {
-        //     if (auth()->user()->idEmpleado == null) {
-        //         return view('home');
-        //     } else {
-        //         return view('admin.home');
-        //     }
-        // } else {
-            if (auth()->user()->idEmpleado == null) {
+        /*     if (auth()->user()->idEmpleado == null) {
                 return view('home');
-            }
-            if (auth()->user()->idEmpleado == 1) {
+            } else {
                 return view('admin.home');
             }
-            if (auth()->user()->idEmpleado == 5) {
+        } else { */
+            // dd(auth()->user()->idEmpleado);
+            $contratos = Contrato::all();
+            $personal = Empleado::all();
+            $idemp = auth()->user()->idEmpleado;
+            $rol = ($contratos->find(($personal->find($idemp))->idContrato))->idRole;
+            if ($rol == null) {
+                return view('home');
+            }
+            if ($rol == 1 || $rol == 2 || $rol == 3) {
+                return view('admin.home');
+            }
+            if ($rol == 5) {
                 return view('pedidos.personalPedidos.asesoramiento.index');
             }
             return view('index');

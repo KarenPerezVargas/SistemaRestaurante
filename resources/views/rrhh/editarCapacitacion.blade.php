@@ -1,10 +1,9 @@
 @extends('layouts.admin')
 @section('puntos', '../')
 @section('mainContent')
-    <form action="{{route('actualizarCapacitacion')}}" method="post">
+    <form action="{{route('actualizarCapacitacion', $id)}}" method="post">
         @csrf
         <div class="mb-3">
-            <input type="hidden" name="idCapacitacion" value="{{$capacitacion->idCapacitacion}}">
             <label for="" class="form-label">Tema</label>
             <input type="text" class="form-control" name="temaCapacitacion" id="" value="{{$capacitacion->temaCapacitacion}}">
         </div>
@@ -26,6 +25,7 @@
                 @endforeach
             </select>
         </div>
+        <button type="button" class="btn btn-secondary" onclick="location.href='{{route('capacitaciones')}}'">Cancelar</button>
         <input type="submit" class="btn btn-primary" value="Actualizar">
     </form>
 @endsection

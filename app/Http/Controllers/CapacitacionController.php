@@ -94,7 +94,7 @@ class CapacitacionController extends Controller
         $contratos = Contrato::all();
         $personal = Empleado::all();
         $capacitacion = Capacitacion::find($id);
-        return view('rrhh.editarCapacitacion', compact('capacitacion', 'personal', 'contratos'));
+        return view('rrhh.editarCapacitacion', compact('capacitacion', 'id', 'personal', 'contratos'));
     }
 
     /**
@@ -104,9 +104,9 @@ class CapacitacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request/* , $id */)
+    public function update(Request $request, $id)
     {
-        $capacitacion = Capacitacion::find($request->idCapacitacion);
+        $capacitacion = Capacitacion::find($id);
         $capacitacion->temaCapacitacion = $request->temaCapacitacion;
         $capacitacion->areaCapacitacion = $request->areaCapacitacion;
         $capacitacion->fechaCapacitacion = $request->fechaCapacitacion;
@@ -125,7 +125,7 @@ class CapacitacionController extends Controller
     {
         $capacitacion = Capacitacion::find($id);
         $capacitacion->delete();
-        return redirect()->route('home');
+        return redirect()->route('evaluaciones');
     }
 
     public function inscripciones($id)

@@ -13,11 +13,11 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label">DNI</label>
-            <input type="tel" class="form-control" name="dni" id="" value="{{ $dni ?? '' }}">
+            <input type="tel" class="form-control" name="dni" id="" value="{{ $dni ?? '' }}" maxlength="8">
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Telefono</label>
-            <input type="tel" class="form-control" name="telefono" id="" value="{{ $telefono ?? '' }}">
+            <input type="tel" class="form-control" name="telefono" id="" value="{{ $telefono ?? '' }}" maxlength="9">
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Direccion</label>
