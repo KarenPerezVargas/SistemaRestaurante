@@ -198,7 +198,7 @@
                   <p>Contenido</p>
                 </a>
               </li>
-              
+
             </ul>
           </li>
           <li class="nav-item">
@@ -281,21 +281,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('proveedor')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>A</p>
+                  <p>Gestionar productos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('proveedor')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>B</p>
+                  <p>Gestionar proveedor</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('transporte')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>C</p>
+                  <p>Gestionar transporte</p>
                 </a>
               </li>
             </ul>
@@ -319,7 +319,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="">Home</a></li>
-              <li class="breadcrumb-item active"><a href="" style="text-decoration: none; color: gray;" {{-- target="_blank" --}}>Report</a></li>  
+              <li class="breadcrumb-item active"><a href="" style="text-decoration: none; color: gray;" {{-- target="_blank" --}}>Report</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

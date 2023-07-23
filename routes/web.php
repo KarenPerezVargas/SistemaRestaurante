@@ -11,6 +11,8 @@ use App\Http\Controllers\ContratoController;
 use App\Http\Controllers\CapacitacionController;
 use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\TransporteController;
 
 use App\Http\Controllers\CapacidadController;
 use App\Http\Controllers\BlogController;
@@ -177,3 +179,18 @@ Route::post('/guardarBlog', [BlogController::class, 'store'])->name('guardarBlog
 Route::get('/editarBlog/{id}', [BlogController::class, 'edit'])->name('editarBlog');
 Route::post('/actualizarBlog/{id}', [BlogController::class, 'update'])->name('actualizarBlog');
 Route::post('/eliminarBlog/{id}', [BlogController::class, 'destroy'])->name('eliminarBlog');
+
+//------------------------INVENTARIO------------------------//
+Route::get('/proveedor', [ProveedorController::class, 'index'])->name('proveedor');
+Route::get('/createProveedor', [ProveedorController::class, 'create'])->name('createProveedor');
+Route::post('/guardarProveedor', [ProveedorController::class, 'store'])->name('guardarProveedor');
+Route::get('/editProveedor/{id}', [ProveedorController::class, 'edit'])->name('editProveedor');
+Route::post('/actualizarProveedor/{id}', [ProveedorController::class, 'update'])->name('actualizarProveedor');
+Route::post('/eliminarProveedor/{id}', [ProveedorController::class, 'destroy'])->name('eliminarProveedor');
+
+Route::get('/transporte', [TransporteController::class, 'index'])->name('transporte');
+Route::get('/createTransporte', [TransporteController::class, 'create'])->name('createTransporte');
+Route::post('/guardarTransporte', [TransporteController::class, 'store'])->name('guardarTransporte');
+Route::get('/editTransporte/{id}', [TransporteController::class, 'edit'])->name('editTransporte');
+Route::post('/actualizarTransporte/{id}', [TransporteController::class, 'update'])->name('actualizarTransporte');
+Route::post('/eliminarTransporte/{id}', [TransporteController::class, 'destroy'])->name('eliminarTransporte');

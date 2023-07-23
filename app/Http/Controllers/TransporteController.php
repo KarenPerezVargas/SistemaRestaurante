@@ -21,7 +21,7 @@ class TransporteController extends Controller
     public function store(Request $request)
     {
         $transporte = new Transporte();
-        $transporte->trans_nombre = $request->trans_codigo;
+        $transporte->trans_codigo = $request->trans_codigo;
         $transporte->trans_descripcion = $request->trans_descripcion;
         $transporte->trans_capacidad = $request->trans_capacidad;
         $transporte->trans_conductor = $request->trans_conductor;
@@ -43,7 +43,7 @@ class TransporteController extends Controller
     public function update(Request $request, string $id)
     {
         $transporte = new Transporte();
-        $transporte->trans_nombre = $request->trans_codigo;
+        $transporte->trans_codigo = $request->trans_codigo;
         $transporte->trans_descripcion = $request->trans_descripcion;
         $transporte->trans_capacidad = $request->trans_capacidad;
         $transporte->trans_conductor = $request->trans_conductor;
