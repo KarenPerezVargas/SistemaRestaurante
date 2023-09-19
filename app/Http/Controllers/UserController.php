@@ -31,26 +31,56 @@ class UserController extends Controller
             if ($rol == null) {
                 return view('home');
             }
-            if ($rol == 1 || $rol == 2 || $rol == 3) {
+            if ($rol == 1) {
                 return view('admin.home');
             }
+            if ($rol == 2) {
+                return view('recursos.instructor.instructor.index');
+            }
+            if ($rol == 3) {
+                return view('recursos.supervisor.supervisor.index');
+            }
+            if ($rol == 4) {
+                return view('recursos.reclutador.reclutador.index');
+            }
             if ($rol == 5) {
-                return view('pedidos.personalPedidos.asesoramiento.index');
+                return view('recursos.gerenterrhh.gerente.index');
             }
             if ($rol == 6) {
-                return view('pedidos.bebidas.bebida.index');
+                return view('pedidos.personalPedidos.asesoramiento.index');
             }
             if ($rol == 7) {
-                return view('pedidos.productos.producto.index');
-            }
-            if ($rol == 8) {
-                return view('pedidos.catering.catering.index');
-            }
-            if ($rol == 9) {
                 return view('pedidos.repartidor.repartidor.index');
             }
+            if ($rol == 8) {
+                return view('pedidos.cliente.cliente.index');
+            }
+            if ($rol == 9) {
+                return view('marketing.gerentemarketing.gerente.index');
+            }
             if ($rol == 10) {
-                return view('pedidos.sistema.sistema.index');
+                return view('marketing.coordinadoreventos.coordinador.index');
+            }
+            if ($rol == 11) {
+                return view('marketing.disenadorpubli.disenador.index');
+            }
+            if ($rol == 12) {
+                return view('marketing.gerentepubli.gerente.index');
+            }
+            if ($rol == 13) {
+                return view('inventario.gerentealmacen.gerente.index');
+            }
+            if ($rol == 14) {
+                return view('inventario.personalalmacen.personal.index');
+            }
+            if ($rol == 15) {
+                return view('inventario.contador.contador.index');
+            }
+            if ($rol == 16) {
+                return view('reservas.gerentereser.gerente.index');
+            }
+            if ($rol == 17) {
+                return view('reservas.recepcionita.recepcionista.index');
             }
             return view('index');
         }
@@ -58,15 +88,15 @@ class UserController extends Controller
 
     public function show()
     {
-        
+
     }
 
     public function create()
     {
-        
+
     }
 
-    
+
 
 
 

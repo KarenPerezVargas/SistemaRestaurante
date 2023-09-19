@@ -1,6 +1,6 @@
 @extends('layouts..personalPedidos')
 
-@section('dashName', 'ASESORAR CLIENTE')')
+
 
 @section('mainContent')
     <h1 align="center" style="color: orange; font-family: Georgia">¿Necesitas más información?</h1>
@@ -14,7 +14,7 @@
         <div class="col-md-5 col-12" align="center">
             <img src="../resources/img/restaurante/fachada.jpg" alt="">
         </div>
-    </div> 
+    </div>
 
     <div class="row" style="font-family: Georgia">
         <p>Además de los platos principales, MiskyChallwa ofrece una selección de postres deliciosos como suspiro limeño y tarta de lucuma, que son el final perfecto para una comida memorable.</p>
@@ -47,11 +47,11 @@
         }
     </script>
     </head>
-    <body>
+    <!--<body>
     <button class="btn btn-info" onclick="mostrarCajaTexto()" id="btnAbrir">Asesorar cliente</button>
     <br><br>
     <textarea id="cajaTexto" class="hidden"></textarea>
     <br><br>
     <button onclick="enviarTexto()" id="btnEnviar" class="hidden" style="background: #2B9EEE ; color: white; border: none">Enviar asesoramiento</button>
-    </body>
+    </body>-->
 @endsection

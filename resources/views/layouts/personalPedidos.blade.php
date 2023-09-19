@@ -159,7 +159,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          <!--<li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
@@ -175,7 +175,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li>-->
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -195,10 +195,10 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               @if (isset($artista) && isset($album))
-                <li class="breadcrumb-item active"><a href="{{route('reporte', [$artista, $album])}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>  
+                <li class="breadcrumb-item active"><a href="{{route('reporte', [$artista, $album])}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>
               @else
                 @if (isset($artista))
-                  <li class="breadcrumb-item active"><a href="{{route('reporte', [$artista, 0])}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>    
+                  <li class="breadcrumb-item active"><a href="{{route('reporte', [$artista, 0])}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>
                 @else
                   <li class="breadcrumb-item active"><a href="{{-- {{route('reporte', [0, 0])}} --}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>
                 @endif

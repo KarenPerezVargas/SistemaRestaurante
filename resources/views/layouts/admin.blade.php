@@ -234,12 +234,6 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('costos') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Controlar costos</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Generar boletas</p>
@@ -255,12 +249,6 @@
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Generar reportes</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Procesar informe</p>
                 </a>
               </li>
             </ul>
@@ -283,7 +271,7 @@
               <li class="nav-item">
                 <a href="{{route('proveedor')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Gestionar proveedor</p>
+                  <p>Gestionar kardex</p>
                 </a>
               </li>
               <li class="nav-item">

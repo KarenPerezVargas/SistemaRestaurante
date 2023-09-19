@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with FoodHut landing page.">
     <meta name="author" content="Devcrud">
-    <title>JHON CERNA</title>
-   
+    <title></title>
+
     <!-- font icons -->
     <link rel="stylesheet" href="/hm/vendors/themify-icons/css/themify-icons.css">
 
@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="/hm/css/foodhut.css">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-    
+
     <!-- Navbar -->
     <nav class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top="10">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@
                     <div class="col-sm-8 py-5 my-5">
                         <h2 class="mb-4">Historia</h2>
                         <p>Había una vez un restaurante llamado "Miskychallwa", cuyo nombre en quechua significa "Dulce Encuentro". Este restaurante era conocido por su ambiente acogedor y su cocina fusión que combinaba sabores tradicionales con técnicas modernas. Su fundador, JHON, provenía de una familia de chefs y siempre soñó con abrir su propio negocio. <br>JHON arduamente para convertir su sueño en realidad. Con pocos recursos, abrió las puertas de Miskychallwa en un pequeño local del centro de la ciudad. Desde el primer día, los comensales quedaron cautivados por los sabores únicos y exquisitos que ofrecía el restaurante. <br> A medida que el boca a boca se extendía, Miskychallwa se volvió un lugar de moda. Pronto, la prensa local comenzó a destacar su propuesta gastronómica innovadora. Los clientes hacían largas filas para probar los platos creativos y coloridos que JHON preparaba con amor y dedicación.<br>La fama de Miskychallwa traspasó fronteras. Los críticos gastronómicos elogiaron la combinación perfecta entre tradición y vanguardia que JHON lograba en sus platos. El restaurante se convirtió en un destino obligado para los amantes de la buena comida de todo el mundo.<br> A medida que crecía en éxito, JHON nunca perdió de vista sus raíces. Valoraba los ingredientes locales y apoyaba a los pequeños productores. Además, se aseguraba de que su equipo recibiera una capacitación constante y tuviera oportunidades de crecimiento profesional.<br>Con el tiempo, Miskychallwa se convirtió en un referente mundial de la alta gastronomía. JHON fue reconocida como una de las chefs más influyentes de su generación. Sin embargo, su mayor satisfacción siempre fue ver a los clientes disfrutar de sus creaciones y sentirse transportados por los sabores.<br>La historia de Miskychallwa se convirtió en una inspiración para muchos emprendedores. Demostró que con pasión, creatividad y trabajo duro, los sueños pueden hacerse realidad. El restaurante se convirtió en un lugar donde los comensales no solo disfrutaban de deliciosos platillos, sino también experimentaban un dulce encuentro con la cultura y la tradición gastronómica.</p>
-                        
+
                     </div>
                 </div>
             </div>
@@ -391,7 +391,7 @@
 
     <!-- wow.js -->
     <script src="/hm/vendors/wow/wow.js"></script>
-    
+
     <!-- google maps -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
 
