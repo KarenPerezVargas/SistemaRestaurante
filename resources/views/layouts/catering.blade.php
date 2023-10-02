@@ -183,10 +183,10 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               @if (isset($artista) && isset($album))
-                <li class="breadcrumb-item active"><a href="{{route('reporte', [$artista, $album])}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>  
+                <li class="breadcrumb-item active"><a href="{{route('reporte', [$artista, $album])}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>
               @else
                 @if (isset($artista))
-                  <li class="breadcrumb-item active"><a href="{{route('reporte', [$artista, 0])}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>    
+                  <li class="breadcrumb-item active"><a href="{{route('reporte', [$artista, 0])}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>
                 @else
                   <li class="breadcrumb-item active"><a href="{{-- {{route('reporte', [0, 0])}} --}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>
                 @endif
@@ -206,11 +206,8 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy Miskychallwa.</strong>
     All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
   </footer>
 
   <!-- Control Sidebar -->

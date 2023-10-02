@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.gerentealmacen')
 @section('mainContent')
 <div class="container">
     <div class="row justify-content-center">
@@ -9,22 +9,23 @@
                 </strong>
             </h5>
             @csrf
+
             <div class="col-md-12 m-5">
                 <div class="mb-3">
                     <label for="" class="form-label">Código</label>
-                    <input type="text" class="form-control" name="trans_codigo" id="">
+                    <input type="text" class="form-control" name="trans_codigo" id="" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Descripción</label>
-                    <input type="text" class="form-control" name="trans_descripcion" id="">
+                    <input type="text" class="form-control" name="trans_descripcion" id="" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Capacidad</label>
-                    <input type="text" class="form-control" name="trans_capacidad" id="">
+                    <input type="text" class="form-control" name="trans_capacidad" id="" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Conductor</label>
-                    <input type="text" class="form-control" name="trans_conductor" id="">
+                    <input type="text" class="form-control" name="trans_conductor" id="" required>
                 </div>
             </div>
 

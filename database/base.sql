@@ -18,8 +18,7 @@ insert into roles values (1, 'admin'),
                          (13, 'Gerente de almacén'),
                          (14, 'Personal de almacén'),
                          (15, 'Contador'),
-                         (16, 'Gerente de reservas'),
-                         (17, 'Recepcionista');
+                         (16, 'Recepcionista');
 
 create table permisos (idPermiso int auto_increment, nmPermiso varchar(30), idRole int, primary key(idPermiso), foreign key(idRole) references roles(idRole));
 
@@ -44,11 +43,10 @@ create table bebidas(idbebida integer auto_increment, descripcion varchar(100), 
 create table productos(idproducto integer auto_increment, descripcion varchar(100), precio float, cantidad int, tipo varchar(80), estado tinyint(4), primary key(idproducto));
 
 
+/**
 create table reservas(idreserva integer auto_increment, nombre varchar(50), direccion varchar(50), telefono char(9), correo varchar(50), fecha date, hora time, nroPersonas integer, area varchar(20), solicitudesAdicionales varchar(100), estadoReserva varchar(20), mesa varchar(10), idhistorial integer, idempleado integer , idmenu integer, idpago integer, estado tinyint(4), primary key(idreserva));
-
 create table clientes (idCliente bigint unsigned auto_increment, nombre varchar(20), apellidos varchar(20), DNI char(8), telefono char(9), direccion varchar(40), primary key(idCliente));
 insert into clientes values (1, 'Jaime', 'Perez Medina', '12345678', '987654321', 'Calle San Pedro 520');
-
 create table menus(idMenu integer auto_increment, categoria varchar(20), descripcion varchar(20), idPlatoDetalle integer, precio float, primary key(idMenu));
-
 create table plato(idPlato integer auto_increment, nombre varchar(20), precio float, primary key(idPlato))
+*/

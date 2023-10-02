@@ -30,7 +30,7 @@ class ReservaController extends Controller
         $reserva->hora = $request->hora;
         $reserva->nroPersonas = $request->nroPersonas;
         $reserva->area = $request->area;
-        $reserva->mesa = $request->mesaarea;
+        $reserva->mesa = $request->mesa;
         $reserva->estadoReserva = 'Pendiente';
         $reserva->estado = 1;
         $reserva->save();
@@ -50,14 +50,13 @@ class ReservaController extends Controller
 
     public function update(Request $request, $id)
     {
-
         $reserva = Reserva::find($id);
         $reserva->nombre = $request->nombre;
         $reserva->fecha = $request->fecha;
         $reserva->hora = $request->hora;
         $reserva->nroPersonas = $request->nroPersonas;
         $reserva->area = $request->area;
-        $reserva->mesa = $request->mesaarea;
+        $reserva->mesa = $request->mesa;
         $reserva->estado = 1;
         $reserva->save();
         return redirect()->route('reserva.index')->with('datos' . 'Registro nuevo actualizado...');

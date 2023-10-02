@@ -65,7 +65,7 @@ class UserController extends Controller
                 return view('marketing.disenadorpubli.disenador.index');
             }
             if ($rol == 12) {
-                return view('marketing.gerentepubli.gerente.index');
+                return view('marketing.agentepubli.agente.index');
             }
             if ($rol == 13) {
                 return view('inventario.gerentealmacen.gerente.index');
@@ -77,10 +77,7 @@ class UserController extends Controller
                 return view('inventario.contador.contador.index');
             }
             if ($rol == 16) {
-                return view('reservas.gerentereser.gerente.index');
-            }
-            if ($rol == 17) {
-                return view('reservas.recepcionita.recepcionista.index');
+                return view('reservas.recepcionista.recepcionista.index');
             }
             return view('index');
         }

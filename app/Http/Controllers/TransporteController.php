@@ -34,7 +34,7 @@ class TransporteController extends Controller
         //
     }
 
-    public function edit(string $id)
+    public function edit(Request $request,string $id)
     {
         $transporte = Transporte::find($id);
         return view('inventario.transporte.editTransporte', compact('transporte', 'id'));
@@ -42,7 +42,7 @@ class TransporteController extends Controller
 
     public function update(Request $request, string $id)
     {
-        $transporte = new Transporte();
+        $transporte = Transporte::find($id);
         $transporte->trans_codigo = $request->trans_codigo;
         $transporte->trans_descripcion = $request->trans_descripcion;
         $transporte->trans_capacidad = $request->trans_capacidad;

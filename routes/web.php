@@ -13,6 +13,8 @@ use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\TransporteController;
+use App\Http\Controllers\HorarioEntregaController;
+use App\Http\Controllers\CompraController;
 
 use App\Http\Controllers\CapacidadController;
 use App\Http\Controllers\BlogController;
@@ -28,6 +30,7 @@ use App\Http\Controllers\AsesoramientoController;
 use App\Http\Controllers\BebidasController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ReservaController;
+use App\Models\HorarioEntrega;
 
 /*
 |--------------------------------------------------------------------------
@@ -196,6 +199,19 @@ Route::get('/editTransporte/{id}', [TransporteController::class, 'edit'])->name(
 Route::post('/actualizarTransporte/{id}', [TransporteController::class, 'update'])->name('actualizarTransporte');
 Route::post('/eliminarTransporte/{id}', [TransporteController::class, 'destroy'])->name('eliminarTransporte');
 
+Route::get('/horario', [HorarioEntregaController::class, 'index'])->name('horario');
+Route::get('/createHorario', [HorarioEntregaController::class, 'create'])->name('createHorario');
+Route::post('/guardarHorario', [HorarioEntregaController::class, 'store'])->name('guardarHorario');
+Route::get('/editHorario/{id}', [HorarioEntregaController::class, 'edit'])->name('editHorario');
+Route::post('/actualizarHorario/{id}', [HorarioEntregaController::class, 'update'])->name('actualizarHorario');
+Route::post('/eliminarHorario/{id}', [HorarioEntregaController::class, 'destroy'])->name('eliminarHorario');
+
+Route::get('/compra', [CompraController::class, 'index'])->name('compra');
+Route::get('/createCompra', [CompraController::class, 'create'])->name('createCompra');
+Route::post('/guardarCompra', [CompraController::class, 'store'])->name('guardarCompra');
+Route::get('/editCompra/{id}', [CompraController::class, 'edit'])->name('editCompra');
+Route::post('/actualizarCompra/{id}', [CompraController::class, 'update'])->name('actualizarCompra');
+Route::post('/eliminarCompra/{id}', [CompraController::class, 'destroy'])->name('eliminarCompra');
 
 //---------------------------RESERVAS-------------------------//
 Route::get('/reserva', [ReservaController::class, 'index'])->name('reserva');

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.gerentealmacen')
 @section('dashName', 'Dashboard')
 @section('mainContent')
 <!-- Page Content-->

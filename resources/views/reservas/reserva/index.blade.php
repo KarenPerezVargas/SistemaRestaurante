@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.recepcionista')
 @section('dashName', 'Dashboard')
 @section('mainContent')
     <div class="card mb-4">

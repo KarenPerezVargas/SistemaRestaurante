@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.recepcionista')
 @section('dashName', 'Dashboard')
 @section('mainContent')
     <form action="{{ route('guardarReserva') }}" method="post">
@@ -23,8 +23,7 @@
             </div>
             <div class="col-md-6 mb-3">
                 <label for="" class="form-label">Número de personas</label>
-                <input type="text" class="form-control" name="nroPersonas" id="" required
-                    pattern=".+@.+\.(com)">
+                <input type="text" class="form-control" name="nroPersonas" id="">
             </div>
 
             <div class="col-md-6 mb-3">
@@ -41,7 +40,7 @@
             </div>
             <div class="col-md-6 mb-3">
                 <label for="" class="form-label">Mesa</label>
-                <input type="text" class="form-control" name="pro_direccion" id="">
+                <input type="text" class="form-control" name="mesa" id="">
             </div>
         </div>
 
