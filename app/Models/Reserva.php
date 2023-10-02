@@ -10,6 +10,7 @@ class Reserva extends Model
     use HasFactory;
     protected $table='reservas';
     protected $primaryKey='idreserva';
-    protected $fillable=['nombre','direccion','telefono','correo','fecha','hora','nroPersonas','area','solicitudesAdicionales','estadoReserva','mesa','historial','empleado','menu','pago','estado'];
+    protected $fillable=['nombre','fecha','hora','nroPersonas','area','mesa','estado'];
     public $timestamps=false;
 }
+
