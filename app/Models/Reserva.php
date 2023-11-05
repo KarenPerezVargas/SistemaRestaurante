@@ -7,10 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reserva extends Model
 {
-    use HasFactory;
-    protected $table='reservas';
-    protected $primaryKey='idreserva';
-    protected $fillable=['nombre','fecha','hora','nroPersonas','area','mesa','estado'];
-    public $timestamps=false;
-}
+    protected $table = 'reserva'; // Establece el nombre de la tabla a "reserva"
 
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class);
+    }
+
+    public function mesa()
+    {
+        return $this->belongsTo(Mesa::class);
+    }
+}

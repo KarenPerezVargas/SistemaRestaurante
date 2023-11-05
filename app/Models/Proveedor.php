@@ -11,6 +11,6 @@ class Proveedor extends Model
 
     protected $table='proveedor';
     protected $primaryKey='id';
-    protected $fillable = ['pro_nombre', 'pro_ruc', 'pro_codigo', 'pro_correo', 'pro_descripcion', 'pro_direccion', 'pro_movil', 'pro_forma_pago'];
+    protected $fillabed =  ['codigo_proveedor', 'nombre_proveedor', 'ciudad_proveedor', 'direccion_proveedor', 'email_proveedor', 'telefono_proveedor'];
     public $timestamps = false;
 }

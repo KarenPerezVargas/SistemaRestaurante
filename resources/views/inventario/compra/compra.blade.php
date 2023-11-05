@@ -20,7 +20,8 @@
                         <th>RUC</th>
                         <th>Fecha</th>
                         <th>Empresa</th>
-                        <th>Total</th>
+                        <th>Telefono</th>
+                        <th>Total S/.</th>
                         <th>Opción</th>
                       </tr>
                     </thead>
@@ -35,7 +36,8 @@
                                 <td>{{$item->ruc}}</td>
                                 <td>{{$item->fecha}}</td>
                                 <td>{{$item->empresa}}</td>
-                                <td>{{$item->total}}</td>
+                                <td>{{$item->contacto}}</td>
+                                <td>S/. {{$item->total}}</td>
                                 <td>
                                     <a href="{{route('editCompra', [$item->id])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
                                     &nbsp; &nbsp; &nbsp;

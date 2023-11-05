@@ -14,7 +14,7 @@
         <div class="col-md-5 col-12" align="center">
             <img src="../resources/img/restaurante/fachada.jpg" alt="">
         </div>
-    </div> 
+    </div>
 
     <div class="row" style="font-family: Georgia">
         <p>Además de los platos principales, MiskyChallwa ofrece una selección de postres deliciosos como suspiro limeño y tarta de lucuma, que son el final perfecto para una comida memorable.</p>

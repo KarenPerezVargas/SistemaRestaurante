@@ -147,7 +147,7 @@
             </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{{ route('cliente') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Ver</p>
                   </a>
@@ -164,13 +164,14 @@
             </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="" class="nav-link">
+                    <a href="{{ route('mesa') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Ver</p>
                   </a>
                 </li>
               </ul>
           </li>
+        <!--
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -188,6 +189,7 @@
                 </li>
               </ul>
           </li>
+        -->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>

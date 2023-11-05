@@ -140,7 +140,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href='{{ route('zona') }}' class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Establecer zonas de entrega</p>
                 </a>
@@ -157,7 +157,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href='{{ route('horarioo') }}' class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Registrar horarios de entrega</p>
                 </a>

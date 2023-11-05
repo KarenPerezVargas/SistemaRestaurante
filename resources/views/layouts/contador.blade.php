@@ -111,25 +111,6 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <!-- <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Empaquetado
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Administrar proceso de empaquetado</p>
-                </a>
-              </li>
-            </ul>
-          </li>-->
           <a class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
@@ -141,53 +122,23 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Hoja de costos
+                Hojas
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href='{{ route('hojaCostos') }}' class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Gestionar</p>
+                  <p>Costos</p>
                 </a>
+                <a href='{{ route('hojaPresupuesto') }}' class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Presupuesto</p>
+                  </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Hoja de presupuesto
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Gestionar</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <!-- <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Entrega
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Informar puntualidad de entrega</p>
-                </a>
-              </li>
-            </ul>
-          </li>-->
       </nav>
       <!-- /.sidebar-menu -->
     </div>

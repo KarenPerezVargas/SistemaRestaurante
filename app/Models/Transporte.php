@@ -11,6 +11,6 @@ class Transporte extends Model
 
     protected $table='transporte';
     protected $primaryKey='id';
-    protected $fillabed =  ['trans_coigo', 'trans_descripcion', 'trans_capacidad', 'trans_conductor'];
+    protected $fillabed =  ['trans_codigo', 'trans_descripcion', 'trans_capacidad', 'trans_conductor'];
     public $timestamps = false;
 }

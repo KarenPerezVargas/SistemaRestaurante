@@ -15,7 +15,19 @@ use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\TransporteController;
 use App\Http\Controllers\HorarioEntregaController;
 use App\Http\Controllers\CompraController;
-
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\KardexController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\MesaController;
+use App\Http\Controllers\HojaCostosController;
+use App\Http\Controllers\HojaPresupuestoController;
+use App\Http\Controllers\ZonaController;
+use App\Http\Controllers\HorariooController;
+use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\PromocionController;
+use App\Http\Controllers\EventoController;
+use App\Http\Controllers\ProgramaController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\CapacidadController;
 use App\Http\Controllers\BlogController;
 use App\Models\Blog;
@@ -29,7 +41,6 @@ use App\Http\Controllers\PagosController;
 use App\Http\Controllers\AsesoramientoController;
 use App\Http\Controllers\BebidasController;
 use App\Http\Controllers\ProductosController;
-use App\Http\Controllers\ReservaController;
 use App\Models\HorarioEntrega;
 
 /*
@@ -160,13 +171,30 @@ Route::get('bebida/{id}/confirmar',[BebidasController::class,'confirmar'
 ])->name('bebida.confirmar');
 
 
+// --------ZONAS-----------
+Route::get('/zona', [ZonaController::class, 'index'])->name('zona');
+Route::get('/createZona', [ZonaController::class, 'create'])->name('createZona');
+Route::post('/guardarZona', [ZonaController::class, 'store'])->name('guardarZona');
+Route::get('/editZona/{id}', [ZonaController::class, 'edit'])->name('editZona');
+Route::post('/actualizarZona/{id}', [ZonaController::class, 'update'])->name('actualizarZona');
+Route::post ('/eliminarZona/{id}', [ZonaController::class, 'destroy'])->name('eliminarZona');
+
+
+// --------HORARIOS-----------
+Route::get('/horarioo', [HorariooController::class, 'index'])->name('horarioo');
+Route::get('/createHorarioo', [HorariooController::class, 'create'])->name('createHorarioo');
+Route::post('/guardarHorarioo', [HorariooController::class, 'store'])->name('guardarHorarioo');
+Route::get('/editHorarioo/{id}', [HorariooController::class, 'edit'])->name('editHorarioo');
+Route::post('/actualizarHorarioo/{id}', [HorariooController::class, 'update'])->name('actualizarHorarioo');
+Route::post('/eliminarHorarioo/{id}', [HorariooController::class, 'destroy'])->name('eliminarHorarioo');
+
 // --------PRODUCTOS-----------
-Route::resource('producto', ProductosController::class);
-Route::get('cancelar-producto',function(){
-    return redirect()->route('producto.index')->with('datos','Acción Cancelada');
-})->name('cancelar-producto');
-Route::get('producto/{id}/confirmar',[ProductosController::class,'confirmar'
-])->name('producto.confirmar');
+//Route::resource('producto', ProductosController::class);
+//Route::get('cancelar-producto',function(){
+//    return redirect()->route('producto.index')->with('datos','Acción Cancelada');
+//})->name('cancelar-producto');
+//Route::get('producto/{id}/confirmar',[ProductosController::class,'confirmar'
+//])->name('producto.confirmar');
 
 ////////////////////////////////////////////////////////////////
 
@@ -213,6 +241,34 @@ Route::get('/editCompra/{id}', [CompraController::class, 'edit'])->name('editCom
 Route::post('/actualizarCompra/{id}', [CompraController::class, 'update'])->name('actualizarCompra');
 Route::post('/eliminarCompra/{id}', [CompraController::class, 'destroy'])->name('eliminarCompra');
 
+Route::get('/kardex', [KardexController::class, 'index'])->name('kardex');
+Route::get('/createKardex', [KardexController::class, 'create'])->name('createKardex');
+Route::post('/guardarKardex', [KardexController::class, 'store'])->name('guardarKardex');
+Route::get('/editKardex/{id}', [KardexController::class, 'edit'])->name('editKardex');
+Route::post('/actualizarKardex/{id}', [KardexController::class, 'update'])->name('actualizarKardex');
+Route::post('/eliminarKardex/{id}', [KardexController::class, 'destroy'])->name('eliminarKardex');
+
+Route::get('/producto', [ProductoController::class, 'index'])->name('producto');
+Route::get('/createProducto', [ProductoController::class, 'create'])->name('createProducto');
+Route::post('/guardarProducto', [ProductoController::class, 'store'])->name('guardarProducto');
+Route::get('/editProducto/{id}', [ProductoController::class, 'edit'])->name('editProducto');
+Route::post('/actualizarProducto/{id}', [ProductoController::class, 'update'])->name('actualizarProducto');
+Route::post('/eliminarProducto/{id}', [ProductoController::class, 'destroy'])->name('eliminarProducto');
+
+Route::get('/hojaCostos', [HojaCostosController::class, 'index'])->name('hojaCostos');
+Route::get('/createHojaCostos', [HojaCostosController::class, 'create'])->name('createHojaCostos');
+Route::post('/guardarHojaCostos', [HojaCostosController::class, 'store'])->name('guardarHojaCostos');
+Route::get('/editHojaCostos/{id}', [HojaCostosController::class, 'edit'])->name('editHojaCostos');
+Route::post('/actualizarHojaCostos/{id}', [HojaCostosController::class, 'update'])->name('actualizarHojaCostos');
+Route::post('/eliminarHojaCostos/{id}', [HojaCostosController::class, 'destroy'])->name('eliminarHojaCostos');
+
+Route::get ('/hojaPresupuesto', [HojaPresupuestoController::class, 'index'])->name('hojaPresupuesto');
+Route::get ('/createHojaPresupuesto', [HojaPresupuestoController::class, 'create'])->name('createHojaPresupuesto');
+Route::post ('/guardarHojaPresupuesto', [HojaPresupuestoController::class, 'store'])->name('guardarHojaPresupuesto');
+Route::get ('/editHojaPresupuesto/{id}', [HojaPresupuestoController::class, 'edit'])->name('editHojaPresupuesto');
+Route::post ('/actualizarHojaPresupuesto/{id}', [HojaPresupuestoController::class, 'update'])->name('actualizarHojaPresupuesto');
+Route::post ('/eliminarHojaPresupuesto/{id}', [HojaPresupuestoController::class, 'destroy'])->name('eliminarHojaPresupuesto');
+
 //---------------------------RESERVAS-------------------------//
 Route::get('/reserva', [ReservaController::class, 'index'])->name('reserva');
 Route::get('/createReserva', [ReservaController::class, 'create'])->name('createReserva');
@@ -221,3 +277,55 @@ Route::get('/editReserva/{id}', [ReservaController::class, 'edit'])->name('editR
 Route::post('/actualizarReserva/{id}', [ReservaController::class, 'update'])->name('actualizarReserva');
 Route::post('/eliminarReserva/{id}', [ReservaController::class, 'destroy'])->name('eliminarReserva');
 
+
+Route::get('/cliente', [ClienteController::class, 'index'])->name('cliente');
+Route::get('/createCliente', [ClienteController::class, 'create'])->name('createCliente');
+Route::post('/guardarCliente', [ClienteController::class, 'store'])->name('guardarCliente');
+Route::get('/editCliente/{id}', [ClienteController::class, 'edit'])->name('editCliente');
+Route::post('/actualizarCliente/{id}', [ClienteController::class, 'update'])->name('actualizarCliente');
+Route::post('/eliminarCliente/{id}', [ClienteController::class, 'destroy'])->name('eliminarCliente');
+
+Route::get('/mesa', [MesaController::class, 'index'])->name('mesa');
+Route::get('/createMesa', [MesaController::class, 'create'])->name('createMesa');
+Route::post('/guardarMesa', [MesaController::class, 'store'])->name('guardarMesa');
+Route::get('/editMesa/{id}', [MesaController::class, 'edit'])->name('editMesa');
+Route::post('/actualizarMesa/{id}', [MesaController::class, 'update'])->name('actualizarMesa');
+Route::post('/eliminarMesa/{id}', [MesaController::class, 'destroy'])->name('eliminarMesa');
+
+
+Route::get('/reserva', [ReservaController::class, 'index'])->name('reserva');
+Route::get('/createReserva', [ReservaController::class, 'create'])->name('createReserva');
+Route::post('/guardarReserva', [ReservaController::class, 'store'])->name('guardarReserva');
+Route::get('/editReserva/{id}', [ReservaController::class, 'edit'])->name('editReserva');
+Route::post('/actualizarReserva/{id}', [ReservaController::class, 'update'])->name('actualizarReserva');
+Route::post('/eliminarReserva/{id}', [ReservaController::class, 'destroy'])->name('eliminarReserva');
+
+
+//---------------------------MARKETING-------------------------//
+Route::get('/promocion', [PromocionController::class, 'index'])->name('promocion');
+Route::get('/createPromocion', [PromocionController::class, 'create'])->name('createPromocion');
+Route::post('/guardarPromocion', [PromocionController::class, 'store'])->name('guardarPromocion');
+Route::get('/editPromocion/{id}', [PromocionController::class, 'edit'])->name('editPromocion');
+Route::post('/actualizarPromocion/{id}', [PromocionController::class, 'update'])->name('actualizarPromocion');
+Route::post('/eliminarPromocion/{id}', [PromocionController::class, 'destroy'])->name('eliminarPromocion');
+
+Route::get('/evento', [EventoController::class, 'index'])->name('evento');
+Route::get('/createEvento', [EventoController::class, 'create'])->name('createEvento');
+Route::post('/guardarEvento', [EventoController::class, 'store'])->name('guardarEvento');
+Route::get('/editEvento/{id}', [EventoController::class, 'edit'])->name('editEvento');
+Route::post('/actualizarEvento/{id}', [EventoController::class, 'update'])->name('actualizarEvento');
+Route::post('/eliminarEvento/{id}', [EventoController::class, 'destroy'])->name('eliminarEvento');
+
+Route::get('/programa', [ProgramaController::class, 'index'])->name('programa');
+Route::get('/createPrograma', [ProgramaController::class, 'create'])->name('createPrograma');
+Route::post('/guardarPrograma', [ProgramaController::class, 'store'])->name('guardarPrograma');
+Route::get('/editPrograma/{id}', [ProgramaController::class, 'edit'])->name('editPrograma');
+Route::post('/actualizarPrograma/{id}', [ProgramaController::class, 'update'])->name('actualizarPrograma');
+Route::post('/eliminarPrograma/{id}', [ProgramaController::class, 'destroy'])->name('eliminarPrograma');
+
+Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+Route::get('/createMenu', [MenuController::class, 'create'])->name('createMenu');
+Route::post('/guardarMenu', [MenuController::class, 'store'])->name('guardarMenu');
+Route::get('/editMenu/{id}', [MenuController::class, 'edit'])->name('editMenu');
+Route::post('/actualizarMenu/{id}', [MenuController::class, 'update'])->name('actualizarMenu');
+Route::post('/eliminarMenu/{id}', [MenuController::class, 'destroy'])->name('eliminarMenu');

@@ -134,14 +134,30 @@
                   <p>Gestionar toma de pedidos</p>
                 </a>
               </li>
+            </ul>
+          </li>
+
+
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Costos
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ route('pago.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Registrar horarios de entrega</p>
+                  <p>Boleta de pagos</p>
                 </a>
               </li>
             </ul>
           </li>
+
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -161,6 +177,12 @@
                 <a href="{{ route('pago.pagos') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pedidos pagados</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('pago.index') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Boleta de pagos</p>
                 </a>
               </li>
             </ul>

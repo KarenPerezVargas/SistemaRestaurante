@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     use HasFactory;
-    protected $table='productos';
-    protected $primaryKey='idproducto';
-    protected $fillable=['descripcion','precio','cantidad','tipo','estado'];
-    public $timestamps=false;
+    protected $table='producto';
+    protected $primaryKey='id';
+    protected $fillabed =  ['producto_codigo', 'producto_categoria', 'producto_nombre'];
+    public $timestamps = false;
+
 }
