@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mesa;
 use Illuminate\Http\Request;
+use App\Models\Mesa;
 
 class MesaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    const PAGINATION = 5;
+    public function index(Request $request)
     {
-        $mesa = Mesa::all();
-        return view('reservas.mesa.mesa', compact('mesa'));
+        $buscarpor = $request->get('buscarpor');
+        $mesa = Mesa::where('eliminado','=','1')->where('estado','like','%'.$buscarpor.'%')->paginate
+        ($this::PAGINATION);
+        return view('reservas.mesa.mesa', compact('mesa', 'buscarpor'));
     }
 
     /**
@@ -21,7 +21,8 @@ class MesaController extends Controller
      */
     public function create()
     {
-        return view('reservas.mesa.createMesa');
+        $mesas=Mesa::all();
+        return view('reservas.mesa.createMesa', compact('mesas'));
     }
 
     /**
@@ -33,6 +34,7 @@ class MesaController extends Controller
         $mesa->numero = $request->numero;
         $mesa->capacidad = $request->capacidad;
         $mesa->estado = $request->estado;
+        $mesa->eliminado = 1;
         $mesa->save();
         return redirect()->route('mesa');
     }
@@ -70,10 +72,11 @@ class MesaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $mesa = Mesa::find($id);
-        $mesa->delete();
+        $mesa->eliminado = 0;
+        $mesa->save();
         return redirect()->route('mesa');
     }
 }

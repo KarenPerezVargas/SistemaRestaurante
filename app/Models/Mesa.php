@@ -9,8 +9,8 @@ class Mesa extends Model
 {
     use HasFactory;
 
-    protected $table='mesa';
-    protected $primaryKey='id';
-    protected $fillabed =  ['numero', 'capacidad', 'estado'];
+    protected $table='mesas';
+    protected $primaryKey='idMesa';
+    protected $fillabed =  ['numero', 'capacidad', 'estado', 'eliminado'];
     public $timestamps = false;
 }
