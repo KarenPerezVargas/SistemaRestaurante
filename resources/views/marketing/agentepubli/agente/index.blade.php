@@ -5,5 +5,5 @@
 @section('dashName', 'Agente de publicidad')
 
 @section('mainContent')
-
+gohlgl
 @endsection

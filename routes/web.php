@@ -336,3 +336,4 @@ Route::post('/guardarMenu', [MenuController::class, 'store'])->name('guardarMenu
 Route::get('/editMenu/{id}', [MenuController::class, 'edit'])->name('editMenu');
 Route::post('/actualizarMenu/{id}', [MenuController::class, 'update'])->name('actualizarMenu');
 Route::post('/eliminarMenu/{id}', [MenuController::class, 'destroy'])->name('eliminarMenu');
+
