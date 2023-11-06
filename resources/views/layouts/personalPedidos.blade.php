@@ -138,26 +138,6 @@
           </li>
 
 
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Costos
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('pago.index') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Boleta de pagos</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -179,14 +159,27 @@
                   <p>Pedidos pagados</p>
                 </a>
               </li>
+            </ul>
+          </li>
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Costos
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{ route('pago.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Boleta de pagos</p>
+                  <p>Controlar costos</p>
                 </a>
               </li>
             </ul>
           </li>
+          
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
@@ -200,6 +193,30 @@
                 <a href="{{ route('asesoramiento.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Realizar asesoramiento</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Reportes
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('pago.boletas') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Generar boletas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('pedido.graficos') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Generar gráficos</p>
                 </a>
               </li>
             </ul>

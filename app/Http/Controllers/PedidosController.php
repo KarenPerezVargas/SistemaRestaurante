@@ -22,6 +22,13 @@ class PedidosController extends Controller
         return view('pedidos.personalPedidos.pago.index',compact('pedido','buscarpor'));
     }
 
+    public function graficos(Request $request)
+    {
+        $buscarpor = $request->get('buscarpor');
+        $pedido = Pedido::where('estado','=','1')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
+        return view('pedidos.personalPedidos.pedido.graficos',compact('pedido','buscarpor'));
+    }
+
     public function create()
     {
         $pedidos=Pedido::all();
