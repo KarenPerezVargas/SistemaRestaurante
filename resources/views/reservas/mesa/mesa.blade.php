@@ -11,7 +11,6 @@
                     <div class="col-7">
                         <a href="{{route('createMesa')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Registro</a>
                     </div>
-                    {{-- Buscador --}}
                 </div>
             </div>
         </form>
@@ -63,7 +62,7 @@
 
                                             <div class="modal-body">
                                                 ¿Está seguro que desea eliminar este registro?<br>
-                                                <i>Se eliminará toda la información de la mesa</i>
+                                                <i>Se eliminará toda la información registrada</i>
                                             </div>
 
                                             <div class="modal-footer m-2">
@@ -81,4 +80,34 @@
         </table>
     </div>
 </div>
+@endsection
+
+@section('sidebarMenu')
+    <li class="nav-item">
+        <a href="{{ route('cliente') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Clientes</p>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a href="{{ route('mesa') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Mesas</p>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a href="{{ route('reserva') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Reservas</p>
+        </a>
+    </li>
+
+    {{-- <li class="nav-item">
+        <a href="{{ route('pago') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Pagos</p>
+        </a>
+    </li> --}}
 @endsection

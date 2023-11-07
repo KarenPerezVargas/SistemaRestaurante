@@ -7,7 +7,6 @@ use App\Models\Mesa;
 
 class MesaController extends Controller
 {
-    const PAGINATION = 5;
     public function index(Request $request)
     {
         // Filtra los elementos con estado igual a 1
