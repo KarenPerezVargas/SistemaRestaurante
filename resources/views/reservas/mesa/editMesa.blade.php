@@ -13,15 +13,16 @@
 
             <div class="col-md-12 m-5">
                 <div class="mb-3">
-                    <label for="" class="form-label">Nro. de Mesa</label>
+                    <label for="" class="form-label">Numero de Mesa</label>
                     <input type="text" class="form-control" name="numero" id="" value="{{$mesa->numero}}" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Capacidad</label>
                     <select class="form-select" aria-label="Default select example" name="capacidad" value="{{$mesa->capacidad}}" required>
-                        <option value="Individual">Individual</option>
-                        <option value="Doble">Doble</option>
-                        <option value="Familiar">Familiar</option>
+                        <option value="1">1 persona</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="3">4 personas</option>
                     </select>
                 </div>
                 <div class="mb-3">

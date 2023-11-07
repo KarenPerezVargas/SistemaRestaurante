@@ -8,20 +8,10 @@
             <div class="container-fluid h-100">
                 <div class="row w-100 align-items-center">
                     {{-- Registrar --}}
-                    <div class="col-6">
-                        <a href="{{route('createMesa')}}" class="btn btn-primary"><i class="fas fa-plus"></i>Nuevo Registro</a>
+                    <div class="col-7">
+                        <a href="{{route('createMesa')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Registro</a>
                     </div>
                     {{-- Buscador --}}
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col-9">
-                                <input class="form-control" name="buscarpor" type="search" placeholder="Buscar: libre/ocupado" aria-label="Search" value="{{$buscarpor ?? ''}}">
-                            </div>
-                            <div class="col-3">
-                                <button class="btn btn-warning" type="submit">Buscar</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </form>
@@ -29,7 +19,7 @@
 
     <div class="card-body">
     {{-- Tabla --}}
-        <table class="table">
+        <table id="mi-tabla" class="table">
             <thead class="table-dark">
                 <tr>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>#</h6></th>
@@ -49,25 +39,25 @@
 
                 @foreach ($mesa as $item)
                     <tr>
-                        <td>{{$item->idMesa}}</td>
-                        <td>{{$item->numero}}</td>
-                        <td>{{$item->capacidad}}</td>
-                        <td>{{$item->estado}}</td>
-                        <td>
-                            <a href="{{route('editMesa', [$item->id])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
+                        <td class="text-xxs mb-0 text-center">{{$item->idMesa}}</td>
+                        <td class="text-xxs mb-0 text-center">{{$item->numero}}</td>
+                        <td class="text-xxs mb-0 text-center">{{$item->capacidad}}</td>
+                        <td class="text-xxs mb-0 text-center">{{$item->estado}}</td>
+                        <td class="text-xxs mb-0 text-center">
+                            <a href="{{route('editMesa', [$item->idMesa])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
                             &nbsp; &nbsp; &nbsp;
 
-                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$item->id}}">
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$item->idMesa}}">
                                         <i class="fas fa-trash"></i> Eliminar
                             </button>
 
-                            <div class="modal fade" id="exampleModal-{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="exampleModal-{{$item->idMesa}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
-                                        <form action="{{route('eliminarMesa', $item->id)}}" method="post">
+                                        <form action="{{route('eliminarMesa', $item->idMesa)}}" method="post">
                                             @csrf
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Eliminacion de la mesa</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Registro eliminado</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
 

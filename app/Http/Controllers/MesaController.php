@@ -10,10 +10,10 @@ class MesaController extends Controller
     const PAGINATION = 5;
     public function index(Request $request)
     {
-        $buscarpor = $request->get('buscarpor');
-        $mesa = Mesa::where('eliminado','=','1')->where('estado','like','%'.$buscarpor.'%')->paginate
-        ($this::PAGINATION);
-        return view('reservas.mesa.mesa', compact('mesa', 'buscarpor'));
+        // Filtra los elementos con estado igual a 1
+        $mesa = Mesa::where('eliminado', 1)->get();
+
+        return view('reservas.mesa.mesa', compact('mesa'));
     }
 
     /**
