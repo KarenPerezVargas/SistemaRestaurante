@@ -42,6 +42,7 @@ use App\Http\Controllers\AsesoramientoController;
 use App\Http\Controllers\BebidasController;
 use App\Http\Controllers\ProductosController;
 use App\Models\HorarioEntrega;
+use App\Http\Controllers\GraficosPedidoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -147,8 +148,6 @@ Route::get('cancelar-pedido',function(){
 Route::get('pedido/{id}/confirmar',[PedidosController::class,'confirmar'
 ])->name('pedido.confirmar');
 
-Route::get('graficos',[PedidosController::class,'graficos'
-])->name('pedido.graficos');
 
 // -------------------
 Route::resource('pago', PagosController::class);
@@ -163,11 +162,15 @@ Route::get('pago/{id}/anular',[PagosController::class,'anular'
 Route::get('pagos',[PagosController::class,'pagos'
 ])->name('pago.pagos');
 
-Route::get('boletas',[PagosController::class,'boletas'
-])->name('pago.boletas');
-
 // ----------------------
 Route::resource('asesoramiento', AsesoramientoController::class);
+
+// ----------------------
+Route::get('boletas',[GraficosPedidoController::class,'boletas'
+])->name('consulta.boletas');
+
+Route::get('graficos',[GraficosPedidoController::class,'graficos'
+])->name('consulta.graficos');
 
 // --------BEBIDAS-----------
 Route::resource('bebida', BebidasController::class);
