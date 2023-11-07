@@ -12,12 +12,16 @@
 
             <div class="col-md-12 m-5">
                 <div class="mb-3">
-                    <label for="" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" id="" required>
+                    <label for="" class="form-label">Nombres</label>
+                    <input type="text" class="form-control" name="nombres" id="" required>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" name="apellido" id="" required>
+                    <label for="" class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" name="apellidos" id="" required>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">DNI</label>
+                    <input type="text" class="form-control" name="dni" id="" maxlength="8" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Telefono</label>
@@ -30,11 +34,20 @@
                 </div>
             </div>
 
-            <div class="mb-2" style="text-align: center">
+            <div class="mb-3" style="text-align: center">
                 <button type="button" class="btn btn-secondary" onclick="location.href='{{ route('cliente') }}'">Atrás</button>
                 <input type="submit" class="btn btn-primary" value="Guardar">
             </div>
         </form>
     </div>
 </div>
+@endsection
+
+@section('sidebarMenu')
+    <li class="nav-item">
+        <a href="{{ route('cliente') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Clientes</p>
+        </a>
+    </li>
 @endsection

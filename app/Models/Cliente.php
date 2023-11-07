@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     use HasFactory;
-
-    protected $table='cliente';
-    protected $primaryKey='id';
-    protected $fillabed =  ['nombre', 'apellido', 'telefono', 'correo'];
-    public $timestamps = false;
+    protected $table='clientes';
+    protected $primaryKey='idCliente';
+    protected $fillabed =  ['nombres', 'apellidos', 'dni', 'correo', 'telefono', 'eliminado'];
+    public $timestamps = true;
 }

@@ -1,7 +1,5 @@
 @extends('layouts.bebidas')
-
 @section('dashName', 'Registar Bebida')
-
 @section('mainContent')
     <div class="card mb-4">
         <div class="card-body">
@@ -16,7 +14,7 @@
                         <div class="col">
                             <div class="form-group" style="padding-top: 10px">
                                 <label for=""><h6>Descipción:</h6></label>
-                                <input type="text"  class="form-control input_user @error('descripcion') is-invalid @enderror" 
+                                <input type="text"  class="form-control input_user @error('descripcion') is-invalid @enderror"
                                 placeholder="Nombre de producto"  id="descripcion" name="descripcion" >
                                 @error('descripcion')
                                 <span class="invalid-feedback" role="alert">
@@ -26,7 +24,7 @@
                             </div>
                         </div>
                         <br>
-                    </div> 
+                    </div>
                 </div>
 
                 <div class="row">
@@ -34,7 +32,7 @@
                         <div class="col-7">
                             <div class="form-group" style="padding-top: 10px">
                                 <label for=""><h6>Precio:</h6></label>
-                                <input type="decimal"  class="form-control input_user @error('precios') is-invalid @enderror" 
+                                <input type="decimal"  class="form-control input_user @error('precios') is-invalid @enderror"
                                 placeholder="Costo"  id="precio" name="precio" >
                                 @error('precio')
                                 <span class="invalid-feedback" role="alert">
@@ -43,13 +41,13 @@
                                 @enderror
                             </div>
                         </div>
-                    </div> 
+                    </div>
 
                     <div class="col-7 col-md-6">
                         <div class="col-5">
                             <div class="form-group" style="padding-top: 10px">
                                 <label for=""><h6>Cantidad:</h6></label>
-                                <input type="number"  class="form-control input_user @error('cantidad') is-invalid @enderror" 
+                                <input type="number"  class="form-control input_user @error('cantidad') is-invalid @enderror"
                                 placeholder="Cantidad"  id="cantidad" name="cantidad" >
                                 @error('cantidad')
                                 <span class="invalid-feedback" role="alert">
@@ -58,7 +56,7 @@
                                 @enderror
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
 
                 <br>
@@ -67,7 +65,7 @@
                         <div class="col-4">
                             <div class="form-group" style="padding-top: 10px">
                                 <label for=""><h6>Tipo de bebida:</h6></label>
-                                <input type="text"  class="form-control input_user @error('precios') is-invalid @enderror" 
+                                <input type="text"  class="form-control input_user @error('precios') is-invalid @enderror"
                                 placeholder="Tipo"  id="tipo" name="tipo" >
                                 @error('tipo')
                                 <span class="invalid-feedback" role="alert">
@@ -77,7 +75,7 @@
                             </div>
                         </div>
                         <br>
-                    </div> 
+                    </div>
                 </div>
 
                 <br>
