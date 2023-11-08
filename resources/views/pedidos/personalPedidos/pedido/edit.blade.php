@@ -1,6 +1,6 @@
 @extends('layouts.personalPedidos')
 
-@section('puntos', '../')
+@section('puntos', '../../')
 
 @section('dashName', 'Editar Pedido')
 

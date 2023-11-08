@@ -172,6 +172,10 @@ Route::get('consulta',[GraficosPedidoController::class,'boletas'
 Route::get('consulta/{id}/boletaGenerada',[GraficosPedidoController::class,'boletaGenerada'
 ])->name('consulta.boletaGenerada');
 
+// Route::get('/generar-boleta-pdf/{id}', 'GraficosPedidoController@generarBoletaPDF');
+Route::get('consulta/{id}/generarBoletaPDF',[GraficosPedidoController::class,'generarBoletaPDF'
+])->name('consulta.generarBoletaPDF');
+
 Route::get('graficos',[GraficosPedidoController::class,'graficos'
 ])->name('consulta.graficos');
 

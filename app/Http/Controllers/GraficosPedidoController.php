@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pedido;
 use App\Models\Cliente;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class GraficosPedidoController extends Controller
 {
@@ -18,9 +20,27 @@ class GraficosPedidoController extends Controller
 
     public function boletaGenerada($id)
     {
-        $cliente=Cliente::all();
+        $cliente=Cliente::findOrFail($id);
         $pedido = Pedido::findOrFail($id);
         return view('pedidos.personalPedidos.consulta.boletaGenerada', compact('pedido','cliente'));
+    }
+
+    public function generarBoletaPDF($id)
+    {
+        $cliente = Cliente::findOrFail($id);
+        $pedido = Pedido::findOrFail($id);
+
+        $html = view('pedidos.personalPedidos.consulta.generarBoletaPDF', compact('pedido', 'cliente'))->render();
+
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+
+        $dompdf = new Dompdf($options);
+        $dompdf->loadHtml($html);
+
+        $dompdf->render();
+
+        $dompdf->stream("boleta_de_pago.pdf", array("Attachment" => false));
     }
 
     public function graficos(Request $request)
