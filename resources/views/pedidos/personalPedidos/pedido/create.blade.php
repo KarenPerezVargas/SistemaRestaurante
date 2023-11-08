@@ -69,7 +69,7 @@
                         <div class="col-4">
                             <div class="form-group" style="padding-top: 10px">
                                 <label for=""><h6>Tipo de producto:</h6></label>
-                                <input type="text"  class="form-control input_user @error('precios') is-invalid @enderror" 
+                                <input type="text"  class="form-control input_user @error('tipo') is-invalid @enderror" 
                                 placeholder="Tipo"  id="tipo" name="tipo" >
                                 @error('tipo')
                                 <span class="invalid-feedback" role="alert">
@@ -81,6 +81,34 @@
                         <br>
                     </div> 
                 </div>
+
+                <br>
+                <div class="row">
+                    <div class="col-12 col-md-7">
+                        <div class="col-4">
+                            <div class="form-group" style="padding-top: 10px">
+                                <label for=""><h6>Cliente:</h6></label>
+                                <select class="form-control @error('idCliente') is-invalid @enderror" name="idCliente">
+                                    <option value="">Selecciona un cliente</option>
+                                    @if (count($cliente)<=0)
+                                    <option>No hay clientes</option>
+                                    @else   
+                                        @foreach($cliente as $cliente)
+                                            <option value="{{ $cliente->idCliente }}">{{ $cliente->nombres}}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                                @error('idCliente')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
 
                 <br>
                 {{-- Botones --}}

@@ -1,27 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Cliente;
 use App\Models\Mesa;
-
-use App\Models\Reserva;
 use Illuminate\Http\Request;
+use App\Models\Reserva;
+use Illuminate\Support\Facades\Date;
 
 class ReservaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-
-
-    public function index()
+    public function index(Request $request)
     {
-        $reserva = Reserva::all();
-        //$reserva = Reserva::find($id);
-        $cliente = $reserva->cliente_id;
-        $mesa = $reserva->mesa_id;
-
-        return view('reservas.reserva.reserva', compact('reserva', 'cliente_id', 'mesa_id'));
+        // Filtra los elementos con estado igual a 1
+        $reservas = Reserva::where('eliminado', 1)->get();
+        $clientes = Cliente::all();
+        $mesas = Mesa::all();
+        return view('reservas.reserva.reserva', compact('reservas','clientes','mesas'));
     }
 
     /**
@@ -29,9 +24,10 @@ class ReservaController extends Controller
      */
     public function create()
     {
-        $cliente = Cliente::all();
-        $mesa = Mesa::all();
-        return view('reservas.reserva.createReserva', compact('cliente', 'mesa'));
+        $reservas=Reserva::all();
+        $clientes = Cliente::all();
+        $mesas = Mesa::all();
+        return view('reservas.reserva.createReserva', compact('reservas','clientes','mesas'));
     }
 
     /**
@@ -40,12 +36,14 @@ class ReservaController extends Controller
     public function store(Request $request)
     {
         $reserva = new Reserva();
-        $reserva->reserva_fecha = $request->reserva_fecha;
-        $reserva->reserva_hora = $request->reserva_hora;
-        $reserva->reserva_cantidad = $request->reserva_cantidad;
-        $reserva->reserva_estado = $request->reserva_estado;
+        $reserva->fecha_reserva = Date::now();
+        $reserva->fecha_comida = $request->fecha_comida;
+        $reserva->num_comensales = $request->num_comensales;
         $reserva->cliente_id = $request->cliente_id;
         $reserva->mesa_id = $request->mesa_id;
+        $reserva->estado = 'Pendiente';
+        $reserva->observaciones = $request->observaciones;
+        $reserva->eliminado = 1;
         $reserva->save();
         return redirect()->route('reserva');
     }
@@ -63,10 +61,10 @@ class ReservaController extends Controller
      */
     public function edit(Request $request,string $id)
     {
-        $cliente = Cliente::find($id);
-        $cliente = Cliente::all();
-        $mesa = Mesa::all();
-        return view('reservas.reserva.editReserva', compact('reserva', 'cliente', 'mesa'));
+        $reservas = Reserva::find($id);
+        $clientes = Cliente::all();
+        $mesas = Mesa::all();
+        return view('reservas.reserva.editReserva', compact('reservas', 'id', 'clientes','mesas'));
     }
 
     /**
@@ -75,12 +73,12 @@ class ReservaController extends Controller
     public function update(Request $request, string $id)
     {
         $reserva = Reserva::find($id);
-        $reserva->reserva_fecha = $request->reserva_fecha;
-        $reserva->reserva_hora = $request->reserva_hora;
-        $reserva->reserva_cantidad = $request->reserva_cantidad;
-        $reserva->reserva_estado = $request->reserva_estado;
+        $reserva->fecha_comida = $request->fecha_comida;
+        $reserva->num_comensales = $request->num_comensales;
         $reserva->cliente_id = $request->cliente_id;
         $reserva->mesa_id = $request->mesa_id;
+        $reserva->estado = $request->estado;
+        $reserva->observaciones = $request->observaciones;
         $reserva->save();
         return redirect()->route('reserva');
     }
@@ -88,58 +86,11 @@ class ReservaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $reserva = Reserva::find($id);
-        $reserva->delete();
+        $reserva->eliminado = 0;
+        $reserva->save();
         return redirect()->route('reserva');
     }
 }
-
-
-
-
-
-// ...class ReservaController extends Controller
-// ... {
-    // ...
-
-    // ...public function mostrarReserva($id)
-   // ... {
-        // ...$reserva = Reserva::find($id);
-    // ...    $clienteDeLaReserva = $reserva->cliente;
-    // ...    $mesaDeLaReserva = $reserva->mesa;
-
-   // ...     return view('reservas.mostrar', compact('reserva', 'clienteDeLaReserva', 'mesaDeLaReserva'));
-   // ... }
-
-    // ...public function editarReserva($id)
-    // ...{
-   // ...    $reserva = Reserva::find($id);
-    // ...    $clienteDeLaReserva = $reserva->cliente;
-    // ...     $mesaDeLaReserva = $reserva->mesa;
-
-        // Aquí puedes cargar la vista de edición con los datos de la reserva y las tablas relacionadas
-    // ...     return view('reservas.editar', compact('reserva', 'clienteDeLaReserva', 'mesaDeLaReserva'));
-    // ... }
-
-    // ... public function actualizarReserva(Request $request, $id)
-    // ... {
-        // Aquí puedes actualizar la reserva y sus relaciones con Cliente y Mesa
-        // Recuerda validar y guardar los datos según tus necesidades
-
-        // Ejemplo de cómo podrías actualizar la relación con Cliente (dependiendo de tus campos)
-    // ...     $reserva = Reserva::find($id);
-    // ...     $reserva->cliente->update([
-    // ...         'nombre' => $request->nombre,
-    // ...         'apellido' => $request->apellido,
-            // Agrega aquí otros campos que desees actualizar
-    // ...     ]);
-
-        // De manera similar, actualiza la relación con Mesa si es necesario
-
-     // ...    return redirect()->route('reservas.mostrar', $id)->with('success', 'Reserva actualizada con éxito');
-    // ... }
-
-    // ...
-// ... }

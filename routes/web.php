@@ -42,6 +42,7 @@ use App\Http\Controllers\AsesoramientoController;
 use App\Http\Controllers\BebidasController;
 use App\Http\Controllers\ProductosController;
 use App\Models\HorarioEntrega;
+use App\Http\Controllers\GraficosPedidoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -147,6 +148,7 @@ Route::get('cancelar-pedido',function(){
 Route::get('pedido/{id}/confirmar',[PedidosController::class,'confirmar'
 ])->name('pedido.confirmar');
 
+
 // -------------------
 Route::resource('pago', PagosController::class);
 Route::get('cancelar-pago',function(){
@@ -154,13 +156,24 @@ Route::get('cancelar-pago',function(){
 })->name('cancelar-pago');
 Route::get('pago/{id}/confirmar',[PagosController::class,'confirmar'
 ])->name('pago.confirmar');
-Route::get('pagos',[PagosController::class,'pagos'
-])->name('pago.pagos');
 Route::get('pago/{id}/anular',[PagosController::class,'anular'
 ])->name('pago.anular');
 
+Route::get('pagos',[PagosController::class,'pagos'
+])->name('pago.pagos');
+
 // ----------------------
 Route::resource('asesoramiento', AsesoramientoController::class);
+
+// ----------------------
+Route::resource('consulta', GraficosPedidoController::class);
+Route::get('consulta',[GraficosPedidoController::class,'boletas'
+])->name('consulta.boletas');
+Route::get('consulta/{id}/boletaGenerada',[GraficosPedidoController::class,'boletaGenerada'
+])->name('consulta.boletaGenerada');
+
+Route::get('graficos',[GraficosPedidoController::class,'graficos'
+])->name('consulta.graficos');
 
 // --------BEBIDAS-----------
 Route::resource('bebida', BebidasController::class);
@@ -329,3 +342,4 @@ Route::post('/guardarMenu', [MenuController::class, 'store'])->name('guardarMenu
 Route::get('/editMenu/{id}', [MenuController::class, 'edit'])->name('editMenu');
 Route::post('/actualizarMenu/{id}', [MenuController::class, 'update'])->name('actualizarMenu');
 Route::post('/eliminarMenu/{id}', [MenuController::class, 'destroy'])->name('eliminarMenu');
+

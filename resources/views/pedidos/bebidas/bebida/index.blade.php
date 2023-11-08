@@ -1,8 +1,7 @@
 @extends('layouts.bebidas')
-
 @section('dashName', 'BEBIDAS')
-
 @section('mainContent')
+<!-- Page Content-->
     <div class="card mb-4">
         <div class="card-header">
             <form class="form-inline my-2" method="get">
@@ -25,7 +24,7 @@
                 </div>
             </form>
         </div>
-                
+
         <div class="card-body">
             <div id="mensaje">
                 @if (session('datos'))
@@ -54,47 +53,38 @@
                         <tr>
                             <td colspan="3">No hay registros</td>
                         </tr>
-                    @else   
-                    
+                    @else
+
                         @foreach ($bebida as $itembebida)
                         <tr>
                             <td class="text-uppercase text-xxs mb-0 text-center">
-                            
                                 <p>{{$itembebida->idbebida}}</p>
-                            
                             </td>
+
                             <td class="text-uppercase text-xxs mb-0 text-center">
-                                
                                 <p>{{$itembebida->descripcion}}</p>
-                                
                             </td>
 
                             <td class="text-uppercase text-xxs mb-0 text-center">
-                                
                                 <p>{{$itembebida->precio}}</p>
-                                
                             </td>
 
                             <td class="text-uppercase text-xxs mb-0 text-center">
-                                
                                 <p>{{$itembebida->cantidad}}</p>
-                                
                             </td>
 
                             <td class="text-uppercase text-xxs mb-0 text-center">
-                                
                                 <p>{{$itembebida->tipo}}</p>
-                                
                             </td>
-                            
+
                             <td class="text-uppercase text-xxs mb-0 text-center">
                                 <a href="{{route('bebida.edit',$itembebida->idbebida)}}" class="btn btn-info btn-sm text-uppercase text-xxs font-weight-bolder"><i class="fas fas-edit"></i>Editar</a>
                                 <a href="{{route('bebida.confirmar',$itembebida->idbebida)}}"class="btn btn-danger btn-sm text-uppercase text-xxs font-weight-bolder"><i class="fas fas-trash"></i>Eliminar</a>
                             </td>
                         </tr>
-                        
+
                         @endforeach
-                        @endif  
+                    @endif
                     </tbody>
                 </table>
                 {{-- End Tabla --}}

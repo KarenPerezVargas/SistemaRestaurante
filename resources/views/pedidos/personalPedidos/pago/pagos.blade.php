@@ -57,7 +57,7 @@
                         <tr>
                             <td class="text-uppercase text-xxs mb-0 text-center">
                             
-                                <p>{{$itempedido->idpedido}}</p>
+                                <p>{{$itempedido->idPedido}}</p>
                             
                             </td>
                             <td class="text-uppercase text-xxs mb-0 text-center">
@@ -79,7 +79,7 @@
                             </td>
 
                             <td class="text-uppercase text-xxs mb-0 text-center">
-                                <a href="{{route('pago.anular',$itempedido->idpedido)}}"class="btn btn-danger btn-sm text-uppercase text-xxs font-weight-bolder"><i class="fas fas-trash"></i>Anular</a>
+                                <a href="{{route('pago.anular',$itempedido->idPedido)}}"class="btn btn-danger btn-sm text-uppercase text-xxs font-weight-bolder"><i class="fas fas-trash"></i>Anular</a>
                             </td>
                         </tr>
                         

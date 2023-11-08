@@ -21,7 +21,7 @@ class PagosController extends Controller
         $pedido = Pedido::where('estado','=','2')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
         return view('pedidos.personalPedidos.pago.pagos',compact('pedido','buscarpor'));
     }
-    
+
     public function show($id)
     {
         //

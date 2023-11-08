@@ -1,16 +1,14 @@
-@extends('layouts.productos')
+@extends('layouts.personalPedidos')
 
-@section('dashName', 'PRODUCTOS')
+@section('dashName', 'BOLETAS')
 
 @section('mainContent')
+    <h2 align="center" style="color: green">Generar boletas</h2>
     <div class="card mb-4">
         <div class="card-header">
             <form class="form-inline my-2" method="get">
                 <div class="container-fluid h-100">
                     <div class="row w-100 align-items-center">
-                        <div class="col-8">
-                            <a href="{{ route('producto.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Registro</a>
-                        </div>
                         <div class="col-4">
                             <div class="row">
                                 <div class="col-9">
@@ -43,53 +41,45 @@
                     <tr>
                         <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>N</h6></th>
                         <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Descripción</h6></th>
-                        <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Precio en (S/.)</h6></th>
-                        <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Cantidad</h6></th>
-                        <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Tipo Producto</h6></th>
-                        <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Opciones</h6></th>
+                        <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Tipo Pedido</h6></th>
+                        <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Costo Total en (S/.)</h6></th>
+                        <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Boletas</h6></th>
                     </tr>
                     </thead>
                     <tbody>
-                    @if (count($producto)<=0)
+                    @if (count($pedido)<=0)
                         <tr>
                             <td colspan="3">No hay registros</td>
                         </tr>
                     @else   
                     
-                        @foreach ($producto as $itemproducto)
+                        @foreach ($pedido as $itempedido)
                         <tr>
                             <td class="text-uppercase text-xxs mb-0 text-center">
                             
-                                <p>{{$itemproducto->idproducto}}</p>
+                                <p>{{$itempedido->idPedido}}</p>
                             
                             </td>
                             <td class="text-uppercase text-xxs mb-0 text-center">
                                 
-                                <p>{{$itemproducto->descripcion}}</p>
+                                <p>{{$itempedido->descripcion}}</p>
                                 
                             </td>
 
                             <td class="text-uppercase text-xxs mb-0 text-center">
                                 
-                                <p>{{$itemproducto->precio}}</p>
-                                
-                            </td>
-
-                            <td class="text-uppercase text-xxs mb-0 text-center">
-                                
-                                <p>{{$itemproducto->cantidad}}</p>
-                                
-                            </td>
-
-                            <td class="text-uppercase text-xxs mb-0 text-center">
-                                
-                                <p>{{$itemproducto->tipo}}</p>
+                                <p>{{$itempedido->tipo}}</p>
                                 
                             </td>
                             
                             <td class="text-uppercase text-xxs mb-0 text-center">
-                                <a href="{{route('producto.edit',$itemproducto->idproducto)}}" class="btn btn-info btn-sm text-uppercase text-xxs font-weight-bolder"><i class="fas fas-edit"></i>Editar</a>
-                                <a href="{{route('producto.confirmar',$itemproducto->idproducto)}}"class="btn btn-danger btn-sm text-uppercase text-xxs font-weight-bolder"><i class="fas fas-trash"></i>Eliminar</a>
+                                
+                                <p>{{$itempedido->precio*$itempedido->cantidad}}</p>
+                                
+                            </td>
+
+                            <td class="text-uppercase text-xxs mb-0 text-center">
+                                <a href="{{route('consulta.boletaGenerada',$itempedido->idPedido)}}"class="btn btn-info btn-sm text-uppercase text-xxs font-weight-bolder"><i class="fas fas-trash"></i>Generar</a>
                             </td>
                         </tr>
                         
@@ -100,7 +90,7 @@
                 {{-- End Tabla --}}
         </div>
     </div>
-    {{$producto->links()}}
+    {{$pedido->links()}}
 @endsection
 
 @section('scripts')

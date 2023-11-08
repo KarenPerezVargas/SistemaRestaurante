@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
 use Illuminate\Http\Request;
+use App\Models\Cliente;
 
 class ClienteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
-        $cliente = Cliente::all();
+        // Filtra los elementos con estado igual a 1
+        $cliente = Cliente::where('eliminado', 1)->get();
+
         return view('reservas.cliente.cliente', compact('cliente'));
     }
 
@@ -21,7 +20,8 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('reservas.cliente.createCliente');
+        $clientes=Cliente::all();
+        return view('reservas.cliente.createCliente', compact('clientes'));
     }
 
     /**
@@ -30,10 +30,12 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $cliente = new Cliente();
-        $cliente->nombre = $request->nombre;
-        $cliente->apellido = $request->apellido;
-        $cliente->telefono = $request->telefono;
+        $cliente->nombres = $request->nombres;
+        $cliente->apellidos = $request->apellidos;
+        $cliente->dni = $request->dni;
         $cliente->correo = $request->correo;
+        $cliente->telefono = $request->telefono;
+        $cliente->eliminado = 1;
         $cliente->save();
         return redirect()->route('cliente');
     }
@@ -61,10 +63,12 @@ class ClienteController extends Controller
     public function update(Request $request, string $id)
     {
         $cliente = Cliente::find($id);
-        $cliente->nombre = $request->nombre;
-        $cliente->apellido = $request->apellido;
-        $cliente->telefono = $request->telefono;
+        $cliente->nombres = $request->nombres;
+        $cliente->apellidos = $request->apellidos;
+        $cliente->dni = $request->dni;
         $cliente->correo = $request->correo;
+        $cliente->telefono = $request->telefono;
+        $cliente->eliminado = 1;
         $cliente->save();
         return redirect()->route('cliente');
     }
@@ -72,10 +76,11 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $cliente = Cliente::find($id);
-        $cliente->delete();
+        $cliente->eliminado = 0;
+        $cliente->save();
         return redirect()->route('cliente');
     }
 }

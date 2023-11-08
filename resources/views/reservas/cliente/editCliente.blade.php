@@ -13,12 +13,16 @@
 
             <div class="col-md-12 m-5">
                 <div class="mb-3">
-                    <label for="" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" value="{{$cliente->nombre}}" id="" required>
+                    <label for="" class="form-label">Nombres</label>
+                    <input type="text" class="form-control" name="nombres" value="{{$cliente->nombres}}" id="" required>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" name="apellido" value="{{$cliente->apellido}}" id="" required>
+                    <label for="" class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" name="apellidos" value="{{$cliente->apellidos}}" id="" required>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">DNI</label>
+                    <input type="text" class="form-control" name="dni" value="{{$cliente->dni}}" id="" maxlength="8" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Telefono</label>
@@ -38,4 +42,14 @@
         </form>
     </div>
 </div>
+@endsection
+
+@section('sidebarMenu')
+    <li class="nav-item">
+        <a href="{{ route('cliente') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Clientes</p>
+        </a>
+    </li>
+
 @endsection

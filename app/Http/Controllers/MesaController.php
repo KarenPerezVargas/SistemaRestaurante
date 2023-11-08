@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mesa;
 use Illuminate\Http\Request;
+use App\Models\Mesa;
 
 class MesaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
-        $mesa = Mesa::all();
+        // Filtra los elementos con estado igual a 1
+        $mesa = Mesa::where('eliminado', 1)->get();
         return view('reservas.mesa.mesa', compact('mesa'));
     }
 
@@ -21,7 +19,8 @@ class MesaController extends Controller
      */
     public function create()
     {
-        return view('reservas.mesa.createMesa');
+        $mesas=Mesa::all();
+        return view('reservas.mesa.createMesa', compact('mesas'));
     }
 
     /**
@@ -30,9 +29,10 @@ class MesaController extends Controller
     public function store(Request $request)
     {
         $mesa = new Mesa();
-        $mesa->numero = $request->numero;
+        $mesa->nombre = $request->nombre;
         $mesa->capacidad = $request->capacidad;
         $mesa->estado = $request->estado;
+        $mesa->eliminado = 1;
         $mesa->save();
         return redirect()->route('mesa');
     }
@@ -60,7 +60,7 @@ class MesaController extends Controller
     public function update(Request $request, string $id)
     {
         $mesa = Mesa::find($id);
-        $mesa->numero = $request->numero;
+        $mesa->nombre = $request->nombre;
         $mesa->capacidad = $request->capacidad;
         $mesa->estado = $request->estado;
         $mesa->save();
@@ -70,10 +70,11 @@ class MesaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $mesa = Mesa::find($id);
-        $mesa->delete();
+        $mesa->eliminado = 0;
+        $mesa->save();
         return redirect()->route('mesa');
     }
 }

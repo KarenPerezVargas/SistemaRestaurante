@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Pedido;
+use App\Models\Cliente;
 
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class PedidosController extends Controller
     public function create()
     {
         $pedidos=Pedido::all();
-        return view('pedidos.personalPedidos.pedido.create',compact('pedidos'));
+        $cliente=Cliente::all();
+        return view('pedidos.personalPedidos.pedido.create',compact('pedidos','cliente'));
     }
 
     public function store(Request $request)
@@ -47,7 +49,9 @@ class PedidosController extends Controller
         $pedido->precio = $request->precio;
         $pedido->cantidad = $request->cantidad;
         $pedido->tipo = $request->tipo;
+        $pedido->fecha = date('Y-m-d H:i:s');
         $pedido->estado = 1;
+        $pedido->idCliente = $request->idCliente;
         $pedido->save();
         return redirect()->route('pedido.index')->with('datos', 'Registro Nuevo Guardado');
     }

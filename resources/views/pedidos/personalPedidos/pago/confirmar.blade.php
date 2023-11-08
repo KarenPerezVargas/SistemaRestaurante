@@ -9,7 +9,7 @@
 <div class="card-header">
     <label for="" class="form-label"><b>ID</b></label>
     <input class="form-control " type="text" id="id" name="id"
-    value="{{ $pedido->idpedido}}" disabled readonly/>
+    value="{{ $pedido->idPedido}}" disabled readonly/>
 </div>
 <div class="card-body row g-3">
     <div class="col-md-12">
@@ -29,7 +29,7 @@
             </div>
         </div>
         <br>
-        <form method="POST" action="{{route('pago.destroy',$pedido->idpedido)}}">
+        <form method="POST" action="{{route('pago.destroy',$pedido->idPedido)}}">
             @method('DELETE')
             @csrf
             <div class="col-12">
