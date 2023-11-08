@@ -57,7 +57,7 @@
                         <tr>
                             <td class="text-uppercase text-xxs mb-0 text-center">
                             
-                                <p>{{$itempedido->idpedido}}</p>
+                                <p>{{$itempedido->idPedido}}</p>
                             
                             </td>
                             <td class="text-uppercase text-xxs mb-0 text-center">
@@ -79,7 +79,7 @@
                             </td>
 
                             <td class="text-uppercase text-xxs mb-0 text-center">
-                                <a href=""class="btn btn-danger btn-sm text-uppercase text-xxs font-weight-bolder"><i class="fas fas-trash"></i>Generar</a>
+                                <a href="{{route('consulta.boletaGenerada',$itempedido->idPedido)}}"class="btn btn-info btn-sm text-uppercase text-xxs font-weight-bolder"><i class="fas fas-trash"></i>Generar</a>
                             </td>
                         </tr>
                         

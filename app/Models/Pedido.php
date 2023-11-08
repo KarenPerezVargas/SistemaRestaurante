@@ -9,7 +9,7 @@ class Pedido extends Model
 {
     use HasFactory;
     protected $table='pedidos';
-    protected $primaryKey='idpedido';
+    protected $primaryKey='idPedido';
     protected $fillable=['descripcion','precio','cantidad','tipo','fecha','estado', 'idCliente'];
     public $timestamps=false;
 }

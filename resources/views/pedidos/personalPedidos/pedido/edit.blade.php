@@ -7,14 +7,14 @@
 @section('mainContent')
 <div class="card mb-4">
     <div class="card-body">
-        <form method="POST" action="{{route('pedido.update',$pedido->idpedido)}}">
+        <form method="POST" action="{{route('pedido.update',$pedido->idPedido)}}">
             {{--  metodo put para actualizar el registro --}}
             @method('put')
             @csrf
             {{-- CODIGO --}}
             <div class="form-group col-1" style="padding-top: 10px">
                 <label><h6>Codigo:</h6></label>
-                <input class="form-control" type="text"  id="idpedido" name="idpedido" value="{{$pedido->idpedido}}" disabled />
+                <input class="form-control" type="text"  id="idPedido" name="idPedido" value="{{$pedido->idPedido}}" disabled />
             </div>   
             <br>
 

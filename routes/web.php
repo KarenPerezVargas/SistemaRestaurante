@@ -166,8 +166,11 @@ Route::get('pagos',[PagosController::class,'pagos'
 Route::resource('asesoramiento', AsesoramientoController::class);
 
 // ----------------------
-Route::get('boletas',[GraficosPedidoController::class,'boletas'
+Route::resource('consulta', GraficosPedidoController::class);
+Route::get('consulta',[GraficosPedidoController::class,'boletas'
 ])->name('consulta.boletas');
+Route::get('consulta/{id}/boletaGenerada',[GraficosPedidoController::class,'boletaGenerada'
+])->name('consulta.boletaGenerada');
 
 Route::get('graficos',[GraficosPedidoController::class,'graficos'
 ])->name('consulta.graficos');

@@ -94,7 +94,7 @@
                                     <option>No hay clientes</option>
                                     @else   
                                         @foreach($cliente as $cliente)
-                                            <option value="{{ $cliente->idCliente }}">{{ $cliente->nombre }}</option>
+                                            <option value="{{ $cliente->idCliente }}">{{ $cliente->nombres}}</option>
                                         @endforeach
                                     @endif
                                 </select>
