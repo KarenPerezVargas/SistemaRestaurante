@@ -41,13 +41,15 @@ class ReporteController extends Controller
     /**
      * Display the specified resource.
      */
+
     public function show1(string $id)
-    {
+    { 
         $empleado = Empleado::find($id);
         $registros = EmpleadoCapacitacion::where('idemple' , $id)->get();
         $capacitaciones = Capacitacion::all();
         return view('rrhh.desarrollo', compact('empleado', 'registros', 'capacitaciones'));
     }
+
 
     public function show2(string $id)
     {

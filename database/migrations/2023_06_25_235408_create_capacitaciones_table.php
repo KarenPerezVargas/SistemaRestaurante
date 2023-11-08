@@ -16,9 +16,12 @@ return new class extends Migration
         Schema::create('capacitaciones', function (Blueprint $table) {
             $table->id('idCapacitacion');
             $table->string('temaCapacitacion', 60);
-            $table->date('fechaCapacitacion');
-            $table->string('areaCapacitacion', 20);
             $table->unsignedBigInteger('idEmpleado');
+            $table->string('areaCapacitacion', 20);
+            $table->date('fechaCapacitacion');
+            $table->unsignedBigInteger('idInstructor');
+            $table->enum('estadoCapacitacion', ['pendiente', 'en curso', 'finalizada'])->default('pendiente');
+
             $table->timestamps();
 
             $table->foreign('idEmpleado')->references('idEmpleado')->on('personal');

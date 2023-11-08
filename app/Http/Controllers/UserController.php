@@ -17,71 +17,37 @@ class UserController extends Controller
     public function index()
     {
         if (Auth::check()) {
-        /*     if (auth()->user()->idEmpleado == null) {
-                return view('home');
-            } else {
-                return view('admin.home');
-            }
-        } else { */
-            // dd(auth()->user()->idEmpleado);
-            $contratos = Contrato::all();
-            $personal = Empleado::all();
-            $idemp = auth()->user()->idEmpleado;
-            $rol = ($contratos->find(($personal->find($idemp))->idContrato))->idRole;
-            if ($rol == null) {
-                return view('home');
-            }
-            if ($rol == 1) {
-                return view('admin.home');
-            }
-            if ($rol == 2) {
-                return view('recursos.instructor.instructor.index');
-            }
-            if ($rol == 3) {
-                return view('recursos.supervisor.supervisor.index');
-            }
-            if ($rol == 4) {
-                return view('recursos.reclutador.reclutador.index');
-            }
-            if ($rol == 5) {
-                return view('recursos.gerenterrhh.gerente.index');
-            }
-            if ($rol == 6) {
-                return view('pedidos.personalPedidos.asesoramiento.index');
-            }
-            if ($rol == 7) {
-                return view('pedidos.repartidor.repartidor.index');
-            }
-            if ($rol == 8) {
-                return view('pedidos.cliente.cliente.index');
-            }
-            if ($rol == 9) {
-                return view('marketing.gerentemarketing.gerente.index');
-            }
-            if ($rol == 10) {
-                return view('marketing.coordinadoreventos.coordinador.index');
-            }
-            if ($rol == 11) {
-                return view('marketing.disenadorpubli.disenador.index');
-            }
-            if ($rol == 12) {
-                return view('marketing.agentepubli.agente.index');
-            }
-            if ($rol == 13) {
-                return view('inventario.gerentealmacen.gerente.index');
-            }
-            if ($rol == 14) {
-                return view('inventario.personalalmacen.personal.index');
-            }
-            if ($rol == 15) {
-                return view('inventario.contador.contador.index');
-            }
-            if ($rol == 16) {
-                return view('reservas.recepcionista.recepcionista.index');
-            }
-            return view('index');
+            $user = auth()->user();
+            $rol = $user->empleado->contrato->idRole ?? null;
+            // dd($rol);
+
+            $views = [
+                1 => 'admin.home',
+                2 => 'rrhh.instructor.instructor.index',
+                3 => 'rrhh.supervisor.supervisor.index',
+                4 => 'recursos.reclutador.reclutador.index',
+                5 => 'rrhh.gerenterrhh.gerenterrhh.index',
+                6 => 'pedidos.personalPedidos.asesoramiento.index',
+                7 => 'pedidos.repartidor.repartidor.index',
+                8 => 'pedidos.cliente.cliente.index', // Redirige a una vista predeterminada
+                9 => 'marketing.gerentemarketing.gerente.index', // Redirige a una vista predeterminada
+                10 => 'marketing.coordinadoreventos.coordinador.index',
+                11 => 'marketing.disenadorpubli.disenador.index',
+                12 => 'marketing.agentepubli.agente.index',
+                13 => 'inventario.gerentealmacen.gerente.index',
+                14 => 'inventario.personalalmacen.personal.index',
+                15 => 'inventario.contador.contador.index',
+                16 => 'reservas.recepcionista.recepcionista.index',
+            ];
+
+            $viewName = $views[$rol] ?? 'index';
+
+            return view($viewName);
         }
+
+        return view('home');
     }
+
 
     public function show()
     {

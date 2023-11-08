@@ -47,4 +47,12 @@ class User extends Authenticatable
     public function setPasswordAttribute($value) {
         $this->attributes['password'] = bcrypt($value);
     }
+
+
+    public function empleado()
+    {
+        return $this->belongsTo(Empleado::class, 'idEmpleado', 'idEmpleado');
+    }
+
+
 }
