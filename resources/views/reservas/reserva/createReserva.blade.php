@@ -1,61 +1,48 @@
 @extends('layouts.recepcionista')
 @section('puntos', '../')
 @section('mainContent')
-    <form action="{{ route('guardarReserva') }}" method="post">
-        <h5 class="title" style="font-family:Verdana, Geneva, Tahoma, sans-serif">
-            <strong>
-                <center>Editar datos de la compra</center>
-        </h5>
-        @csrf
-        <!-- Mover esta etiqueta dentro del formulario -->
-        <div>
-            <div class="row m-5">
-                <div class="col-md-6">
-                    <div class="mb-4">
-                        <label for="" class="form-label">Fecha</label>
-                        <input type="date" class="form-control" name="reserva_fecha" id="" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="" class="form-label">N° de personas</label>
-                        <input type="number" class="form-control" name="reserva_cantidad" id="" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="" class="form-label">Mesa</label>
-                        <select class="form-select" aria-label="Default select example" name="reserva_mesa_id" required>
-                            @foreach ($mesas as $mesa)
-                                <option value="{{ $mesa->id }}">{{ $mesa->mesa_id }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <form action="{{ route('guardarMesa') }}" method="post" class="col-md-8">
+            <h5 class="title" style="font-family: Verdana, Geneva, Tahoma, sans-serif">
+                <strong>
+                    <center>Registro de datos de la mesa </center>
+                </strong>
+            </h5>
+            @csrf
+
+            <div class="col-md-12 m-5">
+                <div class="mb-3">
+                    <label for="" class="form-label">Número de Mesa</label>
+                    <input type="text" class="form-control" name="numero" id="" required>
                 </div>
-                <div class="col-md-6">
-                    <div class="mb-4">
-                        <label for="" class="form-label">Hora</label>
-                        <input type="time" class="form-control" name="reserva_hora" id="" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="" class="form-label">Cliente</label>
-                        <select class="form-select" aria-label="Default select example" name="reserva_cliente_id" required>
-                            @foreach ($cliente as $cliente)
-                                <option value="{{ $cliente->id }}">{{ $cliente->cliente_id }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Estado</label>
-                        <select class="form-select" aria-label="Default select example" name="reserva_estado" required>
-                            <option value="Pendiente">Pendiente</option>
-                            <option value="Confirmada">Confirmada</option>
-                            <option value="Cancelada">Cancelada</option>
-                        </select>
-                    </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Capacidad</label>
+                    <select class="form-select" aria-label="Default select example" name="capacidad" required>
+                        <option value="1">1 persona</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Estado</label>
+                    <select class="form-select" aria-label="Default select example" name="estado" required>
+                        <option value="Disponible">Disponible</option>
+                        <option value="Reservada">Reservada</option>
+                        <option value="Ocupada">Ocupada</option>
+                    </select>
                 </div>
             </div>
-        </div>
 
-        <div class="mb-2" style="text-align: center">
-            <button type="button" class="btn btn-secondary" onclick="location.href='{{ route('reserva') }}'">Atrás</button>
-            <input type="submit" class="btn btn-primary" value="Guardar">
-        </div>
-    </form>
+            <div class="mb-2" style="text-align: center">
+                <button type="button" class="btn btn-secondary" onclick="location.href='{{ route('mesa') }}'">Atrás</button>
+                <input type="submit" class="btn btn-primary" value="Guardar">
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
+
+
+

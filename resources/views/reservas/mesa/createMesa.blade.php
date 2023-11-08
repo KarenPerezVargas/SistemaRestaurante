@@ -13,7 +13,7 @@
             <div class="col-md-12 m-5">
                 <div class="mb-3">
                     <label for="" class="form-label">Número de Mesa</label>
-                    <input type="text" class="form-control" name="numero" id="" required>
+                    <input type="text" class="form-control" name="nombre" id="" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Capacidad</label>
