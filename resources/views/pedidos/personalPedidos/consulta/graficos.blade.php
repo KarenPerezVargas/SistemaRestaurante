@@ -1,8 +1,8 @@
-@extends('layout.personalPedidos')
+@extends('layouts.personalPedidos')
 
 @section('titulo', 'GRÁFICOS')
 
-@section('contenido')
+@section('mainContent')
     <H2>Gráficos</H2>
     
 @endsection

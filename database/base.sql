@@ -36,11 +36,11 @@ insert into contratos values (1, '2023-02-23', 6, 1800.00, 1, 1);
 create table personal (idEmpleado bigint unsigned auto_increment, nombre varchar(20), apellidos varchar(20), DNI char(8), telefono char(9), direccion varchar(40), idContrato int, primary key(idEmpleado), foreign key(idContrato) references contratos(idContrato));
 insert into personal values (1, 'Ingenieria', 'de Software I', '12345678', '987654321', 'Universidad Nacional de Trujillo', 1);
 
-create table pedidos(idpedido integer auto_increment, descripcion varchar(100), precio float, cantidad int, tipo varchar(80), estado tinyint(4), primary key(idpedido));
+-- create table pedidos(idpedido integer auto_increment, descripcion varchar(100), precio float, cantidad int, tipo varchar(80), fecha date, estado tinyint(4), primary key(idpedido), idCliente int, foreign key(idCliente) references Cliente(id));
 
-create table bebidas(idbebida integer auto_increment, descripcion varchar(100), precio float, cantidad int, tipo varchar(80), estado tinyint(4), primary key(idbebida));
+create table bebidas(idbebida int auto_increment, descripcion varchar(40), precio float, cantidad int, tipo varchar(80), estado tinyint(4), primary key(idbebida));
 
-create table productos(idproducto integer auto_increment, descripcion varchar(100), precio float, cantidad int, tipo varchar(80), estado tinyint(4), primary key(idproducto));
+create table productos(idproducto int auto_increment, descripcion varchar(40), precio float, cantidad int, tipo varchar(80), estado tinyint(4), primary key(idproducto));
 
 
 /**
