@@ -161,7 +161,7 @@
               </li>
             </ul>
           </li>
-          
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -179,7 +179,25 @@
               </li>
             </ul>
           </li>
-          
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Clientes
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('cliente') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Gestionar clientes</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
@@ -208,13 +226,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('pago.boletas') }}" class="nav-link">
+                <a href="{{ route('consulta.boletas') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Generar boletas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('pedido.graficos') }}" class="nav-link">
+                <a href="{{ route('consulta.graficos') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Generar gráficos</p>
                 </a>

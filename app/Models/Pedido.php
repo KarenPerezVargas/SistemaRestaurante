@@ -9,7 +9,12 @@ class Pedido extends Model
 {
     use HasFactory;
     protected $table='pedidos';
-    protected $primaryKey='idpedido';
-    protected $fillable=['descripcion','precio','cantidad','tipo','estado'];
+    protected $primaryKey='idPedido';
+    protected $fillable=['descripcion','precio','cantidad','tipo','fecha','estado','idCliente'];
     public $timestamps=false;
+
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class, 'idCliente');
+    }
 }

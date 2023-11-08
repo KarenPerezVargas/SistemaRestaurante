@@ -12,8 +12,8 @@
 
             <div class="col-md-12 m-5">
                 <div class="mb-3">
-                    <label for="" class="form-label">Número de Mesa</label>
-                    <input type="text" class="form-control" name="numero" id="" required>
+                    <label for="" class="form-label">Nombre de Mesa</label>
+                    <input type="text" class="form-control" name="nombre" id="" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Capacidad</label>
@@ -41,4 +41,34 @@
         </form>
     </div>
 </div>
+@endsection
+
+@section('sidebarMenu')
+    <li class="nav-item">
+        <a href="{{ route('cliente') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Clientes</p>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a href="{{ route('mesa') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Mesas</p>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a href="{{ route('reserva') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Reservas</p>
+        </a>
+    </li>
+
+    {{-- <li class="nav-item">
+        <a href="{{ route('pago') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Pagos</p>
+        </a>
+    </li> --}}
 @endsection

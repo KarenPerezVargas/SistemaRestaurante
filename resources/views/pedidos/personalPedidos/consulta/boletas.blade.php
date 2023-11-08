@@ -1,9 +1,9 @@
 @extends('layouts.personalPedidos')
 
-@section('dashName', 'PAGOS')
+@section('dashName', 'BOLETAS')
 
 @section('mainContent')
-    <h2 align="center" style="color: blue">Pedidos por pagar</h2>
+    <h2 align="center" style="color: green">Generar boletas</h2>
     <div class="card mb-4">
         <div class="card-header">
             <form class="form-inline my-2" method="get">
@@ -43,7 +43,7 @@
                         <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Descripción</h6></th>
                         <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Tipo Pedido</h6></th>
                         <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Costo Total en (S/.)</h6></th>
-                        <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Opciones</h6></th>
+                        <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Boletas</h6></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -79,7 +79,7 @@
                             </td>
 
                             <td class="text-uppercase text-xxs mb-0 text-center">
-                                <a href="{{route('pago.confirmar',$itempedido->idPedido)}}"class="btn btn-success btn-sm text-uppercase text-xxs font-weight-bolder"><i class="fas fas-trash"></i>Pago</a>
+                                <a href="{{route('consulta.boletaGenerada',$itempedido->idPedido)}}"class="btn btn-info btn-sm text-uppercase text-xxs font-weight-bolder"><i class="fas fas-trash"></i>Generar</a>
                             </td>
                         </tr>
                         

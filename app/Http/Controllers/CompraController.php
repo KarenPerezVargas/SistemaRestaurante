@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Compra;
+use App\Models\Proveedor;
+use App\Models\Transporte;
 use Illuminate\Http\Request;
 
 class CompraController extends Controller
@@ -12,8 +14,10 @@ class CompraController extends Controller
      */
     public function index()
     {
+        $proveedor = Proveedor::all();
+        $transporte = Transporte::all();
         $compra = Compra::all();
-        return view('inventario.compra.compra', compact('compra'));
+        return view('inventario.compra.compra', compact('compra', 'proveedor', 'transporte'));
     }
 
     /**
@@ -21,7 +25,9 @@ class CompraController extends Controller
      */
     public function create()
     {
-        return view('inventario.compra.createCompra');
+        $proveedor = Proveedor::all();
+        $transporte = Transporte::all();
+        return view('inventario.compra.createCompra', compact('proveedor','transporte'));
     }
 
     /**
@@ -29,13 +35,16 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
+        $proveedor = Proveedor::find($request->proveedor_id);
+        $transporte = Transporte::find($request->transporte_id);
         $compra = new Compra();
         $compra->ruc = $request->ruc;
         $compra->fecha = $request->fecha;
-        $compra->empresa = $request->empresa;
-        $compra->direccion = $request->direccion;
-        $compra->email = $request->email;
-        $compra->contacto = $request->contacto;
+        $compra->proveedor_id = $proveedor->id;
+        $compra->transporte_id = $transporte->id;
+        $compra->indicaciones = $request->indicaciones;
+        $compra->origen = $request->origen;
+        $compra->destino = $request->destino;
         $compra->total = $request->total;
         $compra->save();
         return redirect()->route('compra');
@@ -52,10 +61,12 @@ class CompraController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request,string $id)
+    public function edit(Request $request, string $id)
     {
+        $proveedor = Proveedor::all();
+        $transporte = Transporte::all();
         $compra = Compra::find($id);
-        return view('inventario.compra.editCompra', compact('compra', 'id'));
+        return view('inventario.compra.editCompra', compact('compra','proveedor','transporte', 'id'));
     }
 
     /**
@@ -63,13 +74,16 @@ class CompraController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $proveedor = Proveedor::find($request->proveedor_id);
+        $transporte = Transporte::find($request->transporte_id);
         $compra = Compra::find($id);
         $compra->ruc = $request->ruc;
         $compra->fecha = $request->fecha;
-        $compra->empresa = $request->empresa;
-        $compra->direccion = $request->direccion;
-        $compra->email = $request->email;
-        $compra->contacto = $request->contacto;
+        $compra->proveedor_id = $request->proveedor_id;
+        $compra->transporte_id = $request->transporte_id;
+        $compra->indicaciones = $request->indicaciones;
+        $compra->origen = $request->origen;
+        $compra->destino = $request->destino;
         $compra->total = $request->total;
         $compra->save();
         return redirect()->route('compra');

@@ -25,8 +25,9 @@ class HorarioEntregaController extends Controller
     */
     public function index()
     {
+        $transporte = Transporte::all();
         $horario = HorarioEntrega::all();
-        return view('inventario.horario.horario', compact('horario'));
+        return view('inventario.horario.horario', compact('horario','transporte'));
     }
 
     /**
@@ -34,7 +35,9 @@ class HorarioEntregaController extends Controller
      */
     public function create()
     {
-        return view('inventario.horario.createHorario');
+        $transporte = Transporte::all();
+        $horario = HorarioEntrega::all();
+        return view('inventario.horario.createHorario', compact('horario','transporte'));
     }
 
     /**
@@ -42,8 +45,10 @@ class HorarioEntregaController extends Controller
      */
     public function store(Request $request)
     {
+        $transporte = Transporte::find($request->transporte_id);
         $horario = new HorarioEntrega();
         $horario->fecha = $request->fecha;
+        $horario->transporte_id = $request->transporte_id;
         $horario->hora_salida = $request->hora_salida;
         $horario->hora_esperada = $request->hora_esperada;
         $horario->save();
@@ -63,8 +68,9 @@ class HorarioEntregaController extends Controller
      */
     public function edit(Request $request,string $id)
     {
+        $transporte = Transporte::all();
         $horario = HorarioEntrega::find($id);
-        return view('inventario.horario.editHorario', compact('horario', 'id'));
+        return view('inventario.horario.editHorario', compact('horario','transporte','id'));
     }
 
     /**
@@ -73,7 +79,9 @@ class HorarioEntregaController extends Controller
     public function update(Request $request, string $id)
     {
         $horario = HorarioEntrega::find($id);
+        $transporte = Transporte::find($request->transporte_id);
         $horario->fecha = $request->fecha;
+        $horario->transporte_id = $request->transporte_id;
         $horario->hora_salida = $request->hora_salida;
         $horario->hora_esperada = $request->hora_esperada;
         $horario->save();

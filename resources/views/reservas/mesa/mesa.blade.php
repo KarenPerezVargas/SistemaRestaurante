@@ -11,7 +11,6 @@
                     <div class="col-7">
                         <a href="{{route('createMesa')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Registro</a>
                     </div>
-                    {{-- Buscador --}}
                 </div>
             </div>
         </form>
@@ -23,7 +22,7 @@
             <thead class="table-dark">
                 <tr>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>#</h6></th>
-                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Numero</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Nombre</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Capacidad</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Estado</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Opciones</h6></th>
@@ -40,7 +39,7 @@
                 @foreach ($mesa as $item)
                     <tr>
                         <td class="text-xxs mb-0 text-center">{{$item->idMesa}}</td>
-                        <td class="text-xxs mb-0 text-center">{{$item->numero}}</td>
+                        <td class="text-xxs mb-0 text-center">{{$item->nombre}}</td>
                         <td class="text-xxs mb-0 text-center">{{$item->capacidad}}</td>
                         <td class="text-xxs mb-0 text-center">{{$item->estado}}</td>
                         <td class="text-xxs mb-0 text-center">
@@ -63,7 +62,7 @@
 
                                             <div class="modal-body">
                                                 ¿Está seguro que desea eliminar este registro?<br>
-                                                <i>Se eliminará toda la información de la mesa</i>
+                                                <i>Se eliminará toda la información registrada</i>
                                             </div>
 
                                             <div class="modal-footer m-2">
@@ -81,4 +80,34 @@
         </table>
     </div>
 </div>
+@endsection
+
+@section('sidebarMenu')
+    <li class="nav-item">
+        <a href="{{ route('cliente') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Clientes</p>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a href="{{ route('mesa') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Mesas</p>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a href="{{ route('reserva') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Reservas</p>
+        </a>
+    </li>
+
+    {{-- <li class="nav-item">
+        <a href="{{ route('pago') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Pagos</p>
+        </a>
+    </li> --}}
 @endsection
