@@ -12,10 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('horario_entregas', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->date('fecha');
+            $table->unsignedBigInteger('transporte_id');
             $table->time('hora_salida');
             $table->time('hora_esperada');
+            $table->foreign('transporte_id')->references('id')->on('transporte');
             $table->timestamps();
         });
     }

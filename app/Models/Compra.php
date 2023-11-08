@@ -10,6 +10,6 @@ class Compra extends Model
     use HasFactory;
     protected $table='compra';
     protected $primaryKey='id';
-    protected $fillabed =  ['ruc', 'fecha', 'empresa', 'direccion', 'email', 'contacto', 'total'];
+    protected $fillabed =  ['ruc', 'proveedor_id','transporte_id', 'fecha', 'indicaciones', 'origen', 'destino', 'total'];
     public $timestamps = false;
 }
