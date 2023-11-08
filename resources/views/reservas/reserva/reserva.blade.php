@@ -1,83 +1,115 @@
 @extends('layouts.recepcionista')
-@section('dashName', 'Dashboard')
+@section('dashName', 'RESERVAS')
 @section('mainContent')
 <!-- Page Content-->
-<section class="pt-4">
-    <div class="container px-lg-5">
-        <!-- Page Features-->
-        <div class="row gx-lg-5">
-            <div class="navbar">
-                <div class="container-fluid">
-                    <h3><i>Reservas</i></h3>
-                    <a href="{{route('createReserva')}}" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Nuevo Registro</a>
+<div class="card mb-4">
+    <div class="card-header">
+        <form class="form-inline my-2" method="get">
+            <div class="container-fluid h-100">
+                <div class="row w-100 align-items-center">
+                    {{-- Registrar --}}
+                    <div class="col-7">
+                        <a href="{{route('createReserva')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Registro</a>
+                    </div>
                 </div>
             </div>
-            <div class="text-center">
-                <table class="table">
-                    <thead class="table-dark">
-                      <tr>
-                        <th>#</th>
-                        <th>Cliente</th>
-                        <th>Mesa</th>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                        <th>Cantidad</th>
-                        <th>Estado</th>
-                        <th>Opción</th>
-                      </tr>
-                    </thead>
-
-                    <tbody>
-                        @if ($reserva->count() == 0)
-                            <tr><td>No hay reservas registrados</td></tr>
-                        @endif
-                        @foreach ($reservas as $item)
-                            <tr>
-                                <td>{{$item->id}}</td>
-                                <td>{{$item->cliente_id}}</td>
-                                <td>{{$item->mesa_id}}</td>
-                                <td>{{$item->reserva_fecha}}</td>
-                                <td>{{$item->reserva_hora}}</td>
-                                <td>{{$item->reserva_cantidad}}</td>
-                                <td>{{$item->reserva_estado}}</td>
-                                <td>
-                                    <a href="{{route('editReserva', [$item->id])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
-                                    &nbsp; &nbsp; &nbsp;
-
-                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$item->id}}">
-                                        <i class="fas fa-trash"></i> Eliminar
-                                    </button>
-                                    <div>
-                                        <div class="modal fade" id="exampleModal-{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <form action="{{route('eliminarReserva', $item->id)}}" method="post">
-                                                    @csrf
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Eliminacion de la reserva</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        ¿Esta seguro que desea eliminar este registro<b></b>? <br>
-                                                        <i>Se eliminará toda la información de la reserva</i>
-                                                    </div>
-                                                    <div class="modal-footer m-2">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div>
-
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        </form>
     </div>
-</section>
+
+    <div class="card-body">
+    {{-- Tabla --}}
+        <table id="mi-tabla" class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>#</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>personas</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>área</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>fecha</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>hora</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Opciones</h6></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if ($reserva->count() == 0)
+                    <tr>
+                        <td colspan="3">No hay registros</td>
+                    </tr>
+                @endif
+
+                @foreach ($reserva as $item)
+                    <tr>
+                        <td class="text-xxs mb-0 text-center">{{$item->idReserva}}</td>
+                        <td class="text-xxs mb-0 text-center">{{$item->personas}}</td>
+                        <td class="text-xxs mb-0 text-center">{{$item->area}}</td>
+                        <td class="text-xxs mb-0 text-center">{{$item->fecha}}</td>
+                        <td class="text-xxs mb-0 text-center">{{$item->hora}}</td>
+                        <td class="text-xxs mb-0 text-center">
+                            <a href="{{route('editreserva', [$item->idReserva])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
+                            &nbsp; &nbsp; &nbsp;
+
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$item->idReserva}}">
+                                        <i class="fas fa-trash"></i> Eliminar
+                            </button>
+
+                            <div class="modal fade" id="exampleModal-{{$item->idReserva}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <form action="{{route('eliminarReserva', $item->idReserva)}}" method="post">
+                                            @csrf
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Registro eliminado</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                ¿Está seguro que desea eliminar este registro?<br>
+                                                <i>Se eliminará toda la información registrada</i>
+                                            </div>
+
+                                            <div class="modal-footer m-2">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+@endsection
+
+@section('sidebarMenu')
+    <li class="nav-item">
+        <a href="{{ route('cliente') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Clientes</p>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a href="{{ route('reserva') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>reservas</p>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a href="{{ route('reserva') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Reservas</p>
+        </a>
+    </li>
+
+    {{-- <li class="nav-item">
+        <a href="{{ route('pago') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Pagos</p>
+        </a>
+    </li> --}}
 @endsection

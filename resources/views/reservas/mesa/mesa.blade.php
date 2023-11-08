@@ -22,7 +22,7 @@
             <thead class="table-dark">
                 <tr>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>#</h6></th>
-                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Numero</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Nombre</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Capacidad</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Estado</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Opciones</h6></th>
@@ -39,7 +39,7 @@
                 @foreach ($mesa as $item)
                     <tr>
                         <td class="text-xxs mb-0 text-center">{{$item->idMesa}}</td>
-                        <td class="text-xxs mb-0 text-center">{{$item->numero}}</td>
+                        <td class="text-xxs mb-0 text-center">{{$item->nombre}}</td>
                         <td class="text-xxs mb-0 text-center">{{$item->capacidad}}</td>
                         <td class="text-xxs mb-0 text-center">{{$item->estado}}</td>
                         <td class="text-xxs mb-0 text-center">

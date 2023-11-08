@@ -11,7 +11,6 @@ class MesaController extends Controller
     {
         // Filtra los elementos con estado igual a 1
         $mesa = Mesa::where('eliminado', 1)->get();
-
         return view('reservas.mesa.mesa', compact('mesa'));
     }
 
@@ -30,7 +29,7 @@ class MesaController extends Controller
     public function store(Request $request)
     {
         $mesa = new Mesa();
-        $mesa->numero = $request->numero;
+        $mesa->nombre = $request->nombre;
         $mesa->capacidad = $request->capacidad;
         $mesa->estado = $request->estado;
         $mesa->eliminado = 1;
@@ -61,7 +60,7 @@ class MesaController extends Controller
     public function update(Request $request, string $id)
     {
         $mesa = Mesa::find($id);
-        $mesa->numero = $request->numero;
+        $mesa->nombre = $request->nombre;
         $mesa->capacidad = $request->capacidad;
         $mesa->estado = $request->estado;
         $mesa->save();

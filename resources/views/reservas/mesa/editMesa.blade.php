@@ -13,8 +13,8 @@
 
             <div class="col-md-12 m-5">
                 <div class="mb-3">
-                    <label for="" class="form-label">Numero de Mesa</label>
-                    <input type="text" class="form-control" name="numero" id="" value="{{$mesa->numero}}" required>
+                    <label for="" class="form-label">Nombre de Mesa</label>
+                    <input type="text" class="form-control" name="nombre" id="" value="{{$mesa->nombre}}" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Capacidad</label>
