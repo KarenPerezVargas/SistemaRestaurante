@@ -62,4 +62,13 @@ class Empleado extends Model
     {
         return $this->hasMany(EmpleadoEvaluacion::class, 'idemple');
     }
+
+
+
+    public function contrato()
+    {
+        return $this->belongsTo(Contrato::class, 'idContrato', 'idContrato');
+    }
+
+
 }

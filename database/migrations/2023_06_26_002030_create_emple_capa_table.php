@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('idEC');
             $table->unsignedBigInteger('idemple');
             $table->unsignedBigInteger('idcapa');
-            $table->float('puntuacion')->nullable();
+            //$table->float('puntuacion')->nullable();
             $table->timestamps();
 
             $table->foreign('idemple')->references('idEmpleado')->on('personal');

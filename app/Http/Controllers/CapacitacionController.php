@@ -65,13 +65,17 @@ class CapacitacionController extends Controller
     {
         $capacitacion = new Capacitacion();
         $capacitacion->temaCapacitacion = $request->temaCapacitacion;
+        $capacitacion->idEmpleado = $request->idEmpleado;
         $capacitacion->areaCapacitacion = $request->areaCapacitacion;
         $capacitacion->fechaCapacitacion = $request->fechaCapacitacion;
-        $capacitacion->idEmpleado = $request->idEmpleado;
+        $capacitacion->idInstructor = $request->idInstructor;
+        //$capacitacion->estadoCapacitacion = $request->estadoCapacitacion;
+        $capacitacion->estadoCapacitacion = "pendiente";
+
         $capacitacion->save();
         return redirect()->route('capacitaciones');
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -108,9 +112,12 @@ class CapacitacionController extends Controller
     {
         $capacitacion = Capacitacion::find($id);
         $capacitacion->temaCapacitacion = $request->temaCapacitacion;
+        $capacitacion->idEmpleado = $request->idEmpleado;
         $capacitacion->areaCapacitacion = $request->areaCapacitacion;
         $capacitacion->fechaCapacitacion = $request->fechaCapacitacion;
-        $capacitacion->idEmpleado = $request->idEmpleado;
+        $capacitacion->idInstructor = $request->idInstructor;
+        $capacitacion->estadoCapacitacion = $request->estadoCapacitacion;
+        
         $capacitacion->save();
         return redirect()->route('capacitaciones');
     }

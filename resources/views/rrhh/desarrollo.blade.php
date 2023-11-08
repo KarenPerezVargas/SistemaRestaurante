@@ -21,7 +21,9 @@
                             <th>Tema</th>
                             <th>Área</th>
                             <th>Fecha</th>
-                            <th>Puntuacion</th>
+                            <th>Instructor</th>
+                            <th>Estado</th>
+                            {{-- <th>Puntuacion</th> --}}
                           </tr>
                         </thead>
                         <tbody>
@@ -37,7 +39,9 @@
                                     <td>{{($capacitaciones->find($item->idcapa))->temaCapacitacion}}</td>
                                     <td>{{($capacitaciones->find($item->idcapa))->areaCapacitacion}}</td>
                                     <td>{{($capacitaciones->find($item->idcapa))->fechaCapacitacion}}</td>
-                                    <td>{{$item->puntuacion}}</td>
+                                    <td>{{($capacitaciones->find($item->idcapa))->idInstructor}}</td>
+                                    <td>{{($capacitaciones->find($item->idcapa))->estadoCapacitacion}}</td>
+                                    {{-- <td>{{$item->puntuacion}}</td> --}}
                                 </tr>
                             @endforeach
                         </tbody>

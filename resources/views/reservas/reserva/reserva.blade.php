@@ -22,30 +22,37 @@
             <thead class="table-dark">
                 <tr>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>#</h6></th>
-                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>personas</h6></th>
-                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>área</h6></th>
-                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>fecha</h6></th>
-                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>hora</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>fecha reserva</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>fecha comida</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6># comensales</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>cliente</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>mesa</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>estado</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Opciones</h6></th>
                 </tr>
             </thead>
 
             <tbody>
-                @if ($reserva->count() == 0)
+                @if ($reservas->count() == 0)
                     <tr>
                         <td colspan="3">No hay registros</td>
                     </tr>
                 @endif
 
-                @foreach ($reserva as $item)
+                @foreach ($reservas as $item)
                     <tr>
                         <td class="text-xxs mb-0 text-center">{{$item->idReserva}}</td>
-                        <td class="text-xxs mb-0 text-center">{{$item->personas}}</td>
-                        <td class="text-xxs mb-0 text-center">{{$item->area}}</td>
-                        <td class="text-xxs mb-0 text-center">{{$item->fecha}}</td>
-                        <td class="text-xxs mb-0 text-center">{{$item->hora}}</td>
+                        <td class="text-xxs mb-0 text-center">{{$item->fecha_reserva}}</td>
+                        <td class="text-xxs mb-0 text-center">{{$item->fecha_comida}}</td>
+                        <td class="text-xxs mb-0 text-center">{{$item->num_comensales}}</td>
+                        {{-- Aqui va el cliente --}}
+                        <td class="text-xxs mb-0 text-center">{{$item->cliente->nombres}} {{$item->cliente->apellidos}}</td>
+                        {{-- Aqui va la mesa --}}
+                        <td class="text-xxs mb-0 text-center">{{$item->mesa->nombre}}</td>
+
+                        <td class="text-xxs mb-0 text-center">{{$item->estado}}</td>
                         <td class="text-xxs mb-0 text-center">
-                            <a href="{{route('editreserva', [$item->idReserva])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
+                            <a href="{{route('editReserva', [$item->idReserva])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
                             &nbsp; &nbsp; &nbsp;
 
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$item->idReserva}}">
@@ -93,9 +100,9 @@
     </li>
 
     <li class="nav-item">
-        <a href="{{ route('reserva') }}" class="nav-link">
+        <a href="{{ route('mesa') }}" class="nav-link">
         <i class="nav-icon fas fa-table"></i>
-        <p>reservas</p>
+        <p>Mesas</p>
         </a>
     </li>
 

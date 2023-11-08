@@ -30,11 +30,14 @@ insert into horarios values (4, 0, 1, 1, 1, 1, 1, 0, '15:00', '23:00');
 insert into horarios values (5, 0, 1, 1, 1, 1, 0, 0, '07:00', '15:00');
 insert into horarios values (6, 1, 1, 1, 1, 0, 0, 0, '15:00', '23:00');
 
+
 create table contratos (idContrato int auto_increment, fechaInicio date, duracionMeses int, sueldo double, idRole int, idHorario int, primary key(idContrato), foreign key(idRole) references roles(idRole), foreign key(idHorario) references horarios(idHorario));
-insert into contratos values (1, '2023-02-23', 6, 1800.00, 1, 1);
+
+-- insert into contratos values (1, '2023-02-23', 6, 1800.00, 1, 1);
 
 create table personal (idEmpleado bigint unsigned auto_increment, nombre varchar(20), apellidos varchar(20), DNI char(8), telefono char(9), direccion varchar(40), idContrato int, primary key(idEmpleado), foreign key(idContrato) references contratos(idContrato));
-insert into personal values (1, 'Ingenieria', 'de Software I', '12345678', '987654321', 'Universidad Nacional de Trujillo', 1);
+-- insert into personal values (1, 'Ingenieria', 'de Software I', '12345678', '987654321', 'Universidad Nacional de Trujillo', 1);
+
 
 -- create table pedidos(idpedido integer auto_increment, descripcion varchar(100), precio float, cantidad int, tipo varchar(80), fecha date, estado tinyint(4), primary key(idpedido), idCliente int, foreign key(idCliente) references Cliente(id));
 

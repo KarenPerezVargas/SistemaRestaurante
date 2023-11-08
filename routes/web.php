@@ -124,7 +124,7 @@ Route::post('/asignar/{id}', [EvaluacionController::class, 'asignar'])->name('as
 Route::get('/asignados/{id}', [EvaluacionController::class, 'asignados'])->name('asignados');
 Route::post('/calificar/{id}', [EvaluacionController::class, 'calificar'])->name('calificar');
 
-Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes');
+Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes'); 
 Route::get('/reporteDesarrollo/{id}', [ReporteController::class, 'show1'])->name('desarrollo');
 Route::get('/reporteDesarrollo/{id}/pdf', [ReporteController::class, 'pdf1'])->name('desarrollopdf');
 Route::get('/reporteValoracion/{id}', [ReporteController::class, 'show2'])->name('valoracion');

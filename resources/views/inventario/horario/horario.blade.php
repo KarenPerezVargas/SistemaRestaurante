@@ -18,6 +18,7 @@
                       <tr>
                         <th>#</th>
                         <th>Fecha</th>
+                        <th>Transporte</th>
                         <th>Hora de salida</th>
                         <th>Hora de llegada</th>
                         <th>Opción</th>
@@ -32,6 +33,7 @@
                             <tr>
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->fecha}}</td>
+                                <td>{{$transporte->find($item->transporte_id)->trans_codigo }}</td>
                                 <td>{{$item->hora_salida}}</td>
                                 <td>{{$item->hora_esperada}}</td>
                                 <td>

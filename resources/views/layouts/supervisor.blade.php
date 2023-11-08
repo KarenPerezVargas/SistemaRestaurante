@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Supervisor | Dashboard</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -128,69 +128,49 @@
                         <a class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
-                                Sistema de Inventario
+                                Sistema de RRHH
                                 <i></i>
                             </p>
                         </a>
+
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Proveedores
+                                    Personal
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href='{{ route('proveedor') }}' class="nav-link">
+                                    <a href='{{ route('personal') }}' class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Ver</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
+
+
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Transporte
+                                    Reportes
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href='{{ route('transporte') }}' class="nav-link">
+                                    <a href='{{ route('reportes') }}' class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Ver</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Compra
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href='{{ route('horario') }}' class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Horarios de entrega</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href='{{ route('compra') }}' class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Orden de compra</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+
+                        
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
