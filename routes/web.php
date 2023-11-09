@@ -134,6 +134,9 @@ Route::get('/reporteDesarrollo/{id}/pdf', [ReporteController::class, 'pdf1'])->n
 Route::get('/reporteValoracion/{id}', [ReporteController::class, 'show2'])->name('valoracion');
 Route::get('/reporteValoracion/{id}/pdf', [ReporteController::class, 'pdf2'])->name('valoracionpdf');
 
+Route::get('/reportes/graficas', [ReporteController::class,'graficos'])->name('graficas');
+
+
 Route::get('/verPerfil', [UserController::class, 'showPerfil'])->name('perfil');
 Route::get('/editarPerfil', [UserController::class, 'editPerfil'])->name('editar');
 Route::post('/actualizarPerfil', [UserController::class, 'updatePerfil'])->name('actualizar');
