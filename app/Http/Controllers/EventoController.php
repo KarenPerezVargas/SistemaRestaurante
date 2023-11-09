@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evento;
 use Illuminate\Http\Request;
+use PDF;
 
 class EventoController extends Controller
 {
@@ -79,5 +80,22 @@ class EventoController extends Controller
         $evento = Evento::find($id);
         $evento->delete();
         return redirect()->route('evento');
+    }
+
+    public function pdf1()
+    {
+        $evento = Evento::all();
+        
+        //$proveedor = Proveedor::find($compra->proveedor_id);
+        //$transporte = Transporte::find($compra->transporte_id);
+
+        // Generamos el PDF
+        $pdf = PDF::loadView('marketing.coordinadoreventos.eventos.reporte', compact('evento'));
+
+        // Abrimos el PDF en una nueva pestaña
+        return $pdf->stream('Reporte de eventos.pdf', ['target' => '_blank']);
+
+        // return $pdf->stream();
+
     }
 }

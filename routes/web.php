@@ -362,3 +362,6 @@ Route::get('/editMenu/{id}', [MenuController::class, 'edit'])->name('editMenu');
 Route::post('/actualizarMenu/{id}', [MenuController::class, 'update'])->name('actualizarMenu');
 Route::post('/eliminarMenu/{id}', [MenuController::class, 'destroy'])->name('eliminarMenu');
 
+Route::get('/evento/reporte', [EventoController::class, 'pdf1'])->name('reporteEvento');
+Route::get('/programa/reporte', [ProgramaController::class, 'pdf1'])->name('reportePrograma');
+Route::get('/promocion/reporte', [PromocionController::class, 'pdf1'])->name('reportePromocion');
