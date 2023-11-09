@@ -5,5 +5,5 @@
 @section('dashName', 'SISTEMA')
 
 @section('mainContent')
-    
+
 @endsection

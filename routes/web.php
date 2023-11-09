@@ -34,6 +34,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\MesaController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\PagoReservaController;
+use App\Http\Controllers\GraficoReservasController;
 
 
 //----------------SISTEMA PEDIDOS-------------------
@@ -180,8 +181,7 @@ Route::get('consulta/{id}/boletaGenerada',[GraficosPedidoController::class,'bole
 Route::get('consulta/{id}/generarBoletaPDF',[GraficosPedidoController::class,'generarBoletaPDF'
 ])->name('consulta.generarBoletaPDF');
 
-Route::get('graficos',[GraficosPedidoController::class,'graficos'
-])->name('consulta.graficos');
+Route::get('graficos',[GraficosPedidoController::class,'graficos'])->name('consulta.graficos');
 
 // --------BEBIDAS-----------
 Route::resource('bebida', BebidasController::class);
@@ -331,6 +331,10 @@ Route::post('/actualizarPagoReserva/{id}', [PagoReservaController::class, 'updat
 Route::post('/eliminarPagoReserva/{id}', [PagoReservaController::class, 'destroy'])->name('eliminarPagoReserva');
 
 Route::get('/pagoReserva/reporte', [PagoReservaController::class, 'pdf1'])->name('reportePagoReserva');
+
+Route::get('graficos',[GraficoReservasController::class,'graficos'])->name('graficos');
+Route::get('grafico1',[GraficoReservasController::class,'grafico1'])->name('grafico1');
+Route::get('grafico2',[GraficoReservasController::class,'grafico2'])->name('grafico2');
 
 
 //---------------------------MARKETING-------------------------//
