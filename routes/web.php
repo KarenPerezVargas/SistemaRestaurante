@@ -128,7 +128,7 @@ Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes');
 Route::get('/reporteDesarrollo/{id}', [ReporteController::class, 'show1'])->name('desarrollo');
 Route::get('/reporteDesarrollo/{id}/pdf', [ReporteController::class, 'pdf1'])->name('desarrollopdf');
 Route::get('/reporteValoracion/{id}', [ReporteController::class, 'show2'])->name('valoracion');
-Route::get('/reporteValoracion/{id}/pdf', [ReporteController::class, 'pdf2'])->name('valoracionpdf');
+Route::get('/reporteValoracion/{id}/pdf', [eController::class, 'pdf2'])->name('valoracionpdf');
 
 Route::get('/verPerfil', [UserController::class, 'showPerfil'])->name('perfil');
 Route::get('/editarPerfil', [UserController::class, 'editPerfil'])->name('editar');
