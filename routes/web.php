@@ -318,12 +318,12 @@ Route::get('/editReserva/{id}', [ReservaController::class, 'edit'])->name('editR
 Route::post('/actualizarReserva/{id}', [ReservaController::class, 'update'])->name('actualizarReserva');
 Route::post('/eliminarReserva/{id}', [ReservaController::class, 'destroy'])->name('eliminarReserva');
 
-Route::get('/pagoreserva', [PagoReservaController::class, 'index'])->name('pagoReserva');
-Route::get('/createPagoReserva', [PagoReservaController::class, 'create'])->name('createPagoReserva');
-Route::post('/guardarPagoReserva', [PagoReservaController::class, 'store'])->name('guardarReserva');
-Route::get('/editPagoReserva/{id}', [PagoReservaController::class, 'edit'])->name('editReserva');
-Route::post('/actualizarPagoReserva/{id}', [PagoReservaController::class, 'update'])->name('actualizarReserva');
-Route::post('/eliminarPagoReserva/{id}', [PagoReservaController::class, 'destroy'])->name('eliminarReserva');
+Route::get('/pagoReserva', [PagoReservaController::class, 'index'])->name('pagoReserva');
+Route::get('/createPagoReserva{id}', [PagoReservaController::class, 'create'])->name('createPagoReserva');
+Route::post('/guardarPagoReserva', [PagoReservaController::class, 'store'])->name('guardarPagoReserva');
+Route::get('/editPagoReserva/{id}', [PagoReservaController::class, 'edit'])->name('editPagoReserva');
+Route::post('/actualizarPagoReserva/{id}', [PagoReservaController::class, 'update'])->name('actualizarPagoReserva');
+Route::post('/eliminarPagoReserva/{id}', [PagoReservaController::class, 'destroy'])->name('eliminarPagoReserva');
 
 //---------------------------MARKETING-------------------------//
 Route::get('/promocion', [PromocionController::class, 'index'])->name('promocion');

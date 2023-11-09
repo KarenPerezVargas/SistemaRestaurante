@@ -48,7 +48,7 @@
                         <td class="text-xxs mb-0 text-center">{{$item->telefono}}</td>
                         <td class="text-xxs mb-0 text-center">
                             <a href="{{route('editCliente', [$item->idCliente])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
-                            &nbsp; &nbsp; &nbsp;
+                            &nbsp;
 
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$item->idCliente}}">
                                         <i class="fas fa-trash"></i> Eliminar

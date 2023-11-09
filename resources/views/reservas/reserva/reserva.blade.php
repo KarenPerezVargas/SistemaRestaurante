@@ -22,11 +22,12 @@
             <thead class="table-dark">
                 <tr>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>#</h6></th>
-                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>fecha reserva</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>fecha registro</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>fecha comida</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6># comensales</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>cliente</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>mesa</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>precio</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>estado</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Opciones</h6></th>
                 </tr>
@@ -50,10 +51,14 @@
                         {{-- Aqui va la mesa --}}
                         <td class="text-xxs mb-0 text-center">{{$item->mesa->nombre}}</td>
 
+                        <td class="text-xxs mb-0 text-center">{{$item->precio}}</td>
                         <td class="text-xxs mb-0 text-center">{{$item->estado}}</td>
                         <td class="text-xxs mb-0 text-center">
+                            <a href="{{route('createPagoReserva', [$item->id])}}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Pagar</a>
+                            &nbsp;
+
                             <a href="{{route('editReserva', [$item->id])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
-                            &nbsp; &nbsp; &nbsp;
+                            &nbsp;
 
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$item->id}}">
                                         <i class="fas fa-trash"></i> Eliminar
@@ -113,10 +118,10 @@
         </a>
     </li>
 
-    {{-- <li class="nav-item">
-        <a href="{{ route('pago') }}" class="nav-link">
+    <li class="nav-item">
+        <a href="{{ route('pagoReserva') }}" class="nav-link">
         <i class="nav-icon fas fa-table"></i>
-        <p>Pagos</p>
+        <p>Pagos de reservas</p>
         </a>
-    </li> --}}
+    </li>
 @endsection

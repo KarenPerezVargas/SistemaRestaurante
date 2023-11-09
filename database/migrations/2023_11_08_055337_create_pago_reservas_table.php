@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id(); // Campo de clave primaria
             $table->unsignedBigInteger('reserva_id'); // Clave foránea hacia la reserva
             $table->decimal('monto', 10, 2);
+            $table->decimal('vuelto', 10, 2);
             $table->string('metodo_pago');
             $table->date('fecha_pago');
             $table->integer('eliminado');

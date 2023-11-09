@@ -17,6 +17,7 @@ class Reserva extends Model
         'num_comensales',
         'cliente_id', // Clave foránea hacia el cliente
         'mesa_id',    // Clave foránea hacia la mesa
+        'precio',
         'estado',
         'observaciones',
         'eliminado'];

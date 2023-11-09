@@ -6,51 +6,34 @@
         <form action="{{ route('guardarReserva') }}" method="post" class="col-md-8">
             <h5 class="title" style="font-family: Verdana, Geneva, Tahoma, sans-serif">
                 <strong>
-                    <center>Registro de datos de la reserva </center>
+                    <center>Registro de pago de la reserva </center>
                 </strong>
             </h5>
             @csrf
 
             <div class="col-md-12 m-5">
                 <div class="mb-3">
-                    <label for="" class="form-label">Fecha y hora para cuando se reserva la comida</label>
-                    <input type="datetime-local" class="form-control" name="fecha_comida" id="" required>
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Numero de comensales</label>
-                    <input type="number" class="form-control" name="num_comensales" max="4" id="" required>
+                    <label for="" class="form-label">Reserva ID</label>
+                    <input type="text" class="form-control" name="fecha_comida" id="" value="{{$reserva->id}}" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Cliente</label>
-                    <select class="form-select" aria-label="Default select example" name="cliente_id" required>
-                        @foreach ($clientes as $cliente)
-                        <option value="{{ $cliente->idCliente}}">{{ $cliente->nombres }} {{ $cliente->apellidos }}</option>
-                        @endforeach
-                    </select>
+                    <input type="text" class="form-control" name="fecha_comida" id="" value="{{$reserva->cliente->nombres}} {{$reserva->cliente->apellidos}}" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Mesa</label>
-                    <select class="form-select" aria-label="Default select example" name="mesa_id" required>
-                        @foreach ($mesas as $mesa)
-                        <option value="{{ $mesa->idMesa }}">{{ $mesa->nombre }}</option>
-                        @endforeach
-                    </select>
+                    <label for="" class="form-label">Precio a pagar</label>
+                    <input type="number" class="form-control" step="0.10" id="precio" value="{{$reserva->precio}}" readonly>
                 </div>
-                {{-- <div class="mb-3">
-                    <label for="" class="form-label">Estado</label>
+                <div class="mb-3">
+                    <label for="" class="form-label">Monto pagado</label>
+                    <input type="number" class="form-control" step="0.10" id="precio" name="precio" required>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Metodo de pago</label>
                     <select class="form-select" aria-label="Default select example" name="estado" required>
-                        <option value="Pendiente">Pendiente</option>
-                        <option value="Confirmada">Confirmada</option>
-                        <option value="Cancelada">Cancelada</option>
-                        <option value="No presentado">No presentado</option>
-                        <option value="En proceso">En proceso</option>
-                        <option value="Completada">Completada</option>
-                        <option value="En espera">En espera</option>
+                        <option value="Efectivo">Efectivo</option>
+                        {{-- <option value="Tarjeta">Tarjeta</option> --}}
                     </select>
-                </div> --}}
-                <div class="mb-3">
-                    <label for="" class="form-label">Observaciones</label>
-                    <textarea class="form-control" id="observaciones" name="observaciones" rows="4"></textarea>
                 </div>
             </div>
 
@@ -85,11 +68,11 @@
         </a>
     </li>
 
-    {{-- <li class="nav-item">
-        <a href="{{ route('pago') }}" class="nav-link">
+    <li class="nav-item">
+        <a href="{{ route('pagoReserva') }}" class="nav-link">
         <i class="nav-icon fas fa-table"></i>
-        <p>Pagos</p>
+        <p>Pagos de reservas</p>
         </a>
-    </li> --}}
+    </li>
 @endsection
 

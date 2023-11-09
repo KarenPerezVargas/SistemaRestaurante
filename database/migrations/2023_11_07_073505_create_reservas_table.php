@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('num_comensales');
             $table->unsignedBigInteger('cliente_id'); // Clave foránea hacia el cliente
             $table->unsignedBigInteger('mesa_id');    // Clave foránea hacia la mesa
+            $table->decimal('precio', 10, 2);
             $table->string('estado');
             $table->text('observaciones')->nullable();
             $table->integer('eliminado');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Cliente;
 use App\Models\Mesa;
 use App\Models\Reserva;
+use App\Models\PagoReserva;
 use Illuminate\Support\Facades\Date;
 
 class PagoReservaController extends Controller
@@ -13,21 +14,23 @@ class PagoReservaController extends Controller
     public function index(Request $request)
     {
         // Filtra los elementos con estado igual a 1
-        $reservas = Reserva::where('eliminado', 1)->get();
+        $pagoReservas = PagoReserva::where('eliminado', 1)->get();
         $clientes = Cliente::all();
         $mesas = Mesa::all();
-        return view('reservas.reserva.reserva', compact('reservas','clientes','mesas'));
+        $reservas = Reserva::all();
+        return view('reservas.pagoReserva.pagoReserva', compact('clientes','mesas','reservas','pagoReservas'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request,string $id)
     {
-        $reservas=Reserva::all();
+        $reserva = Reserva::find($id);
+        $pagoReservas = PagoReserva::all();
         $clientes = Cliente::all();
         $mesas = Mesa::all();
-        return view('reservas.reserva.createReserva', compact('reservas','clientes','mesas'));
+        return view('reservas.pagoReserva.createPagoReserva', compact('reserva','clientes','mesas','pagoReservas'));
     }
 
     /**
@@ -35,23 +38,21 @@ class PagoReservaController extends Controller
      */
     public function store(Request $request)
     {
-        $reserva = new Reserva();
-        $reserva->fecha_reserva = Date::now();
-        $reserva->fecha_comida = $request->fecha_comida;
-        $reserva->num_comensales = $request->num_comensales;
-        $reserva->cliente_id = $request->cliente_id;
-        $reserva->mesa_id = $request->mesa_id;
-        $reserva->estado = 'Pendiente';
-        $reserva->observaciones = $request->observaciones;
-        $reserva->eliminado = 1;
-        $reserva->save();
-        return redirect()->route('reserva');
+        $pagoReserva = new PagoReserva();
+        $pagoReserva->reserva_id = $request->reserva_id;
+        $pagoReserva->monto = $request->monto;
+        $pagoReserva->vuelto = $request->vuelto;
+        $pagoReserva->metodo_pago = $request->metodo_pago;
+        $pagoReserva->fecha_pago = $request->fecha_pago;
+        $pagoReserva->eliminado = 1;
+        $pagoReserva->save();
+        return redirect()->route('pagoReserva');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Reserva $reserva)
+    public function show(PagoReserva $pagoReserva)
     {
         //
     }
@@ -61,10 +62,11 @@ class PagoReservaController extends Controller
      */
     public function edit(Request $request,string $id)
     {
+        $pagoReserva = PagoReserva::find($id);
         $reserva = Reserva::find($id);
         $clientes = Cliente::all();
         $mesas = Mesa::all();
-        return view('reservas.reserva.editReserva', compact('reserva', 'id', 'clientes','mesas'));
+        return view('reservas.pagoReserva.editPagoReserva', compact('id','clientes','mesas','reserva','pagoReserva'));
     }
 
     /**
@@ -72,15 +74,14 @@ class PagoReservaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $reserva = Reserva::find($id);
-        $reserva->fecha_comida = $request->fecha_comida;
-        $reserva->num_comensales = $request->num_comensales;
-        $reserva->cliente_id = $request->cliente_id;
-        $reserva->mesa_id = $request->mesa_id;
-        $reserva->estado = $request->estado;
-        $reserva->observaciones = $request->observaciones;
-        $reserva->save();
-        return redirect()->route('reserva');
+        $pagoReserva = PagoReserva::find($id);
+        $pagoReserva->reserva_id = $request->reserva_id;
+        $pagoReserva->monto = $request->monto;
+        $pagoReserva->vuelto = $request->vuelto;
+        $pagoReserva->metodo_pago = $request->metodo_pago;
+        $pagoReserva->fecha_pago = $request->fecha_pago;
+        $pagoReserva->save();
+        return redirect()->route('pagoReserva');
     }
 
     /**
@@ -88,9 +89,9 @@ class PagoReservaController extends Controller
      */
     public function destroy($id)
     {
-        $reserva = Reserva::find($id);
-        $reserva->eliminado = 0;
-        $reserva->save();
-        return redirect()->route('reserva');
+        $pagoReserva = PagoReserva::find($id);
+        $pagoReserva->eliminado = 0;
+        $pagoReserva->save();
+        return redirect()->route('pagoReserva');
     }
 }

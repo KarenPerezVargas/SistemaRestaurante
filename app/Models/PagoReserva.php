@@ -9,11 +9,12 @@ class PagoReserva extends Model
 {
     use HasFactory;
 
-    protected $table = 'pagos_reservas'; // Nombre de la tabla en la base de datos
+    protected $table = 'pago_reservas'; // Nombre de la tabla en la base de datos
     protected $primaryKey='id';
     protected $fillable =  [
         'reserva_id', // Clave foránea hacia la reserva asociada
         'monto',
+        'vuelto',
         'metodo_pago',
         'fecha_pago',
         'eliminado'];

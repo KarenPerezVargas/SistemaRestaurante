@@ -41,6 +41,7 @@ class ReservaController extends Controller
         $reserva->num_comensales = $request->num_comensales;
         $reserva->cliente_id = $request->cliente_id;
         $reserva->mesa_id = $request->mesa_id;
+        $reserva->precio = $request->precio;
         $reserva->estado = 'Pendiente';
         $reserva->observaciones = $request->observaciones;
         $reserva->eliminado = 1;
@@ -77,6 +78,7 @@ class ReservaController extends Controller
         $reserva->num_comensales = $request->num_comensales;
         $reserva->cliente_id = $request->cliente_id;
         $reserva->mesa_id = $request->mesa_id;
+        $reserva->precio = $request->precio;
         $reserva->estado = $request->estado;
         $reserva->observaciones = $request->observaciones;
         $reserva->save();

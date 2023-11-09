@@ -13,7 +13,7 @@
 
             <div class="col-md-12 m-5">
                 <div class="mb-3">
-                    <label for="" class="form-label">Fecha y hora para cuando se reserva la comida</label>
+                    <label for="" class="form-label">Fecha y hora a reservar</label>
                     <input type="datetime-local" class="form-control" name="fecha_comida" id="" required>
                 </div>
                 <div class="mb-3">
@@ -35,6 +35,10 @@
                         <option value="{{ $mesa->idMesa }}">{{ $mesa->nombre }}</option>
                         @endforeach
                     </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Precio de reserva</label>
+                    <input type="number" class="form-control" step="0.10" id="precio" name="precio" required>
                 </div>
                 {{-- <div class="mb-3">
                     <label for="" class="form-label">Estado</label>
@@ -85,11 +89,11 @@
         </a>
     </li>
 
-    {{-- <li class="nav-item">
-        <a href="{{ route('pago') }}" class="nav-link">
+    <li class="nav-item">
+        <a href="{{ route('pagoReserva') }}" class="nav-link">
         <i class="nav-icon fas fa-table"></i>
-        <p>Pagos</p>
+        <p>Pagos de reservas</p>
         </a>
-    </li> --}}
+    </li>
 @endsection
 
