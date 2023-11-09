@@ -24,11 +24,16 @@ class CapacitacionController extends Controller
         }
         $contratos = Contrato::all();
         $personal = Empleado::all();
-        $idemp = auth()->user()->idEmpleado;
+
+        $user = auth()->user();
+        $idemp = $user->idEmpleado;
+
         $rol = ($contratos->find(($personal->find($idemp))->idContrato))->idRole;
+
         if ($rol != null) {
             if ($rol == 1) {
                 $capacitaciones = Capacitacion::all();
+
                 return view('rrhh.capacitaciones', compact('capacitaciones', 'personal'));
             } else {
                 if ($rol == 2) {
@@ -73,6 +78,14 @@ class CapacitacionController extends Controller
         $capacitacion->estadoCapacitacion = "pendiente";
 
         $capacitacion->save();
+
+
+        // Ahora, después de guardar la capacitación, registra automáticamente en la tabla "emple_capa"
+        $emple_capa = new EmpleadoCapacitacion();
+        $emple_capa->idCapacitacion = $capacitacion->idCapacitacion;
+        $emple_capa->idEmpleado = $capacitacion->idEmpleado;
+        $emple_capa->save();
+
         return redirect()->route('capacitaciones');
     }
     
@@ -132,7 +145,7 @@ class CapacitacionController extends Controller
     {
         $capacitacion = Capacitacion::find($id);
         $capacitacion->delete();
-        return redirect()->route('evaluaciones');
+        return redirect()->route('capacitaciones');
     }
 
     public function inscripciones($id)
@@ -149,13 +162,13 @@ class CapacitacionController extends Controller
         foreach ($marcados as $idEmpleado) {
             if (!is_null($idEmpleado)) {
                 $enca = new EmpleadoCapacitacion();
-                // dd($idEmpleado);
                 $enca->idemple = intval($idEmpleado);
                 $enca->idcapa = $id;
                 $enca->save();
             }
         }
         return redirect()->route('capacitaciones');
+
     }
 
     public function inscritos($id)

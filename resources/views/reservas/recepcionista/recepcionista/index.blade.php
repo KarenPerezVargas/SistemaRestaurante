@@ -30,10 +30,11 @@
         </a>
     </li>
 
-    {{-- <li class="nav-item">
-        <a href="{{ route('pago') }}" class="nav-link">
+    <li class="nav-item">
+        <a href="{{ route('pagoReserva') }}" class="nav-link">
         <i class="nav-icon fas fa-table"></i>
-        <p>Pagos</p>
+        <p>Pagos de reservas</p>
         </a>
-    </li> --}}
+    </li>
 @endsection
+

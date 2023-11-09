@@ -12,13 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kardex', function (Blueprint $table) {
-            $table->id();
-            $table->string('kardex_cantidad');
+            $table->bigIncrements('id');
             $table->date('kardex_fecha');
-            $table->string('kardex_producto');
-            $table->string('kardex_precio');
-            $table->string('kardex_total');
+            $table->unsignedBigInteger('producto_id');
             $table->string('kardex_movimiento');
+            $table->integer('kardex_cantidad');
+            $table->decimal('kardex_precio', 10, 2);
+            $table->decimal('kardex_total', 10, 2);
+            $table->foreign('producto_id')->references('id')->on('producto');
             $table->timestamps();
         });
     }

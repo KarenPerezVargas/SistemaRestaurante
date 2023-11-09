@@ -3,40 +3,42 @@
 @section('mainContent')
 <div class="container">
     <div class="row justify-content-center">
-        <form action="{{ route('actualizarMesa', $id) }}" method="post" class="col-md-8">
+        <form action="{{ route('guardarReserva') }}" method="post" class="col-md-8">
             <h5 class="title" style="font-family: Verdana, Geneva, Tahoma, sans-serif">
                 <strong>
-                    <center>Registro de datos de la mesa </center>
+                    <center>Registro de pago de la reserva </center>
                 </strong>
             </h5>
             @csrf
 
             <div class="col-md-12 m-5">
                 <div class="mb-3">
-                    <label for="" class="form-label">Nombre de Mesa</label>
-                    <input type="text" class="form-control" name="nombre" id="" value="{{$mesa->nombre}}" required>
+                    <label for="" class="form-label">Reserva ID</label>
+                    <input type="text" class="form-control" name="fecha_comida" id="" value="{{$reserva->id}}" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Capacidad</label>
-                    <select class="form-select" aria-label="Default select example" name="capacidad" value="{{$mesa->capacidad}}" required>
-                        <option value="1">1 persona</option>
-                        <option value="2">2 personas</option>
-                        <option value="3">3 personas</option>
-                        <option value="3">4 personas</option>
-                    </select>
+                    <label for="" class="form-label">Cliente</label>
+                    <input type="text" class="form-control" name="fecha_comida" id="" value="{{$reserva->cliente->nombres}} {{$reserva->cliente->apellidos}}" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Estado</label>
-                    <select class="form-select" aria-label="Default select example" name="estado" value="{{$mesa->estado}}" required>
-                        <option value="Disponible">Disponible</option>
-                        <option value="Reservada">Reservada</option>
-                        <option value="Ocupada">Ocupada</option>
+                    <label for="" class="form-label">Precio a pagar</label>
+                    <input type="number" class="form-control" step="0.10" id="precio" value="{{$reserva->precio}}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Monto pagado</label>
+                    <input type="number" class="form-control" step="0.10" id="precio" name="precio" required>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Metodo de pago</label>
+                    <select class="form-select" aria-label="Default select example" name="estado" required>
+                        <option value="Efectivo">Efectivo</option>
+                        {{-- <option value="Tarjeta">Tarjeta</option> --}}
                     </select>
                 </div>
             </div>
 
             <div class="mb-2" style="text-align: center">
-                <button type="button" class="btn btn-secondary" onclick="location.href='{{ route('mesa') }}'">Atrás</button>
+                <button type="button" class="btn btn-secondary" onclick="location.href='{{ route('reserva') }}'">Atrás</button>
                 <input type="submit" class="btn btn-primary" value="Guardar">
             </div>
         </form>
@@ -73,3 +75,4 @@
         </a>
     </li>
 @endsection
+

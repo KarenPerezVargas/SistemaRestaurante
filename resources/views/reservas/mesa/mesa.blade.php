@@ -44,7 +44,7 @@
                         <td class="text-xxs mb-0 text-center">{{$item->estado}}</td>
                         <td class="text-xxs mb-0 text-center">
                             <a href="{{route('editMesa', [$item->idMesa])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
-                            &nbsp; &nbsp; &nbsp;
+                            &nbsp;
 
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$item->idMesa}}">
                                         <i class="fas fa-trash"></i> Eliminar
@@ -104,10 +104,10 @@
         </a>
     </li>
 
-    {{-- <li class="nav-item">
-        <a href="{{ route('pago') }}" class="nav-link">
+    <li class="nav-item">
+        <a href="{{ route('pagoReserva') }}" class="nav-link">
         <i class="nav-icon fas fa-table"></i>
-        <p>Pagos</p>
+        <p>Pagos de reservas</p>
         </a>
-    </li> --}}
+    </li>
 @endsection

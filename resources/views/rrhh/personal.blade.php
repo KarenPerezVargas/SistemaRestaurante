@@ -33,7 +33,6 @@
                                 $nb=1;
                             @endphp
                             @foreach ($personal as $item)
-                                @if (($contratos->find($item->idContrato))->idRole != 1)
                                     <tr>
                                         <td>{{$nb++}}</td>
                                         <td>{{$item->nombre}}</td>
@@ -74,7 +73,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                @endif
+                                {{-- @endif --}}
                             @endforeach
                         </tbody>
                     </table>

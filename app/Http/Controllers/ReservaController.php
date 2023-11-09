@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Cliente;
 use App\Models\Mesa;
-use Illuminate\Http\Request;
 use App\Models\Reserva;
 use Illuminate\Support\Facades\Date;
 
@@ -41,6 +41,7 @@ class ReservaController extends Controller
         $reserva->num_comensales = $request->num_comensales;
         $reserva->cliente_id = $request->cliente_id;
         $reserva->mesa_id = $request->mesa_id;
+        $reserva->precio = $request->precio;
         $reserva->estado = 'Pendiente';
         $reserva->observaciones = $request->observaciones;
         $reserva->eliminado = 1;
@@ -61,10 +62,10 @@ class ReservaController extends Controller
      */
     public function edit(Request $request,string $id)
     {
-        $reservas = Reserva::find($id);
+        $reserva = Reserva::find($id);
         $clientes = Cliente::all();
         $mesas = Mesa::all();
-        return view('reservas.reserva.editReserva', compact('reservas', 'id', 'clientes','mesas'));
+        return view('reservas.reserva.editReserva', compact('reserva', 'id', 'clientes','mesas'));
     }
 
     /**
@@ -77,6 +78,7 @@ class ReservaController extends Controller
         $reserva->num_comensales = $request->num_comensales;
         $reserva->cliente_id = $request->cliente_id;
         $reserva->mesa_id = $request->mesa_id;
+        $reserva->precio = $request->precio;
         $reserva->estado = $request->estado;
         $reserva->observaciones = $request->observaciones;
         $reserva->save();

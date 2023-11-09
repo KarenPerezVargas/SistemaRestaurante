@@ -9,7 +9,7 @@
             <div class="row gx-lg-5">
                 <div class="navbar">
                     <div class="container-fluid">
-                        <h3><i><b>{{$empleado->apellidos}} {{$empleado->nombre}}</b> Capacitaciones</i></h3>
+                        <h3><i>Capacitaciones de: <b>{{$empleado->nombre}} {{$empleado->apellidos}}</b> </i></h3>
                         <a href="{{route('desarrollopdf', $empleado->idEmpleado)}}" class="btn btn-primary"><i class="fas fa-file-pdf"></i>&nbsp;Generar PDF</a>
                     </div>
                 </div>
@@ -23,7 +23,6 @@
                             <th>Fecha</th>
                             <th>Instructor</th>
                             <th>Estado</th>
-                            {{-- <th>Puntuacion</th> --}}
                           </tr>
                         </thead>
                         <tbody>
@@ -36,12 +35,19 @@
                             @foreach ($registros as $item)
                                 <tr>
                                     <td>{{$nb++}}</td>
-                                    <td>{{($capacitaciones->find($item->idcapa))->temaCapacitacion}}</td>
-                                    <td>{{($capacitaciones->find($item->idcapa))->areaCapacitacion}}</td>
-                                    <td>{{($capacitaciones->find($item->idcapa))->fechaCapacitacion}}</td>
-                                    <td>{{($capacitaciones->find($item->idcapa))->idInstructor}}</td>
-                                    <td>{{($capacitaciones->find($item->idcapa))->estadoCapacitacion}}</td>
-                                    {{-- <td>{{$item->puntuacion}}</td> --}}
+                                    <td>{{($capacitaciones->find($item->idCapacitacion))->temaCapacitacion}}</td>
+                                    <td>{{($capacitaciones->find($item->idCapacitacion))->areaCapacitacion}}</td>
+                                    <td>{{($capacitaciones->find($item->idCapacitacion))->fechaCapacitacion}}</td>
+
+                                    @php
+                                    $idInstructor = ($capacitaciones->find($item->idCapacitacion))->idInstructor;
+                                    $instructor = $personal->where('idEmpleado', $idInstructor)->first();
+                                    @endphp
+
+                                    <td>{{ $instructor ? $instructor->nombre : 'No encontrado' }} {{ $instructor ? $instructor->apellidos : 'No encontrado' }}</td>
+
+                                    <td>{{($capacitaciones->find($item->idCapacitacion))->estadoCapacitacion}}</td>
+
                                 </tr>
                             @endforeach
                         </tbody>

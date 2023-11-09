@@ -18,10 +18,18 @@
             </select>
         </div>
 
+
         <div class="mb-3">
-            <label for="" class="form-label">Area</label>
-            <input type="text" class="form-control" name="areaCapacitacion" id="">
+            <label for="areaCapacitacion" class="form-label">Área</label>
+            <select class="form-select" name="areaCapacitacion" id="areaCapacitacion">
+                <option value="Recursos Humanos">Recursos Humanos</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Reservas">Reservas</option>
+                <option value="Pedido">Pedido</option>
+                <option value="Inventario">Inventario</option>
+            </select>
         </div>
+        
 
         <div class="mb-3">
             <label for="" class="form-label">Fecha</label>
@@ -39,10 +47,6 @@
             </select>
         </div>
         
-        {{-- <div class="mb-3">     
-            <label for="" class="form-label">Estado</label>   
-            <input type="hidden" name="estadoCapacitacion" value="pendiente">
-        </div> --}}
 
         <button type="button" class="btn btn-secondary" onclick="location.href='{{route('capacitaciones')}}'">Cancelar</button>
         <input type="submit" class="btn btn-primary" value="Guardar">
