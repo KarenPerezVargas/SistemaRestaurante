@@ -5,7 +5,7 @@
         <form action="{{ route('guardarMesa') }}" method="post" class="col-md-8">
             <h5 class="title" style="font-family: Verdana, Geneva, Tahoma, sans-serif">
                 <strong>
-                    <center>Registro de datos de la mesa </center>
+                    <center>Registrar datos de la mesa </center>
                 </strong>
             </h5>
             @csrf

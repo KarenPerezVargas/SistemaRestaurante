@@ -20,6 +20,7 @@ class Reserva extends Model
         'precio',
         'estado',
         'observaciones',
+        'pagado',
         'eliminado'];
     public $timestamps = true;
 

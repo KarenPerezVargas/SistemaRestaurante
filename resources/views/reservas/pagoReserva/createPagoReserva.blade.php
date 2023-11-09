@@ -3,10 +3,10 @@
 @section('mainContent')
 <div class="container">
     <div class="row justify-content-center">
-        <form action="{{ route('guardarReserva') }}" method="post" class="col-md-8">
+        <form action="{{ route('guardarPagoReserva') }}" method="post" class="col-md-8">
             <h5 class="title" style="font-family: Verdana, Geneva, Tahoma, sans-serif">
                 <strong>
-                    <center>Registro de pago de la reserva </center>
+                    <center>Registrar pago de la reserva </center>
                 </strong>
             </h5>
             @csrf
@@ -14,23 +14,23 @@
             <div class="col-md-12 m-5">
                 <div class="mb-3">
                     <label for="" class="form-label">Reserva ID</label>
-                    <input type="text" class="form-control" name="fecha_comida" id="" value="{{$reserva->id}}" readonly>
+                    <input type="text" class="form-control" name="reserva_id" id="" value="{{$reserva->id}}" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Cliente</label>
-                    <input type="text" class="form-control" name="fecha_comida" id="" value="{{$reserva->cliente->nombres}} {{$reserva->cliente->apellidos}}" readonly>
+                    <input type="text" class="form-control" name="cliente_id" id="" value="{{$reserva->cliente->nombres}} {{$reserva->cliente->apellidos}}" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Precio a pagar</label>
-                    <input type="number" class="form-control" step="0.10" id="precio" value="{{$reserva->precio}}" readonly>
+                    <input type="number" class="form-control" step="0.10" id="" name="precio" value="{{$reserva->precio}}" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Monto pagado</label>
-                    <input type="number" class="form-control" step="0.10" id="precio" name="precio" required>
+                    <input type="number" class="form-control" step="0.10" id="" min="{{$reserva->precio}}" name="monto" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Metodo de pago</label>
-                    <select class="form-select" aria-label="Default select example" name="estado" required>
+                    <select class="form-select" aria-label="Default select example" name="metodo_pago" required>
                         <option value="Efectivo">Efectivo</option>
                         {{-- <option value="Tarjeta">Tarjeta</option> --}}
                     </select>

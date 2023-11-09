@@ -7,7 +7,7 @@ use App\Models\Cliente;
 use App\Models\Mesa;
 use App\Models\Reserva;
 use App\Models\PagoReserva;
-use Illuminate\Support\Facades\Date;
+use Carbon\Carbon;
 
 class PagoReservaController extends Controller
 {
@@ -28,9 +28,10 @@ class PagoReservaController extends Controller
     {
         $reserva = Reserva::find($id);
         $pagoReservas = PagoReserva::all();
-        $clientes = Cliente::all();
-        $mesas = Mesa::all();
-        return view('reservas.pagoReserva.createPagoReserva', compact('reserva','clientes','mesas','pagoReservas'));
+        // $clientes = Cliente::all();
+        // $mesas = Mesa::all();
+        // return view('reservas.pagoReserva.createPagoReserva', compact('reserva','clientes','mesas','pagoReservas'));
+        return view('reservas.pagoReserva.createPagoReserva', compact('reserva','pagoReservas'));
     }
 
     /**
@@ -41,9 +42,9 @@ class PagoReservaController extends Controller
         $pagoReserva = new PagoReserva();
         $pagoReserva->reserva_id = $request->reserva_id;
         $pagoReserva->monto = $request->monto;
-        $pagoReserva->vuelto = $request->vuelto;
+        $pagoReserva->vuelto = $request->monto - $request->precio;
         $pagoReserva->metodo_pago = $request->metodo_pago;
-        $pagoReserva->fecha_pago = $request->fecha_pago;
+        $pagoReserva->fecha_pago = Carbon::now();
         $pagoReserva->eliminado = 1;
         $pagoReserva->save();
         return redirect()->route('pagoReserva');

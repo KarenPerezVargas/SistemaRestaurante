@@ -29,7 +29,8 @@
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>mesa</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>precio</h6></th>
                     <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>estado</h6></th>
-                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>Opciones</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>pago</h6></th>
+                    <th class="text-uppercase text-xxs mb-0 text-center" scope="col"><h6>opciones</h6></th>
                 </tr>
             </thead>
 
@@ -50,13 +51,21 @@
                         <td class="text-xxs mb-0 text-center">{{$item->cliente->nombres}} {{$item->cliente->apellidos}}</td>
                         {{-- Aqui va la mesa --}}
                         <td class="text-xxs mb-0 text-center">{{$item->mesa->nombre}}</td>
-
                         <td class="text-xxs mb-0 text-center">{{$item->precio}}</td>
                         <td class="text-xxs mb-0 text-center">{{$item->estado}}</td>
+                        {{-- Opcion para pagar --}}
                         <td class="text-xxs mb-0 text-center">
-                            <a href="{{route('createPagoReserva', [$item->id])}}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Pagar</a>
-                            &nbsp;
+                            @if ($valor == 1)
+                                <a href="{{route('createPagoReserva', [$item->id])}}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Pagar</a>
+                            @elseif ($valor == 0)
+                                <p>Pagado</p>
+                            @else
+                                <p>Error</p>
+                            @endif
 
+                        </td>
+                        {{-- Opcines editar y eliminar --}}
+                        <td class="text-xxs mb-0 text-center">
                             <a href="{{route('editReserva', [$item->id])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
                             &nbsp;
 
