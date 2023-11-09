@@ -45,6 +45,7 @@ use App\Http\Controllers\PagosController;
 use App\Http\Controllers\AsesoramientoController;
 use App\Http\Controllers\BebidasController;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\ClientePedidoController;
 use App\Models\HorarioEntrega;
 use App\Http\Controllers\GraficosPedidoController;
 use App\Models\PagoReserva;
@@ -133,7 +134,10 @@ Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes');
 Route::get('/reporteDesarrollo/{id}', [ReporteController::class, 'show1'])->name('desarrollo');
 Route::get('/reporteDesarrollo/{id}/pdf', [ReporteController::class, 'pdf1'])->name('desarrollopdf');
 Route::get('/reporteValoracion/{id}', [ReporteController::class, 'show2'])->name('valoracion');
-Route::get('/reporteValoracion/{id}/pdf', [ReporteController::class, 'pdf2'])->name('valoracionpdf');
+Route::get('/reporteValoracion/{id}/pdf', [eController::class, 'pdf2'])->name('valoracionpdf');
+
+Route::get('/reportes/graficas', [ReporteController::class,'graficos'])->name('graficas');
+
 
 Route::get('/verPerfil', [UserController::class, 'showPerfil'])->name('perfil');
 Route::get('/editarPerfil', [UserController::class, 'editPerfil'])->name('editar');
@@ -152,6 +156,13 @@ Route::get('cancelar-pedido',function(){
 })->name('cancelar-pedido');
 Route::get('pedido/{id}/confirmar',[PedidosController::class,'confirmar'
 ])->name('pedido.confirmar');
+
+Route::get('/clientePedido', [ClientePedidoController::class, 'index'])->name('clientePedido');
+Route::get('/createClientePedido', [ClientePedidoController::class, 'create'])->name('createClientePedido');
+Route::post('/guardarClientePedido', [ClientePedidoController::class, 'store'])->name('guardarClientePedido');
+Route::get('/editClientePedido/{id}', [ClientePedidoController::class, 'edit'])->name('editClientePedido');
+Route::post('/actualizarClientePedido/{id}', [ClientePedidoController::class, 'update'])->name('actualizarClientePedido');
+Route::post('/eliminarClientePedido/{id}', [ClientePedidoController::class, 'destroy'])->name('eliminarClientePedido');
 
 
 // -------------------
@@ -172,6 +183,10 @@ Route::resource('asesoramiento', AsesoramientoController::class);
 
 // ----------------------
 Route::resource('consulta', GraficosPedidoController::class);
+
+Route::get('reportePedidos',[GraficosPedidoController::class,'reportePedidos'
+])->name('consulta.reportePedidos');
+
 Route::get('consulta',[GraficosPedidoController::class,'boletas'
 ])->name('consulta.boletas');
 Route::get('consulta/{id}/boletaGenerada',[GraficosPedidoController::class,'boletaGenerada'

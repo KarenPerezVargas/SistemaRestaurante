@@ -191,7 +191,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('cliente') }}" class="nav-link">
+                <a href="{{ route('clientePedido') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Gestionar clientes</p>
                 </a>
@@ -226,6 +226,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{ route('consulta.reportePedidos') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Reporte de pedidos</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="{{ route('consulta.boletas') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -281,7 +287,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
+  <footer class="row main-footer">
     <strong>Copyright &copy Miskychallwa.</strong>
     All rights reserved.
   </footer>
