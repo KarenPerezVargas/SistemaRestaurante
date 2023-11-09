@@ -149,12 +149,12 @@ class PersonalController extends Controller
         $empleado->save();
 
         $user = new User();
-        $user->username = $request->input("username");        
-        $user->email = $request->input("email");        
+        $user->username = $request->input("username");
+        $user->email = $request->input("email");
         $user->password = $request->input("password");
         $user->idEmpleado = $empleado->idEmpleado;
         $user->save();
-        
+
         $request->session()->forget(['apellidos', 'nombre', 'dni', 'telefono', 'direccion', 'fechaInicio', 'duracionMeses', 'sueldo', 'idRole', 'idHorario']);
 
         return redirect()->route('personal');

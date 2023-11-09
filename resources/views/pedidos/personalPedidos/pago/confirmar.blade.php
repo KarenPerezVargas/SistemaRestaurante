@@ -2,7 +2,7 @@
 
 @section('puntos', '../../')
 
-@section('dashName', 'Proceso de pago')
+@section('dashName', '¿Confirma pago de pedido?')
 
 @section('mainContent')
 

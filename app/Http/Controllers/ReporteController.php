@@ -43,11 +43,13 @@ class ReporteController extends Controller
      */
 
     public function show1(string $id)
-    { 
+    {    
+        $personal = Empleado::all();
         $empleado = Empleado::find($id);
-        $registros = EmpleadoCapacitacion::where('idemple' , $id)->get();
+        $registros = EmpleadoCapacitacion::where('idEmpleado' , $id)->get();
         $capacitaciones = Capacitacion::all();
-        return view('rrhh.desarrollo', compact('empleado', 'registros', 'capacitaciones'));
+
+        return view('rrhh.desarrollo', compact('personal', 'empleado', 'registros', 'capacitaciones'));
     }
 
 
@@ -61,12 +63,19 @@ class ReporteController extends Controller
 
     public function pdf1($id)
     {
+        $personal = Empleado::all();
         $empleado = Empleado::find($id);
-        $registros = EmpleadoCapacitacion::where('idemple' , $id)->get();
+        $registros = EmpleadoCapacitacion::where('idEmpleado' , $id)->get();
         $capacitaciones = Capacitacion::all();
-        $pdf = PDF::loadView('rrhh.desarrollopdf', ['empleado'=>$empleado, 'registros'=>$registros, 'capacitaciones'=>$capacitaciones]);
-        return $pdf->stream();
-        // return view('rrhh.desarrollopdf', compact('empleado', 'registros', 'capacitaciones'));
+    
+        // Generamos el PDF
+        $pdf = PDF::loadView('rrhh.desarrollopdf', compact('personal', 'empleado', 'registros', 'capacitaciones'));
+        
+        // Abrimos el PDF en una nueva pestaña
+        return $pdf->stream('Reporte de Desarrollo.pdf', ['target' => '_blank']);
+
+        // return $pdf->stream();
+        
     }
 
     public function pdf2($id)
@@ -76,7 +85,6 @@ class ReporteController extends Controller
         $evaluaciones = Evaluacion::all();
         $pdf = PDF::loadView('rrhh.valoracionpdf', ['empleado'=>$empleado, 'registros'=>$registros, 'evaluaciones'=>$evaluaciones]);
         return $pdf->stream();
-        // return view('rrhh.valoracionpdf', compact('empleado', 'registros', 'evaluaciones'));
     }
 
     /**

@@ -12,4 +12,9 @@ class Cliente extends Model
     protected $primaryKey='idCliente';
     protected $fillabed =  ['nombres', 'apellidos', 'dni', 'correo', 'telefono', 'eliminado'];
     public $timestamps = true;
+
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class, 'cliente_id');
+    }
 }

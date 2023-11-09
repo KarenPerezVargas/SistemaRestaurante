@@ -10,6 +10,8 @@ class EmpleadoCapacitacion extends Model
     use HasFactory;
     protected $table='emple_capa';
     protected $primaryKey='idEC';
-    protected $fillable = ['idemple', 'idcapa'];
+    protected $fillable = ['idCapacitacion' ,'idEmpleado'];
     public $timestamps = false;
+
 }
+

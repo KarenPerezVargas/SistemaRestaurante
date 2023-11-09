@@ -161,9 +161,9 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href='{{ route('compra') }}' class="nav-link">
+                                    <a href='{{ route('contratos') }}' class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Orden de compra</p>
+                                        <p>Ver</p>
                                     </a>
                                 </li>
                             </ul>

@@ -163,12 +163,12 @@
                     <p>Capacitaciones</p>
                   </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                   <a href="{{route('evaluaciones')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Vacantes</p>
                   </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                   <a href="{{route('reportes')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
@@ -257,22 +257,40 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{route('producto')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Gestionar productos</p>
+                    </a>
+                  </li>
               <li class="nav-item">
-                <a href="{{route('proveedor')}}" class="nav-link">
+                <a href="{{route('kardex')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Gestionar productos</p>
+                  <p>Gestionar kardex</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('proveedor')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Gestionar kardex</p>
+                  <p>Gestionar proveedores</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('transporte')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Gestionar transporte</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('horario')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Gestionar horarios de entrega</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('compra')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Gestionar compras</p>
                 </a>
               </li>
             </ul>

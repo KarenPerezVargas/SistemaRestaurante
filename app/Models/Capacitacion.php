@@ -10,7 +10,6 @@ class Capacitacion extends Model
     use HasFactory;
     protected $table='capacitaciones';
     protected $primaryKey='idCapacitacion';
-    // protected $fillable = ['temaCapacitacion', 'fechaCapacitacion', 'areaCapacitacion', 'idEmpleado'];
     protected $fillable = [
         'temaCapacitacion',
         'idEmpleado',
@@ -20,4 +19,29 @@ class Capacitacion extends Model
         'estadoCapacitacion'
     ];
     public $timestamps = false;
+
+
+    public function empleado()
+    {
+        return $this->belongsTo(Empleado::class, 'idEmpleado');
+    }
+
+
+    protected static function boot()
+    {
+            parent::boot();
+
+            // Evento "deleting" para eliminar registros asociados antes de eliminar el empleado
+            static::deleting(function ($capacitacion) {
+                    
+            // Eliminar los registros en la tabla "emple_capa" asociados si existen
+            $capacitacion->empleadoCapacitaciones->each->delete();
+        });
+    }
+
+    public function empleadoCapacitaciones()
+    {
+        return $this->hasMany(EmpleadoCapacitacion::class, 'idCapacitacion');
+    }
+
 }

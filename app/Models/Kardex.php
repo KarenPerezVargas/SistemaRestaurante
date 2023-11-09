@@ -10,6 +10,6 @@ class Kardex extends Model
     use HasFactory;
     protected $table='kardex';
     protected $primaryKey='id';
-    protected $fillabed =  ['kardex_cantidad', 'kardex_fecha', 'kardex_producto', 'kardex_precio', 'kardex_total', 'kardex_movimiento'];
+    protected $fillabed =  ['kardex_fecha','kardex_movimiento','producto_id','kardex_cantidad','kardex_precio','kardex_total'];
     public $timestamps = false;
 }

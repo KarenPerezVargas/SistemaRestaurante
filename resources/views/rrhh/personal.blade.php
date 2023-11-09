@@ -33,7 +33,6 @@
                                 $nb=1;
                             @endphp
                             @foreach ($personal as $item)
-                                @if (($contratos->find($item->idContrato))->idRole != 1)
                                     <tr>
                                         <td>{{$nb++}}</td>
                                         <td>{{$item->nombre}}</td>
@@ -44,12 +43,12 @@
                                         <td>
                                             <a href="{{route('editarEmpleado', $item->idEmpleado)}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
                                             &nbsp; &nbsp; &nbsp;
-                                            
+
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$item->idEmpleado}}">
                                                 <i class="fas fa-trash"></i> Eliminar
                                             </button>
-        
+
                                             <!-- Modal -->
                                             <div class="modal fade" id="exampleModal-{{$item->idEmpleado}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
@@ -74,7 +73,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                @endif
+                                {{-- @endif --}}
                             @endforeach
                         </tbody>
                     </table>

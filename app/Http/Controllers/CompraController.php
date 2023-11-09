@@ -6,6 +6,7 @@ use App\Models\Compra;
 use App\Models\Proveedor;
 use App\Models\Transporte;
 use Illuminate\Http\Request;
+use PDF;
 
 class CompraController extends Controller
 {
@@ -97,5 +98,23 @@ class CompraController extends Controller
         $compra = Compra::find($id);
         $compra->delete();
         return redirect()->route('compra');
+    }
+
+    public function pdf1()
+    {
+        $proveedor = Proveedor::all();
+        $transporte = Transporte::all();
+        $compra = Compra::all();
+        //$proveedor = Proveedor::find($compra->proveedor_id);
+        //$transporte = Transporte::find($compra->transporte_id);
+
+        // Generamos el PDF
+        $pdf = PDF::loadView('inventario.compra.reporte', compact('compra', 'transporte','proveedor'));
+
+        // Abrimos el PDF en una nueva pestaña
+        return $pdf->stream('Reporte de compras.pdf', ['target' => '_blank']);
+
+        // return $pdf->stream();
+
     }
 }
