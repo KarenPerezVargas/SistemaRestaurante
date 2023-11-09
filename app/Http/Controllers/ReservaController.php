@@ -44,6 +44,7 @@ class ReservaController extends Controller
         $reserva->precio = $request->precio;
         $reserva->estado = 'Pendiente';
         $reserva->observaciones = $request->observaciones;
+        $reserva->pagado = 1;
         $reserva->eliminado = 1;
         $reserva->save();
         return redirect()->route('reserva');

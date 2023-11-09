@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(EmpleadoSeeder::class);
-
+        $this->call(ClientesSeeder::class);
+        $this->call(MesasSeeder::class);
     }
 }
