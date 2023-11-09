@@ -15,15 +15,12 @@ use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\TransporteController;
 use App\Http\Controllers\HorarioEntregaController;
 use App\Http\Controllers\CompraController;
-use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\KardexController;
 use App\Http\Controllers\ProductoController;
-use App\Http\Controllers\MesaController;
 use App\Http\Controllers\HojaCostosController;
 use App\Http\Controllers\HojaPresupuestoController;
 use App\Http\Controllers\ZonaController;
 use App\Http\Controllers\HorariooController;
-use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\ProgramaController;
@@ -31,6 +28,12 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\CapacidadController;
 use App\Http\Controllers\BlogController;
 use App\Models\Blog;
+
+//----------------SISTEMA RESERVAS-------------------
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\MesaController;
+use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\PagoReservaController;
 
 
 //----------------SISTEMA PEDIDOS-------------------
@@ -124,7 +127,7 @@ Route::post('/asignar/{id}', [EvaluacionController::class, 'asignar'])->name('as
 Route::get('/asignados/{id}', [EvaluacionController::class, 'asignados'])->name('asignados');
 Route::post('/calificar/{id}', [EvaluacionController::class, 'calificar'])->name('calificar');
 
-Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes'); 
+Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes');
 Route::get('/reporteDesarrollo/{id}', [ReporteController::class, 'show1'])->name('desarrollo');
 Route::get('/reporteDesarrollo/{id}/pdf', [ReporteController::class, 'pdf1'])->name('desarrollopdf');
 Route::get('/reporteValoracion/{id}', [ReporteController::class, 'show2'])->name('valoracion');
@@ -294,7 +297,6 @@ Route::get('/editReserva/{id}', [ReservaController::class, 'edit'])->name('editR
 Route::post('/actualizarReserva/{id}', [ReservaController::class, 'update'])->name('actualizarReserva');
 Route::post('/eliminarReserva/{id}', [ReservaController::class, 'destroy'])->name('eliminarReserva');
 
-
 Route::get('/cliente', [ClienteController::class, 'index'])->name('cliente');
 Route::get('/createCliente', [ClienteController::class, 'create'])->name('createCliente');
 Route::post('/guardarCliente', [ClienteController::class, 'store'])->name('guardarCliente');
@@ -309,7 +311,6 @@ Route::get('/editMesa/{id}', [MesaController::class, 'edit'])->name('editMesa');
 Route::post('/actualizarMesa/{id}', [MesaController::class, 'update'])->name('actualizarMesa');
 Route::post('/eliminarMesa/{id}', [MesaController::class, 'destroy'])->name('eliminarMesa');
 
-
 Route::get('/reserva', [ReservaController::class, 'index'])->name('reserva');
 Route::get('/createReserva', [ReservaController::class, 'create'])->name('createReserva');
 Route::post('/guardarReserva', [ReservaController::class, 'store'])->name('guardarReserva');
@@ -317,6 +318,12 @@ Route::get('/editReserva/{id}', [ReservaController::class, 'edit'])->name('editR
 Route::post('/actualizarReserva/{id}', [ReservaController::class, 'update'])->name('actualizarReserva');
 Route::post('/eliminarReserva/{id}', [ReservaController::class, 'destroy'])->name('eliminarReserva');
 
+Route::get('/pagoreserva', [PagoReservaController::class, 'index'])->name('pagoReserva');
+Route::get('/createPagoReserva', [PagoReservaController::class, 'create'])->name('createPagoReserva');
+Route::post('/guardarPagoReserva', [PagoReservaController::class, 'store'])->name('guardarReserva');
+Route::get('/editPagoReserva/{id}', [PagoReservaController::class, 'edit'])->name('editReserva');
+Route::post('/actualizarPagoReserva/{id}', [PagoReservaController::class, 'update'])->name('actualizarReserva');
+Route::post('/eliminarPagoReserva/{id}', [PagoReservaController::class, 'destroy'])->name('eliminarReserva');
 
 //---------------------------MARKETING-------------------------//
 Route::get('/promocion', [PromocionController::class, 'index'])->name('promocion');
