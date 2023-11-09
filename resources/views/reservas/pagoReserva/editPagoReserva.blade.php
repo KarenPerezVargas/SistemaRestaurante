@@ -3,63 +3,42 @@
 @section('mainContent')
 <div class="container">
     <div class="row justify-content-center">
-        <form action="{{ route('actualizarReserva', $id) }}" method="post" class="col-md-8">
+        <form action="{{ route('actualizarPagoReserva', $id) }}" method="post" class="col-md-8">
             <h5 class="title" style="font-family: Verdana, Geneva, Tahoma, sans-serif">
                 <strong>
-                    <center>Registro de datos de la reserva </center>
+                    <center>Datos del pago de reserva </center>
                 </strong>
             </h5>
             @csrf
 
             <div class="col-md-12 m-5">
                 <div class="mb-3">
-                    <label for="" class="form-label">Fecha y hora para cuando se reserva la comida</label>
-                    <input type="datetime-local" class="form-control" name="fecha_comida" id="" value="{{$reserva->fecha_comida}}" required>
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Numero de comensales</label>
-                    <input type="number" class="form-control" name="num_comensales" max="4" id="" value="{{$reserva->num_comensales}}" required>
+                    <label for="" class="form-label">Reserva ID</label>
+                    <input type="text" class="form-control" name="reserva_id" id="" value="{{$pagoReserva->reserva_id}}" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Cliente</label>
-                    <select name="cliente_id" id="cliente_id" class="form-select">
-                        @foreach ($clientes as $cliente)
-                            <option value="{{ $cliente->idCliente }}" {{ $reserva->cliente_id === $cliente->idCliente ? 'selected' : '' }}>
-                                {{ $cliente->nombres }} {{ $cliente->apellidos }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <input type="text" class="form-control" name="cliente_id" id="" value="{{$pagoReserva->reserva->cliente->nombres}} {{$pagoReserva->reserva->cliente->apellidos}}" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Mesa</label>
-                    <select name="mesa_id" id="mesa_id" class="form-select">
-                        @foreach ($mesas as $mesa)
-                            <option value="{{ $mesa->idMesa }}" {{ $reserva->mesa_id === $mesa->idMesa ? 'selected' : '' }}>
-                                {{ $mesa->nombre }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <label for="" class="form-label">Precio a pagar</label>
+                    <input type="number" class="form-control" step="0.10" id="" name="precio" value="{{$pagoReserva->reserva->precio}}" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Estado</label>
-                    <select class="form-select" aria-label="Default select example" name="estado" required>
-                        <option value="Pendiente">Pendiente</option>
-                        <option value="Confirmada">Confirmada</option>
-                        <option value="Cancelada">Cancelada</option>
-                        <option value="No presentado">No presentado</option>
-                        <option value="En proceso">En proceso</option>
-                        <option value="Completada">Completada</option>
-                        <option value="En espera">En espera</option>
-                    </select>
+                    <label for="" class="form-label">Monto pagado</label>
+                    <input type="number" class="form-control" step="0.10" id="" min="{{$pagoReserva->reserva->precio}}" name="monto" value="{{$pagoReserva->monto}}" required>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Observaciones</label>
-                    <textarea name="observaciones" id="observaciones" class="form-control">{{ $reserva->observaciones }}</textarea>
+                    <label for="" class="form-label">Metodo de pago</label>
+                    <select class="form-select" aria-label="Default select example" name="metodo_pago" required>
+                        <option value="Efectivo">Efectivo</option>
+                        {{-- <option value="Tarjeta">Tarjeta</option> --}}
+                    </select>
                 </div>
             </div>
 
             <div class="mb-2" style="text-align: center">
-                <button type="button" class="btn btn-secondary" onclick="location.href='{{ route('reserva') }}'">Atrás</button>
+                <button type="button" class="btn btn-secondary" onclick="location.href='{{ route('pagoReserva') }}'">Atrás</button>
                 <input type="submit" class="btn btn-primary" value="Guardar">
             </div>
         </form>

@@ -46,6 +46,7 @@ use App\Http\Controllers\BebidasController;
 use App\Http\Controllers\ProductosController;
 use App\Models\HorarioEntrega;
 use App\Http\Controllers\GraficosPedidoController;
+use App\Models\PagoReserva;
 
 /*
 |--------------------------------------------------------------------------
@@ -326,6 +327,9 @@ Route::post('/guardarPagoReserva', [PagoReservaController::class, 'store'])->nam
 Route::get('/editPagoReserva/{id}', [PagoReservaController::class, 'edit'])->name('editPagoReserva');
 Route::post('/actualizarPagoReserva/{id}', [PagoReservaController::class, 'update'])->name('actualizarPagoReserva');
 Route::post('/eliminarPagoReserva/{id}', [PagoReservaController::class, 'destroy'])->name('eliminarPagoReserva');
+
+Route::get('/pagoReserva/reporte', [PagoReservaController::class, 'pdf1'])->name('reportePagoReserva');
+
 
 //---------------------------MARKETING-------------------------//
 Route::get('/promocion', [PromocionController::class, 'index'])->name('promocion');
