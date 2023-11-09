@@ -11,6 +11,11 @@
                     <div class="col-7">
                         <a href="{{route('createPagoReserva')}}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo Registro</a>
                     </div> --}}
+
+                    {{-- Generar reporte --}}
+                    <div class="col-7">
+                        <a href="{{ route('reportePagoReserva') }}" target="_blank" class="btn btn-primary"><i class="fas fa-file-pdf"></i> Generar Reporte PDF</a>
+                    </div>
                 </div>
             </div>
         </form>

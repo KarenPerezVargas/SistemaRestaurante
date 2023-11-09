@@ -8,6 +8,7 @@ use App\Models\Mesa;
 use App\Models\Reserva;
 use App\Models\PagoReserva;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\PDF;
 
 class PagoReservaController extends Controller
 {
@@ -47,6 +48,11 @@ class PagoReservaController extends Controller
         $pagoReserva->fecha_pago = Carbon::now();
         $pagoReserva->eliminado = 1;
         $pagoReserva->save();
+
+        $reserva = Reserva::find($request->reserva_id);
+        $reserva->pagado = 0;
+        $reserva->save();
+
         return redirect()->route('pagoReserva');
     }
 
@@ -64,10 +70,11 @@ class PagoReservaController extends Controller
     public function edit(Request $request,string $id)
     {
         $pagoReserva = PagoReserva::find($id);
-        $reserva = Reserva::find($id);
-        $clientes = Cliente::all();
-        $mesas = Mesa::all();
-        return view('reservas.pagoReserva.editPagoReserva', compact('id','clientes','mesas','reserva','pagoReserva'));
+        // $reserva = Reserva::find($id);
+        // $clientes = Cliente::all();
+        // $mesas = Mesa::all();
+        // return view('reservas.pagoReserva.editPagoReserva', compact('id','clientes','mesas','reserva','pagoReserva'));
+        return view('reservas.pagoReserva.editPagoReserva', compact('id','pagoReserva'));
     }
 
     /**
@@ -76,11 +83,9 @@ class PagoReservaController extends Controller
     public function update(Request $request, string $id)
     {
         $pagoReserva = PagoReserva::find($id);
-        $pagoReserva->reserva_id = $request->reserva_id;
         $pagoReserva->monto = $request->monto;
-        $pagoReserva->vuelto = $request->vuelto;
+        $pagoReserva->vuelto = $request->monto - $request->precio;
         $pagoReserva->metodo_pago = $request->metodo_pago;
-        $pagoReserva->fecha_pago = $request->fecha_pago;
         $pagoReserva->save();
         return redirect()->route('pagoReserva');
     }
@@ -93,6 +98,27 @@ class PagoReservaController extends Controller
         $pagoReserva = PagoReserva::find($id);
         $pagoReserva->eliminado = 0;
         $pagoReserva->save();
+
+        $reserva = Reserva::find($pagoReserva->reserva_id);
+        $reserva->pagado = 1;
+        $reserva->save();
+
         return redirect()->route('pagoReserva');
+    }
+
+    // Crear pdf para el reporte
+    public function pdf1()
+    {
+        $pagoReservas = PagoReserva::all();
+        $reservas = Reserva::all();
+        $clientes = Cliente::all();
+
+        // Generamos el PDF
+        $pdf = app(PDF::class);
+        $pdf->loadView('reservas.pagoReserva.reporte', compact('pagoReservas', 'reservas','clientes'));
+
+        // Abrimos el PDF en una nueva pestaña
+        return $pdf->stream('Reporte de pagos de reservas.pdf', ['Attachment' => false]);
+
     }
 }

@@ -66,7 +66,8 @@ class ReporteController extends Controller
         $personal = Empleado::all();
         $empleado = Empleado::find($id);
         $registros = EmpleadoCapacitacion::where('idEmpleado' , $id)->get();
-        $capacitaciones = Capacitacion::all();
+        // $capacitaciones = Capacitacion::all();
+        $capacitaciones = 22;
     
         // Generamos el PDF
         $pdf = PDF::loadView('rrhh.desarrollopdf', compact('personal', 'empleado', 'registros', 'capacitaciones'));
@@ -86,6 +87,21 @@ class ReporteController extends Controller
         $pdf = PDF::loadView('rrhh.valoracionpdf', ['empleado'=>$empleado, 'registros'=>$registros, 'evaluaciones'=>$evaluaciones]);
         return $pdf->stream();
     }
+
+    public function graficos(Request $request)
+    {
+        $empleado = Empleado::all();
+        $capacitacion = Capacitacion::all();
+        $empleadoCapacitacion = EmpleadoCapacitacion::all();
+
+        $capacitacionesPendientes = $capacitacion->where('estadoCapacitacion', 'pendiente')->count();
+        $capacitacionesEnCurso = $capacitacion->where('estadoCapacitacion', 'en curso')->count();
+        $capacitacionesFinalizadas = $capacitacion->where('estadoCapacitacion', 'finalizada')->count();
+        
+        return view('rrhh.graficos', compact('empleado','capacitacion', 'empleadoCapacitacion', 'capacitacionesPendientes', 'capacitacionesEnCurso', 'capacitacionesFinalizadas'));
+    }
+    
+
 
     /**
      * Show the form for editing the specified resource.

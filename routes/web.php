@@ -47,6 +47,7 @@ use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ClientePedidoController;
 use App\Models\HorarioEntrega;
 use App\Http\Controllers\GraficosPedidoController;
+use App\Models\PagoReserva;
 
 /*
 |--------------------------------------------------------------------------
@@ -132,7 +133,10 @@ Route::get('/reportes', [ReporteController::class, 'index'])->name('reportes');
 Route::get('/reporteDesarrollo/{id}', [ReporteController::class, 'show1'])->name('desarrollo');
 Route::get('/reporteDesarrollo/{id}/pdf', [ReporteController::class, 'pdf1'])->name('desarrollopdf');
 Route::get('/reporteValoracion/{id}', [ReporteController::class, 'show2'])->name('valoracion');
-Route::get('/reporteValoracion/{id}/pdf', [ReporteController::class, 'pdf2'])->name('valoracionpdf');
+Route::get('/reporteValoracion/{id}/pdf', [eController::class, 'pdf2'])->name('valoracionpdf');
+
+Route::get('/reportes/graficas', [ReporteController::class,'graficos'])->name('graficas');
+
 
 Route::get('/verPerfil', [UserController::class, 'showPerfil'])->name('perfil');
 Route::get('/editarPerfil', [UserController::class, 'editPerfil'])->name('editar');
@@ -340,6 +344,9 @@ Route::post('/guardarPagoReserva', [PagoReservaController::class, 'store'])->nam
 Route::get('/editPagoReserva/{id}', [PagoReservaController::class, 'edit'])->name('editPagoReserva');
 Route::post('/actualizarPagoReserva/{id}', [PagoReservaController::class, 'update'])->name('actualizarPagoReserva');
 Route::post('/eliminarPagoReserva/{id}', [PagoReservaController::class, 'destroy'])->name('eliminarPagoReserva');
+
+Route::get('/pagoReserva/reporte', [PagoReservaController::class, 'pdf1'])->name('reportePagoReserva');
+
 
 //---------------------------MARKETING-------------------------//
 Route::get('/promocion', [PromocionController::class, 'index'])->name('promocion');

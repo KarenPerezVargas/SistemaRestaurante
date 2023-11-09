@@ -9,6 +9,7 @@
                 <div class="navbar">
                     <div class="container-fluid">
                         <h3><i>Reportes</i></h3>
+                        <a href="{{route('graficas')}}" class="btn btn-primary"><i class="fas fa-file-pdf"></i>&nbsp;Ver Gráficos</a>
                     </div>
                 </div>
                 <div class="text-center">

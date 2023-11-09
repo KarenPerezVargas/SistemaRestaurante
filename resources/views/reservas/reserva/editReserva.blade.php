@@ -6,7 +6,7 @@
         <form action="{{ route('actualizarReserva', $id) }}" method="post" class="col-md-8">
             <h5 class="title" style="font-family: Verdana, Geneva, Tahoma, sans-serif">
                 <strong>
-                    <center>Registro de datos de la reserva </center>
+                    <center>Datos de la reserva </center>
                 </strong>
             </h5>
             @csrf

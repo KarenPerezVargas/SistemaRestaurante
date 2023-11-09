@@ -55,9 +55,9 @@
                         <td class="text-xxs mb-0 text-center">{{$item->estado}}</td>
                         {{-- Opcion para pagar --}}
                         <td class="text-xxs mb-0 text-center">
-                            @if ($valor == 1)
+                            @if ($item->pagado == 1)
                                 <a href="{{route('createPagoReserva', [$item->id])}}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i> Pagar</a>
-                            @elseif ($valor == 0)
+                            @elseif ($item->pagado == 0)
                                 <p>Pagado</p>
                             @else
                                 <p>Error</p>

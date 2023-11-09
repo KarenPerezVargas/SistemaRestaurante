@@ -6,6 +6,25 @@
             <div class="col-md-5 col-12">
                 <H4>CANTIDAD DE PEDIDOS POR NOMBRE DE CLIENTE</H4>
                 <canvas id="barras"></canvas>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gráfica Estadística</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    
+    <body>
+
+        <div align="center">
+            <div class="row">
+                <div style="width:50%;" class="col-6">
+                    <canvas id="barras"></canvas>
+                </div>
+                <div style="width:50%;" class="col-6">
+                    <canvas id="lineas"></canvas>
+                </div>
             </div>
             <div class="col-1 col-md-none"></div>
             <div class="col-md-5 col-12">
