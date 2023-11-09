@@ -10,6 +10,7 @@
                     <div class="container-fluid">
                         <h3><i>Personal</i></h3>
                         <a href="{{route('crearEmpleado')}}" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Nuevo Registro</a>
+                        <a href="{{route('reportePersonal')}}" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Generar Reporte</a>
                     </div>
                 </div>
                 <div class="text-center">

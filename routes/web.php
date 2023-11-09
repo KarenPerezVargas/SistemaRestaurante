@@ -98,6 +98,10 @@ Route::get('/editarEmpleado/{id}', [PersonalController::class, 'edit'])->name('e
 Route::post('/actualizarEmpleado/{id}', [PersonalController::class, 'update'])->name('actualizarEmpleado');
 Route::post('/eliminarEmpleado/{id}', [PersonalController::class, 'destroy'])->name('eliminarEmpleado');
 
+Route::get('/personal/reporte', [PersonalController::class, 'pdfCompra'])->name('reportePersonal');
+
+
+
 Route::get('/contratos', [ContratoController::class, 'index'])->name('contratos');
 Route::get('/crearContrato', [ContratoController::class, 'create'])->name('crearContrato');
 Route::post('/guardarContrato', [ContratoController::class, 'store'])->name('guardarContrato');

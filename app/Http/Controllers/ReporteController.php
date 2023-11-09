@@ -66,14 +66,14 @@ class ReporteController extends Controller
         $personal = Empleado::all();
         $empleado = Empleado::find($id);
         $registros = EmpleadoCapacitacion::where('idEmpleado' , $id)->get();
-        // $capacitaciones = Capacitacion::all();
-        $capacitaciones = 22;
+        $capacitaciones = Capacitacion::all();
+        // $capacitaciones = 22;
     
         // Generamos el PDF
         $pdf = PDF::loadView('rrhh.desarrollopdf', compact('personal', 'empleado', 'registros', 'capacitaciones'));
         
         // Abrimos el PDF en una nueva pestaña
-        return $pdf->stream('Reporte de Desarrollo.pdf', ['target' => '_blank']);
+        return $pdf->stream('Reporte de Capacitaciones.pdf', ['target' => '_blank']);
 
         // return $pdf->stream();
         
