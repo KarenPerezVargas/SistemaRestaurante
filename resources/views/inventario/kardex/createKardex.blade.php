@@ -21,9 +21,14 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="mb-3">
+                    <div>
                         <label for="" class="form-label">Producto</label>
-                        <input type="text" class="form-control" name="kardex_producto" id="" required>
+                        <select class="form-select mb-4" aria-label="Default select example" name="producto_id" required>
+                            <option value="">Seleccione un producto</option>
+                            @foreach ($producto as $producto)
+                                <option value="{{ $producto->id }}">{{ $producto->producto_nombre }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Precio Unitario</label>
