@@ -291,6 +291,8 @@ Route::post ('/actualizarHojaPresupuesto/{id}', [HojaPresupuestoController::clas
 Route::post ('/eliminarHojaPresupuesto/{id}', [HojaPresupuestoController::class, 'destroy'])->name('eliminarHojaPresupuesto');
 
 Route::get('/compra/reporte', [CompraController::class, 'pdf1'])->name('reporteCompra');
+Route::get('/proveedor/reporte', [ProveedorController::class, 'pdf1'])->name('reporteProveedor');
+Route::get('/transporte/reporte', [TransporteController::class, 'pdf1'])->name('reporteTransporte');
 
 //---------------------------RESERVAS-------------------------//
 Route::get('/reserva', [ReservaController::class, 'index'])->name('reserva');
