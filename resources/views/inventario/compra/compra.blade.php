@@ -11,8 +11,13 @@
                         <h3><i>Ordenes de Compras</i></h3>
                         <a href="{{ route('createCompra') }}" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Nuevo
                             Registro</a>
+
+                        <a href="{{ route('reporteCompra') }}" class="btn btn-primary"><i
+                                class="fas fa-file-pdf"></i>&nbsp;Generar PDF</a>
                     </div>
+
                 </div>
+
                 <div class="text-center">
                     <table class="table">
                         <thead class="table-dark">
