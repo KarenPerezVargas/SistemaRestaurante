@@ -30,7 +30,6 @@ class PedidoSeeder extends Seeder
 
         // Insertar los datos en la tabla "mesas"
         DB::table('pedidos')->insert($pedido);
-
     } 
     
 }

@@ -34,6 +34,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\MesaController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\PagoReservaController;
+use App\Http\Controllers\GraficoReservasController;
 
 
 //----------------SISTEMA PEDIDOS-------------------
@@ -44,6 +45,7 @@ use App\Http\Controllers\PagosController;
 use App\Http\Controllers\AsesoramientoController;
 use App\Http\Controllers\BebidasController;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\ClientePedidoController;
 use App\Models\HorarioEntrega;
 use App\Http\Controllers\GraficosPedidoController;
 use App\Models\PagoReserva;
@@ -134,6 +136,9 @@ Route::get('/reporteDesarrollo/{id}/pdf', [ReporteController::class, 'pdf1'])->n
 Route::get('/reporteValoracion/{id}', [ReporteController::class, 'show2'])->name('valoracion');
 Route::get('/reporteValoracion/{id}/pdf', [eController::class, 'pdf2'])->name('valoracionpdf');
 
+Route::get('/reportes/graficas', [ReporteController::class,'graficos'])->name('graficas');
+
+
 Route::get('/verPerfil', [UserController::class, 'showPerfil'])->name('perfil');
 Route::get('/editarPerfil', [UserController::class, 'editPerfil'])->name('editar');
 Route::post('/actualizarPerfil', [UserController::class, 'updatePerfil'])->name('actualizar');
@@ -151,6 +156,13 @@ Route::get('cancelar-pedido',function(){
 })->name('cancelar-pedido');
 Route::get('pedido/{id}/confirmar',[PedidosController::class,'confirmar'
 ])->name('pedido.confirmar');
+
+Route::get('/clientePedido', [ClientePedidoController::class, 'index'])->name('clientePedido');
+Route::get('/createClientePedido', [ClientePedidoController::class, 'create'])->name('createClientePedido');
+Route::post('/guardarClientePedido', [ClientePedidoController::class, 'store'])->name('guardarClientePedido');
+Route::get('/editClientePedido/{id}', [ClientePedidoController::class, 'edit'])->name('editClientePedido');
+Route::post('/actualizarClientePedido/{id}', [ClientePedidoController::class, 'update'])->name('actualizarClientePedido');
+Route::post('/eliminarClientePedido/{id}', [ClientePedidoController::class, 'destroy'])->name('eliminarClientePedido');
 
 
 // -------------------
@@ -171,6 +183,10 @@ Route::resource('asesoramiento', AsesoramientoController::class);
 
 // ----------------------
 Route::resource('consulta', GraficosPedidoController::class);
+
+Route::get('reportePedidos',[GraficosPedidoController::class,'reportePedidos'
+])->name('consulta.reportePedidos');
+
 Route::get('consulta',[GraficosPedidoController::class,'boletas'
 ])->name('consulta.boletas');
 Route::get('consulta/{id}/boletaGenerada',[GraficosPedidoController::class,'boletaGenerada'
@@ -180,8 +196,7 @@ Route::get('consulta/{id}/boletaGenerada',[GraficosPedidoController::class,'bole
 Route::get('consulta/{id}/generarBoletaPDF',[GraficosPedidoController::class,'generarBoletaPDF'
 ])->name('consulta.generarBoletaPDF');
 
-Route::get('graficos',[GraficosPedidoController::class,'graficos'
-])->name('consulta.graficos');
+Route::get('graficos',[GraficosPedidoController::class,'graficos'])->name('consulta.graficos');
 
 // --------BEBIDAS-----------
 Route::resource('bebida', BebidasController::class);
@@ -331,6 +346,10 @@ Route::post('/actualizarPagoReserva/{id}', [PagoReservaController::class, 'updat
 Route::post('/eliminarPagoReserva/{id}', [PagoReservaController::class, 'destroy'])->name('eliminarPagoReserva');
 
 Route::get('/pagoReserva/reporte', [PagoReservaController::class, 'pdf1'])->name('reportePagoReserva');
+
+Route::get('graficos',[GraficoReservasController::class,'graficos'])->name('graficos');
+Route::get('grafico1',[GraficoReservasController::class,'grafico1'])->name('grafico1');
+Route::get('grafico2',[GraficoReservasController::class,'grafico2'])->name('grafico2');
 
 
 //---------------------------MARKETING-------------------------//

@@ -1,9 +1,6 @@
 @extends('layouts.recepcionista')
-
 @section('puntos', '../')
-
 @section('dashName', 'Recepcionista')
-
 @section('mainContent')
 
 @endsection
@@ -36,5 +33,13 @@
         <p>Pagos de reservas</p>
         </a>
     </li>
+
+    <li class="nav-item">
+        <a href="{{ route('graficos') }}" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>Gráficos</p>
+        </a>
+    </li>
+
 @endsection
 
