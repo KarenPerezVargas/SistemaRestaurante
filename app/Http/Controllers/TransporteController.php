@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Transporte;
+use PDF;
 
 use Illuminate\Http\Request;
 
@@ -56,5 +57,19 @@ class TransporteController extends Controller
         $transporte = Transporte::find($id);
         $transporte->delete();
         return redirect()->route('transporte');
+    }
+
+    public function pdf1()
+    {
+        $transporte = Transporte::all();
+
+        // Generamos el PDF
+        $pdf = PDF::loadView('inventario.transporte.reporte', compact('transporte'));
+
+        // Abrimos el PDF en una nueva pestaña
+        return $pdf->stream('Reporte de transportes.pdf', ['target' => '_blank']);
+
+        // return $pdf->stream();
+
     }
 }

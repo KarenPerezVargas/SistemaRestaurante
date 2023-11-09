@@ -9,11 +9,17 @@
             <div class="navbar">
                 <div class="container-fluid">
                     <h3><i>Proveedores</i></h3>
-                    <a href="{{route('createProveedor')}}" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Nuevo Registro</a>
+                    <a href="{{ route('reporteProveedor') }}" class="btn btn-secundary"><i
+                            class="fas fa-file-pdf"></i>&nbsp;Generar PDF</a>
                 </div>
             </div>
             <div class="text-center">
-                <table class="table">
+                <div align="left">
+                    <a style="align:left" href="{{ route('createProveedor') }}" class="btn btn-primary"><i
+                            class="fas fa-plus"></i>&nbsp;Nuevo
+                        Registro</a>
+                </div>
+                <table class="table" style="margin-top: 1rem">
                     <thead class="table-dark">
                       <tr>
                         <th>#</th>

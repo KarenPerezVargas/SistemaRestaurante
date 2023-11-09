@@ -15,46 +15,83 @@
         <h1>
             <center>MiskyChallwa Restaurant</center>
         </h1>
-        <h3>Reporte de Compras</h3>
-        <div class="navbar">
-            <div class="container-fluid">
-                <h3><i><b></b></i></h3>
-            </div>
-        </div>
-        <div class="text-center">
-            <table class="table">
-                <thead class="table-dark">
-                    <tr>
-                        <th>#</th>
-                        <th>RUC</th>
-                        <th>Fecha</th>
-                        <th>Proveedor</th>
-                        <th>Transporte</th>
-                        <th>Observaciones</th>
-                        <th>Origen</th>
-                        <th>Destino</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                        $nb = 1;
-                    @endphp
-                    @foreach ($compra as $item)
+        <h2 style="margin-top: 2rem">
+            <center>Subsistema inventario</center>
+        </h2>
+        <h3 style="margin-top: 4rem">Reporte de Compras</h3>
+
+        <div>
+            <div class="">
+                <table width="100%" style="margin-top: 3rem">
+                    <thead>
                         <tr>
-                            <td>{{ $nb++ }}</td>
-                            <td>{{ $item->ruc }}</td>
-                            <td>{{ $item->fecha }}</td>
-                            <td>{{ $proveedor->find($item->proveedor_id)->nombre_proveedor }}</td>
-                            <td>{{ $transporte->find($item->transporte_id)->trans_codigo }}</td>
-                            <td>{{ $item->indicaciones }}</td>
-                            <td>{{ $item->origen }}</td>
-                            <td>{{ $item->destino }}</td>
-                            <td>S/. {{ $item->total }}</td>
+
+                            <th scope="col" class="py-3 px-6">
+                                RUC
+                            </th>
+
+                            <th scope="col" class="py-3 px-6">
+                                Fecha
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Proveedor
+                            </th>
+
+                            <th scope="col" class="py-3 px-6">
+                                Transporte
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Observaciones
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Origen
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Destino
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Total
+                            </th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody class="">
+                        @php
+                            $nb = 1;
+                        @endphp
+                        @foreach ($compra as $item)
+                            <tr>
+                                <td class="py-3 px-6">
+                                    {{ $item->ruc }}
+                                </td>
+                                <th class="py-4 px-6">
+                                    {{ $item->fecha }}
+                                </th>
+                                <td class="py-4 px-6">
+                                    {{ $proveedor->find($item->proveedor_id)->nombre_proveedor }}
+                                </td>
+                                <td class="py-4 px-6">
+                                    {{ $transporte->find($item->transporte_id)->trans_codigo }}
+                                </td>
+                                <td class="py-4 px-6">
+                                    {{ $item->indicaciones }}
+                                </td>
+                                <td class="py-4 px-6">
+                                    {{ $item->origen }}
+                                </td>
+                                <td class="py-4 px-6">
+                                    {{ $item->destino }}
+                                </td>
+                                <td class="py-4 px-6">
+                                    {{ $item->total }}
+                                </td>
+                            </tr>
+                            <tr class="">
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     </div>
 </body>

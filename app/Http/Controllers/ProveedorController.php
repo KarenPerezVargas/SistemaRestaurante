@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
+use PDF;
 
 class ProveedorController extends Controller
 {
@@ -81,5 +82,19 @@ class ProveedorController extends Controller
         $proveedor = Proveedor::find($id);
         $proveedor->delete();
         return redirect()->route('proveedor');
+    }
+
+    public function pdf1()
+    {
+        $proveedor = Proveedor::all();
+
+        // Generamos el PDF
+        $pdf = PDF::loadView('inventario.proveedor.reporte', compact('proveedor'));
+
+        // Abrimos el PDF en una nueva pestaña
+        return $pdf->stream('Reporte de proveedores.pdf', ['target' => '_blank']);
+
+        // return $pdf->stream();
+
     }
 }
