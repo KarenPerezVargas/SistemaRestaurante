@@ -1,10 +1,3 @@
-@extends('layouts.personalPedidos')
-
-@section('puntos', '../../')
-
-@section('titulo', 'BOLETAS')
-
-@section('mainContent')
 <body style="margin: 0px 0px 50px 0px"> 
     <div style="padding-left: 40px;  border: 1px solid #000">
         <h2 style="text-align: center;">RESTAURANTE MISKYCHALLWA</h2>
@@ -43,24 +36,6 @@
         </form>
         <p style="text-align: center;">¡Gracias por su compra, vuelva pronto!</p>
     </div>
-    
-    <div class="row" style="padding-top: 10px">
-        <div class="col-6">
-            <a href="{{ route('consulta.boletas') }}"><i class="fas fas-trash"></i>Regresar</a>
-        </div>
-        <div class="col-6" align="right">
-            <a href="{{route('consulta.generarBoletaPDF',$pedido->idPedido)}}"class="btn btn-info btn-sm text-uppercase text-xxs font-weight-bolder"><i class="fas fas-trash"></i>Generar PDF</a>
-        </div>
-    </div>
 
 </body>
 </html>
-    
-@endsection
-
-@section('scripts')
-    <script>
-        setTimeout(function(){
-            document.querySelector('#mensaje').remove();
-        },2000);
-    </script>

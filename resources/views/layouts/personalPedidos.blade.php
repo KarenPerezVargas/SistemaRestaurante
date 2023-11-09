@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="@yield('puntos')db/plugins/summernote/summernote-bs4.min.css">
   <!-- Bootstrap css -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="@yield('puntos')resources/js/pedido.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -256,7 +257,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <!-- <li class="breadcrumb-item"><a href="#">Home</a></li>
               @if (isset($artista) && isset($album))
                 <li class="breadcrumb-item active"><a href="{{route('reporte', [$artista, $album])}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>
               @else
@@ -265,7 +266,7 @@
                 @else
                   <li class="breadcrumb-item active"><a href="{{-- {{route('reporte', [0, 0])}} --}}" style="text-decoration: none; color: gray;" target="_blank">Report</a></li>
                 @endif
-              @endif
+              @endif -->
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

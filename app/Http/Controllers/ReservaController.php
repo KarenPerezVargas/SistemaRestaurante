@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Cliente;
 use App\Models\Mesa;
-use Illuminate\Http\Request;
 use App\Models\Reserva;
 use Illuminate\Support\Facades\Date;
 
@@ -61,10 +61,10 @@ class ReservaController extends Controller
      */
     public function edit(Request $request,string $id)
     {
-        $reservas = Reserva::find($id);
+        $reserva = Reserva::find($id);
         $clientes = Cliente::all();
         $mesas = Mesa::all();
-        return view('reservas.reserva.editReserva', compact('reservas', 'id', 'clientes','mesas'));
+        return view('reservas.reserva.editReserva', compact('reserva', 'id', 'clientes','mesas'));
     }
 
     /**

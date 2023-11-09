@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kardex;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class KardexController extends Controller
@@ -12,8 +13,9 @@ class KardexController extends Controller
      */
     public function index()
     {
+        $producto = Producto::all();
         $kardex = Kardex::all();
-        return view('inventario.kardex.kardex', compact('kardex'));
+        return view('inventario.kardex.kardex', compact('kardex','producto'));
     }
 
     /**
@@ -21,7 +23,9 @@ class KardexController extends Controller
      */
     public function create()
     {
-        return view('inventario.kardex.createKardex');
+        $producto = Producto::all();
+        $kardex = Kardex::all();
+        return view('inventario.kardex.createKardex', compact('kardex','producto'));
     }
 
     /**
@@ -29,12 +33,13 @@ class KardexController extends Controller
      */
     public function store(Request $request)
     {
+        $producto = Producto::find($request->producto_id);
         $kardex = new Kardex();
-        $kardex->kardex_cantidad = $request->kardex_cantidad;
         $kardex->kardex_fecha = $request->kardex_fecha;
-        $kardex->kardex_producto = $request->kardex_producto;
-        $kardex->kardex_precio = $request->kardex_precio;
         $kardex->kardex_movimiento = $request->kardex_movimiento;
+        $kardex->producto_id = $request->producto_id;
+        $kardex->kardex_cantidad = $request->kardex_cantidad;
+        $kardex->kardex_precio = $request->kardex_precio;
         $kardex->kardex_total = $kardex->kardex_cantidad*$kardex->kardex_precio;
         $kardex->save();
         return redirect()->route('kardex');
@@ -53,8 +58,9 @@ class KardexController extends Controller
      */
     public function edit(Request $request,string $id)
     {
+        $producto = Producto::all();
         $kardex = Kardex::find($id);
-        return view('inventario.kardex.editKardex', compact('kardex', 'id'));
+        return view('inventario.kardex.editKardex', compact('kardex','producto', 'id'));
     }
 
     /**
@@ -62,12 +68,13 @@ class KardexController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $producto = Producto::find($request->producto_id);
         $kardex = Kardex::find($id);
-        $kardex->kardex_cantidad = $request->kardex_cantidad;
         $kardex->kardex_fecha = $request->kardex_fecha;
-        $kardex->kardex_producto = $request->kardex_producto;
-        $kardex->kardex_precio = $request->kardex_precio;
         $kardex->kardex_movimiento = $request->kardex_movimiento;
+        $kardex->producto_id = $request->producto_id;
+        $kardex->kardex_cantidad = $request->kardex_cantidad;
+        $kardex->kardex_precio = $request->kardex_precio;
         $kardex->kardex_total = $kardex->kardex_cantidad*$kardex->kardex_precio;
         $kardex->save();
         return redirect()->route('kardex');

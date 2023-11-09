@@ -36,9 +36,9 @@
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->kardex_fecha}}</td>
                                 <td>{{$item->kardex_movimiento}}</td>
-                                <td>{{$item->kardex_producto}}</td>
+                                <td>{{ $producto->find($item->producto_id)->producto_nombre }}</td>
                                 <td>{{$item->kardex_cantidad}}</td>
-                                <td>{{$item->kardex_precio}}</td>
+                                <td>S/. {{$item->kardex_precio}}</td>
                                 <td>S/. {{$item->kardex_total}}</td>
                                 <td>
                                     <a href="{{route('editKardex', [$item->id])}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
