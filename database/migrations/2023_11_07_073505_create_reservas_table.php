@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal('precio', 10, 2);
             $table->string('estado');
             $table->text('observaciones')->nullable();
+            $table->integer('pagado');
             $table->integer('eliminado');
             $table->timestamps(); // Campos para la fecha de creación y actualización
 

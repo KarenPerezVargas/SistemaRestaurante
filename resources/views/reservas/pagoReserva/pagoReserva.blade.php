@@ -44,7 +44,7 @@
                         <td class="text-xxs mb-0 text-center">{{$item->id}}</td>
                         <td class="text-xxs mb-0 text-center">{{$item->reserva_id}}</td>
                         {{-- Aqui va el cliente --}}
-                        <td class="text-xxs mb-0 text-center">{{$item->reserva->cliente->nombres}} {{$item->cliente->apellidos}}</td>
+                        <td class="text-xxs mb-0 text-center">{{$item->reserva->cliente->nombres}} {{$item->reserva->cliente->apellidos}}</td>
 
                         <td class="text-xxs mb-0 text-center">{{$item->metodo_pago}}</td>
                         <td class="text-xxs mb-0 text-center">{{$item->fecha_pago}}</td>
