@@ -1,4 +1,4 @@
-@extends('rrhh.gerenterrhh.gerenterrhh.index')
+@extends('layouts.admin')
 @section('dashName', 'Dashboard')
 @section('mainContent')
     <!-- Page Content-->
