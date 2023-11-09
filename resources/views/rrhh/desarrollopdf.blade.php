@@ -24,7 +24,8 @@
                         <th>Tema</th>
                         <th>Área</th>
                         <th>Fecha</th>
-                        <th>Puntuacion</th>
+                        <th>Instructor</th>
+                        <th>Estado</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,10 +35,16 @@
                     @foreach ($registros as $item)
                         <tr>
                             <td>{{$nb++}}</td>
-                            <td>{{($capacitaciones->find($item->idcapa))->temaCapacitacion}}</td>
-                            <td>{{($capacitaciones->find($item->idcapa))->areaCapacitacion}}</td>
-                            <td>{{($capacitaciones->find($item->idcapa))->fechaCapacitacion}}</td>
-                            <td>{{$item->puntuacion}}</td>
+                            <td>{{($capacitaciones->find($item->idCapacitacion))->temaCapacitacion}}</td>
+                            <td>{{($capacitaciones->find($item->idCapacitacion))->areaCapacitacion}}</td>
+                            <td>{{($capacitaciones->find($item->idCapacitacion))->fechaCapacitacion}}</td>
+                            @php
+                            $idInstructor = ($capacitaciones->find($item->idCapacitacion))->idInstructor;
+                            $instructor = $personal->where('idEmpleado', $idInstructor)->first();
+                            @endphp
+                            <td>{{ $instructor ? $instructor->nombre : 'No encontrado' }} {{ $instructor ? $instructor->apellidos : 'No encontrado' }}</td>
+                            
+                            <td>{{($capacitaciones->find($item->idCapacitacion))->estadoCapacitacion}}</td>
                         </tr>
                     @endforeach
                 </tbody>

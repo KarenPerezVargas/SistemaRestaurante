@@ -55,15 +55,13 @@ class Empleado extends Model
 
     public function empleadoCapacitaciones()
     {
-        return $this->hasMany(EmpleadoCapacitacion::class, 'idemple');
+        return $this->hasMany(EmpleadoCapacitacion::class, 'idEmpleado');
     }
 
     public function empleadoEvaluaciones()
     {
-        return $this->hasMany(EmpleadoEvaluacion::class, 'idemple');
+        return $this->hasMany(EmpleadoEvaluacion::class, 'idEmpleado');
     }
-
-
 
     public function contrato()
     {
@@ -71,4 +69,5 @@ class Empleado extends Model
     }
 
 
+    
 }

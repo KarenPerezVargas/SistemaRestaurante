@@ -17,7 +17,7 @@
                         <thead class="table-dark">
                           <tr>
                             <th>#</th>
-                            <th>DNI</th>
+                            <th>Empleado</th>
                             <th>Fecha de Inicio</th>
                             <th>Duracion en Meses</th>
                             <th>Fin de Contrato</th>
@@ -35,7 +35,7 @@
                                 @if ($personal->where('idContrato', $item->idContrato)->isNotEmpty())
                                     <tr>
                                         <td>{{$nb++}}</td>
-                                        <td>{{(($personal->where('idContrato', $item->idContrato))->first())->DNI}}</td>
+                                        <td>{{(($personal->where('idContrato', $item->idContrato))->first())->nombre}} {{(($personal->where('idContrato', $item->idContrato))->first())->apellidos}}</td>
                                         <td>{{$item->fechaInicio}}</td>
                                         <td>{{$item->duracionMeses}}</td>
                                         <td>{{ date('Y-m-d', strtotime("$item->fechaInicio + $item->duracionMeses months")) }}</td>

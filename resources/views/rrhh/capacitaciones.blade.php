@@ -37,10 +37,10 @@
                                 <tr>
                                     <td>{{$nb++}}</td>
                                     <td>{{$item->temaCapacitacion}}</td>
-                                    <td>{{($personal->find($item->idEmpleado))->apellidos}} {{($personal->find($item->idEmpleado))->nombre}}</td>
+                                    <td>{{($personal->find($item->idEmpleado))->nombre}} {{($personal->find($item->idEmpleado))->apellidos}}</td>
                                     <td>{{$item->areaCapacitacion}}</td>
                                     <td>{{$item->fechaCapacitacion}}</td>
-                                    <td>{{$item->idInstructor }}</td>
+                                    <td>{{($personal->find($item->idInstructor))->nombre}} {{($personal->find($item->idInstructor))->apellidos}}</td>
                                     <td>{{$item->estadoCapacitacion }}</td>
 
                                     <td>

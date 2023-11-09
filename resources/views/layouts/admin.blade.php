@@ -163,12 +163,12 @@
                     <p>Capacitaciones</p>
                   </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                   <a href="{{route('evaluaciones')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Vacantes</p>
                   </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                   <a href="{{route('reportes')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>

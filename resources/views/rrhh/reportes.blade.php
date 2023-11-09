@@ -37,7 +37,7 @@
                                     <td>{{$item->DNI}}</td>
                                     <td>
                                         <a href="{{route('desarrollo', [$item->idEmpleado])}}" class="btn btn-info btn-sm"><i class="fas fa-table"></i> Capacitaciones</a> &nbsp;
-                                        <a href="{{route('valoracion', [$item->idEmpleado])}}" class="btn btn-info btn-sm"><i class="fas fa-table"></i> Evaluaciones</a>
+                                        {{-- <a href="{{route('valoracion', [$item->idEmpleado])}}" class="btn btn-info btn-sm"><i class="fas fa-table"></i> Evaluaciones</a> --}}
                                     </td>
                                 </tr>
                             @endforeach

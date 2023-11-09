@@ -18,10 +18,18 @@
         </select>
     </div>
 
+
     <div class="mb-3">
-        <label for="" class="form-label">Area</label>
-        <input type="text" class="form-control" name="areaCapacitacion" id="" value="{{$capacitacion->areaCapacitacion}}">
+        <label for="areaCapacitacion" class="form-label">Área</label>
+        <select class="form-select" name="areaCapacitacion" id="areaCapacitacion">
+            <option value="Recursos Humanos" {{ old('areaCapacitacion') == 'Recursos Humanos' ? 'selected' : '' }}>Recursos Humanos</option>
+            <option value="Marketing" {{ old('areaCapacitacion') == 'Marketing' ? 'selected' : '' }}>Marketing</option>
+            <option value="Reservas" {{ old('areaCapacitacion') == 'Reservas' ? 'selected' : '' }}>Reservas</option>
+            <option value="Pedido" {{ old('areaCapacitacion') == 'Pedido' ? 'selected' : '' }}>Pedido</option>
+            <option value="Inventario" {{ old('areaCapacitacion') == 'Inventario' ? 'selected' : '' }}>Inventario</option>
+        </select>
     </div>
+    
 
     <div class="mb-3">
         <label for="" class="form-label">Fecha</label>
