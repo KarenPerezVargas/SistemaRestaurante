@@ -8,8 +8,8 @@
     <link href="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css')}}" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 <body>
-    <div class="row gx-lg-5">
-        <h1><center>MiskyChallwa Restaurant</center></h1>
+    <div alignt="center" class="row gx-lg-5">
+        <h1>MiskyChallwa Restaurant</h1>
         <h3>Reporte de Capacitaciones</h3>
         <div class="navbar">
             <div class="container-fluid">
@@ -20,12 +20,12 @@
             <table class="table">
                 <thead class="table-dark">
                     <tr>
-                        <th>#</th>
-                        <th>Tema</th>
-                        <th>Área</th>
-                        <th>Fecha</th>
-                        <th>Instructor</th>
-                        <th>Estado</th>
+                        <th style="padding-right: 30px; padding-top: 0px">#</th>
+                        <th style="padding-right: 30px; padding-top: 0px">Tema</th>
+                        <th style="padding-right: 30px; padding-top: 0px">Área</th>
+                        <th style="padding-right: 30px; padding-top: 0px">Fecha</th>
+                        <th style="padding-right: 30px; padding-top: 0px">Instructor</th>
+                        <th style="padding-right: 30px; padding-top: 0px">Estado</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,17 +34,17 @@
                     @endphp
                     @foreach ($registros as $item)
                         <tr>
-                            <td>{{$nb++}}</td>
-                            <td>{{($capacitaciones->find($item->idCapacitacion))->temaCapacitacion}}</td>
-                            <td>{{($capacitaciones->find($item->idCapacitacion))->areaCapacitacion}}</td>
-                            <td>{{($capacitaciones->find($item->idCapacitacion))->fechaCapacitacion}}</td>
+                            <td style="padding-right: 30px; padding-top: 0px">{{$nb++}}</td>
+                            <td style="padding-right: 30px; padding-top: 0px">{{($capacitaciones->find($item->idCapacitacion))->temaCapacitacion}}</td>
+                            <td style="padding-right: 30px; padding-top: 0px">{{($capacitaciones->find($item->idCapacitacion))->areaCapacitacion}}</td>
+                            <td style="padding-right: 30px; padding-top: 0px">{{($capacitaciones->find($item->idCapacitacion))->fechaCapacitacion}}</td>
                             @php
                             $idInstructor = ($capacitaciones->find($item->idCapacitacion))->idInstructor;
                             $instructor = $personal->where('idEmpleado', $idInstructor)->first();
                             @endphp
-                            <td>{{ $instructor ? $instructor->nombre : 'No encontrado' }} {{ $instructor ? $instructor->apellidos : 'No encontrado' }}</td>
+                            <td style="padding-right: 30px; padding-top: 0px">{{ $instructor ? $instructor->nombre : 'No encontrado' }} {{ $instructor ? $instructor->apellidos : 'No encontrado' }}</td>
                             
-                            <td>{{($capacitaciones->find($item->idCapacitacion))->estadoCapacitacion}}</td>
+                            <td style="padding-right: 30px; padding-top: 0px">{{($capacitaciones->find($item->idCapacitacion))->estadoCapacitacion}}</td>
                         </tr>
                     @endforeach
                 </tbody>

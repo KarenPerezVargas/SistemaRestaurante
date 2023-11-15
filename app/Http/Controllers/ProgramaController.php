@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Programa;
 use Illuminate\Http\Request;
+use PDF;
 
 class ProgramaController extends Controller
 {
@@ -83,5 +84,19 @@ class ProgramaController extends Controller
         $programa = Programa::find($id);
         $programa->delete();
         return redirect()->route('programa');
+    }
+
+    public function pdf1()
+    {
+        $programa = Programa::all();
+
+        // Generamos el PDF
+        $pdf = PDF::loadView('marketing.coordinadoreventos.programas.reporte', compact('programa'));
+
+        // Abrimos el PDF en una nueva pestaña
+        return $pdf->stream('Reporte de programa.pdf', ['target' => '_blank']);
+
+        // return $pdf->stream();
+
     }
 }

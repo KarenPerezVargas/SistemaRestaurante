@@ -11,6 +11,8 @@ use App\Models\Contrato;
 use App\Models\Role;
 use App\Models\Horario;
 
+use PDF;
+
 class PersonalController extends Controller
 {
     /**
@@ -201,5 +203,20 @@ class PersonalController extends Controller
         $empleado = Empleado::find($id);
         $empleado->delete();
         return redirect()->route('personal');
+    }
+
+    public function pdfCompra()
+    {
+        $roles = Role::all();
+        $contratos = Contrato::all();
+        $personal = Empleado::all();
+            
+        // Generamos el PDF
+        $pdf = PDF::loadView('rrhh.personalpdf', compact('roles', 'contratos', 'personal'));
+        
+        // Abrimos el PDF en una nueva pestaña
+        return $pdf->stream('Reporte de Empleados.pdf', ['target' => '_blank']);
+
+        // return $pdf->stream();   
     }
 }

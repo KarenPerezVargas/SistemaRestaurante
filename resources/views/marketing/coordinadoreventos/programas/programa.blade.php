@@ -8,12 +8,18 @@
         <div class="row gx-lg-5">
             <div class="navbar">
                 <div class="container-fluid">
-                    <h3><i>Lista de Programas</i></h3>
-                    <a href="{{route('createPrograma')}}" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Nuevo Registro</a>
+                    <h3><i>Programas</i></h3>
+                    <a href="{{ route('reportePrograma') }}" class="btn btn-secundary"><i
+                        class="fas fa-file-pdf"></i>&nbsp;Generar PDF</a>
                 </div>
             </div>
             <div class="text-center">
-                <table class="table">
+                    <div align="left">
+                        <a style="align:left" href="{{ route('createPrograma') }}" class="btn btn-primary"><i
+                                class="fas fa-plus"></i>&nbsp;Nuevo
+                            Registro</a>
+                    </div>
+                <table class="table"  style="margin-top: 1rem">
                     <thead class="table-dark">
                       <tr>
                         <th>#</th>

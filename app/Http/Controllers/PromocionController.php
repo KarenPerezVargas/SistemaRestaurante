@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Promocion;
 use Illuminate\Http\Request;
+use PDF;
 
 class PromocionController extends Controller
 {
@@ -83,4 +84,19 @@ class PromocionController extends Controller
         $promocion->delete();
         return redirect()->route('promocion');
     }
+
+    public function pdf1()
+    {
+        $promocion = Promocion::all();
+
+        // Generamos el PDF
+        $pdf = PDF::loadView('marketing.coordinadoreventos.promociones.reporte', compact('promocion'));
+
+        // Abrimos el PDF en una nueva pestaña
+        return $pdf->stream('Reporte de promocion.pdf', ['target' => '_blank']);
+
+        // return $pdf->stream();
+
+    }
+    
 }
