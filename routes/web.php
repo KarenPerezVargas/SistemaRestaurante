@@ -196,7 +196,7 @@ Route::get('consulta/{id}/boletaGenerada',[GraficosPedidoController::class,'bole
 Route::get('consulta/{id}/generarBoletaPDF',[GraficosPedidoController::class,'generarBoletaPDF'
 ])->name('consulta.generarBoletaPDF');
 
-Route::get('graficos',[GraficosPedidoController::class,'graficos'])->name('consulta.graficos');
+Route::get('graficos.graficos',[GraficosPedidoController::class,'graficos'])->name('consulta.graficos');
 
 // --------BEBIDAS-----------
 Route::resource('bebida', BebidasController::class);
