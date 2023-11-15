@@ -1,45 +1,42 @@
 @extends('layouts.personalPedidos')
 
 @section('mainContent')
-    <div align="center">
-        <div class="row justify-content-center">
-            <div class="col-md-5 col-12">
-                <H4>CANTIDAD DE PEDIDOS POR NOMBRE DE CLIENTE</H4>
-                <canvas id="barras"></canvas>
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gráfica Estadística</title>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    </head>
-    
-    <body>
-
-        <div align="center">
-            <div class="row">
-                <div style="width:50%;" class="col-6">
-                    <canvas id="barras"></canvas>
-                </div>
-                <div style="width:50%;" class="col-6">
-                    <canvas id="lineas"></canvas>
-                </div>
-            </div>
-            <div class="col-1 col-md-none"></div>
-            <div class="col-md-5 col-12">
-                <H4>CANTIDAD DE PEDIDOS POR NOMBRE DE PEDIDO</H4>
-                <canvas id="lineas"></canvas>
-            </div>
-        </div>
-        <br>
-        <div class="row justify-content-center">
-            <H4>PORCENTAJE DE PEDIDOS PAGADO Y NO PAGADOS</H4>
-            <div class="col-md-3 col-7">
-                <canvas id="circular"></canvas>
-            </div>
+    <br>
+    <div align="center"><H3>DASHBOARDS DEL SISTEMA PEDIDOS</H3></div>
+    <br>
+    <div class="accordion accordion-flush col-12" style="border-radious: 2" id="accordionFlushExample">
+    <p style="color: 206DB2"><span style="font-size:20;">↓ </span>Seleccione cualquier opción desplegable para visualizar las gráficas del sistema<span style="font-size:20;"> ↓</span></p>
+    <div class="accordion-item" style="background: black">
+        <h2 class="accordion-header">
+        <button style="background-color:343A40; color: white" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            CANTIDAD DE PEDIDOS POR NOMBRE DE CLIENTE 
+        </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div align="center"><div class="accordion-body col-10"><canvas id="barras"></canvas></div></div>    
         </div>
     </div>
+    <div class="accordion-item" style="background: black">
+        <h2 class="accordion-header">
+        <button style="background-color:343A40; color: white" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            CANTIDAD DE PEDIDOS POR NOMBRE DE PEDIDO
+        </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div align="center"><div class="accordion-body col-10"><canvas id="lineas"></canvas></div></div>    
+        </div>
+    </div>
+    <div class="accordion-item" style="background: black">
+        <h2 class="accordion-header">
+        <button style="background-color:343A40; color: white" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            PORCENTAJE DE PEDIDOS PAGADO Y NO PAGADOS
+        </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div align="center"><div class="accordion-body col-6"><canvas id="circular"></canvas></div></div>    
+        </div>
+    </div>
+    
 
     <!----------------------------GRAFICO DE BARRAS------------------------------->
     <script>
@@ -51,7 +48,11 @@
 
         // Genera colores aleatorios para cada barra
         var colores = clientes.map(() => {
-            return 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ', 0.2)';
+            // Ajusta el brillo y la saturación para hacer los colores más notorios
+            var brillo = Math.floor(Math.random() * 31) + 70; // Rango: 70-100
+            var saturacion = Math.floor(Math.random() * 31) + 70; // Rango: 70-100
+
+            return 'hsla(' + Math.floor(Math.random() * 360) + ',' + saturacion + '%,' + brillo + '%, 0.8)';
         });
 
         var datos = {
@@ -74,9 +75,9 @@
                         beginAtZero: true
                     }
                 },
-            }
+            },
         });
-        // ctx.canvas.style.backgroundColor = 'rgb(197, 194, 193)';
+         ctx.canvas.style.backgroundColor = '222222';
     </script>
 
 
@@ -90,8 +91,12 @@
         var cantidad = {!! json_encode($pedido->pluck('cantidad')) !!};
 
         // Genera un array de colores para cada dato
-        var colores = cantidad.map(function() {
-            return 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ', 0.2)';
+        var colores = clientes.map(() => {
+            // Ajusta el brillo y la saturación para hacer los colores más notorios
+            var brillo = Math.floor(Math.random() * 31) + 70; // Rango: 70-100
+            var saturacion = Math.floor(Math.random() * 31) + 70; // Rango: 70-100
+
+            return 'hsla(' + Math.floor(Math.random() * 360) + ',' + saturacion + '%,' + brillo + '%, 0.8)';
         });
 
         var datos = {
@@ -117,6 +122,7 @@
                 }
             }
         });
+        ctx.canvas.style.backgroundColor = '222222';
     </script>
 
     <!-- --------------------------GRAFICO CIRCULAR------------------------------>
@@ -131,12 +137,28 @@
         var porcentajePagados = ((pedidosPagados / totalPedidos) * 100).toFixed(2);
         var porcentajeNoPagados = ((pedidosNoPagados / totalPedidos) * 100).toFixed(2);
 
+        var color1 = clientes.map(() => {
+            // Ajusta el brillo y la saturación para hacer los colores más notorios
+            var brillo = Math.floor(Math.random() * 31) + 70; // Rango: 70-100
+            var saturacion = Math.floor(Math.random() * 31) + 70; // Rango: 70-100
+
+            return 'hsla(' + Math.floor(Math.random() * 360) + ',' + saturacion + '%,' + brillo + '%, 0.8)';
+        });
+
+        var color2 = clientes.map(() => {
+            // Ajusta el brillo y la saturación para hacer los colores más notorios
+            var brillo = Math.floor(Math.random() * 31) + 70; // Rango: 70-100
+            var saturacion = Math.floor(Math.random() * 31) + 70; // Rango: 70-100
+
+            return 'hsla(' + Math.floor(Math.random() * 360) + ',' + saturacion + '%,' + brillo + '%, 0.8)';
+        });
+
         var datos = {
         labels: ['Pagados', ['No Pagados']],
         datasets: [{
             label: 'Porcentaje de pedidos',
             data: [porcentajePagados, porcentajeNoPagados],
-            backgroundColor: ['rgba(75, 192, 192, 0.2)','rgba(245, 59, 19, 0.2)'],
+            backgroundColor: color1,color2,
             borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1
         }]
@@ -153,6 +175,7 @@
             }
         }
         });
+        ctx.canvas.style.backgroundColor = '222222';
     </script>
 @endsection
 

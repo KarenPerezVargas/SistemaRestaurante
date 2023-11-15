@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('zona', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha');
             $table->string('provincia');
             $table->string('distrito');
             $table->string('especificaciones');

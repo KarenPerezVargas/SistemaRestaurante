@@ -59,7 +59,7 @@ class GraficosPedidoController extends Controller
 
         $dompdf->render();
 
-        $dompdf->stream("boleta_de_pago.pdf", array("Attachment" => false));
+        $dompdf->stream("Pedidos.pdf", array("Attachment" => false));
     }
 
     public function graficos(Request $request)

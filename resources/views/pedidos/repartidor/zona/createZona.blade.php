@@ -11,27 +11,23 @@
                 </h5>
                 @csrf
                 <div class="row m-5">
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="" class="form-label">Fecha</label>
-                            <input type="date" class="form-control" name="fecha" id="" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Distrito</label>
-                            <input type="text" class="form-control" name="distrito" id="" required>
-                        </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="" class="form-label">Provincia</label>
+                        <input type="text" class="form-control" name="provincia" id="" required>
+                        
                     </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="" class="form-label">Provincia</label>
-                            <input type="text" class="form-control" name="provincia" id="" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Especificaciones</label>
-                            <input type="text" class="form-control" name="especificaciones" id="" required>
-                        </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="" class="form-label">Distrito</label>
+                        <input type="text" class="form-control" name="distrito" id="" required>
                     </div>
                 </div>
+                <div class="row m-5">
+                    <div class="col-md-12 mb-3">
+                        <label for="" class="form-label">Especificaciones</label>
+                        <input type="text" class="form-control" name="especificaciones" id="" required>
+                    </div>
+                </div>
+                
 
                 <div class="mb-2" style="text-align: center">
                     <button type="button" class="btn btn-secondary"

@@ -48,6 +48,7 @@ use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ClientePedidoController;
 use App\Models\HorarioEntrega;
 use App\Http\Controllers\GraficosPedidoController;
+use App\Http\Controllers\GraficosRepartidorController;
 use App\Models\PagoReserva;
 
 /*
@@ -219,6 +220,10 @@ Route::get('/editZona/{id}', [ZonaController::class, 'edit'])->name('editZona');
 Route::post('/actualizarZona/{id}', [ZonaController::class, 'update'])->name('actualizarZona');
 Route::post ('/eliminarZona/{id}', [ZonaController::class, 'destroy'])->name('eliminarZona');
 
+Route::get('reporteZona',[GraficosRepartidorController::class,'reporteZona'
+])->name('consulta.reporteZona');
+
+
 
 // --------HORARIOS-----------
 Route::get('/horarioo', [HorariooController::class, 'index'])->name('horarioo');
@@ -227,6 +232,11 @@ Route::post('/guardarHorarioo', [HorariooController::class, 'store'])->name('gua
 Route::get('/editHorarioo/{id}', [HorariooController::class, 'edit'])->name('editHorarioo');
 Route::post('/actualizarHorarioo/{id}', [HorariooController::class, 'update'])->name('actualizarHorarioo');
 Route::post('/eliminarHorarioo/{id}', [HorariooController::class, 'destroy'])->name('eliminarHorarioo');
+
+Route::get('reporteHorarioo',[GraficosRepartidorController::class,'reporteHorarioo'
+])->name('consulta.reporteHorarioo');
+
+Route::get('graficosRepartidor.graficosRepartidor',[GraficosRepartidorController::class,'graficosRepartidor'])->name('repartidor.graficosRepartidor');
 
 // --------PRODUCTOS-----------
 //Route::resource('producto', ProductosController::class);
