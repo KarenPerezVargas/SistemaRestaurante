@@ -32,17 +32,20 @@ class PedidoSeeder extends Seeder
             ['provincia' => 'Lima', 'distrito' => 'Miraflores', 'especificaciones' => 'Céntrico, zona comercial'],
             ['provincia' => 'Lima', 'distrito' => 'San Isidro', 'especificaciones' => 'Área financiera, accesible'],
             ['provincia' => 'Lima', 'distrito' => 'Barranco', 'especificaciones' => 'Bohemio, cultural'],
-            ['provincia' => 'Lima', 'distrito' => 'Surco', 'especificaciones' => 'Residencial, espacios verdes'],
+            ['provincia' => 'Lima', 'distrito' => 'Chorrillos', 'especificaciones' => 'Residencial, espacios verdes'],
             ['provincia' => 'Lima', 'distrito' => 'Breña', 'especificaciones' => 'Mixto, diversidad comercial'],
             ['provincia' => 'Lima', 'distrito' => 'San Borja', 'especificaciones' => 'Residencial, parques'],
             ['provincia' => 'Lima', 'distrito' => 'Lince', 'especificaciones' => 'Céntrico, comercios variados'],
             ['provincia' => 'Lima', 'distrito' => 'La Molina', 'especificaciones' => 'Residencial, universidades cercanas'],
             ['provincia' => 'Lima', 'distrito' => 'Jesús María', 'especificaciones' => 'Comercial, accesible'],
             ['provincia' => 'Lima', 'distrito' => 'Chorrillos', 'especificaciones' => 'Playas, zona turística'],
+            ['provincia' => 'Lima', 'distrito' => 'Barranco', 'especificaciones' => 'Bohemio, cultural'],
+            ['provincia' => 'Lima', 'distrito' => 'Chorrillos', 'especificaciones' => 'Residencial, espacios verdes'],
+            ['provincia' => 'Lima', 'distrito' => 'Breña', 'especificaciones' => 'Mixto, diversidad comercial'],
+            ['provincia' => 'Lima', 'distrito' => 'Chorrillos', 'especificaciones' => 'Residencial, espacios verdes'],
         ];
 
         $horarioo = [
-            ['fecha' => '2023-11-15', 'hora' => '08:30'],
             ['fecha' => '2023-11-16', 'hora' => '14:00'],
             ['fecha' => '2023-11-17', 'hora' => '10:45'],
             ['fecha' => '2023-11-18', 'hora' => '16:20'],
@@ -52,6 +55,11 @@ class PedidoSeeder extends Seeder
             ['fecha' => '2023-11-22', 'hora' => '17:00'],
             ['fecha' => '2023-11-23', 'hora' => '12:10'],
             ['fecha' => '2023-11-24', 'hora' => '15:40'],
+            ['fecha' => '2023-11-21', 'hora' => '10:45'],
+            ['fecha' => '2023-11-21', 'hora' => '08:25'],
+            ['fecha' => '2023-11-22', 'hora' => '11:30'],
+            ['fecha' => '2023-11-21', 'hora' => '15:05'],
+            ['fecha' => '2023-11-22', 'hora' => '14:50'],
         ];
 
         // Insertar los datos en la tabla "mesas"
