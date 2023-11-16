@@ -13,7 +13,10 @@
             <label for="idEmpleado" class="form-label">Empleado</label>
             <select class="form-select" name="idEmpleado" aria-label="Default select example">
                 @foreach ($personal as $item)
-                    <option value="{{ $item->idEmpleado }}">{{ $item->apellidos }} {{ $item->nombre }}</option>
+                    <option value="{{ $item->idEmpleado }}">{{ $item->nombre }} {{ $item->apellidos }}</option>
+                    {{-- @if (($contratos->find($item->idContrato))->idRole != 2)
+                        <option value="{{$item->idEmpleado}}">{{$item->nombre}} {{$item->apellidos}}</option>
+                    @endif --}}
                 @endforeach
             </select>
         </div>
@@ -41,7 +44,7 @@
             <select class="form-select" name="idInstructor" aria-label="Default select example">
                 @foreach ($personal as $item)
                     @if (($contratos->find($item->idContrato))->idRole == 2)
-                        <option value="{{$item->idEmpleado}}">{{$item->apellidos}} {{$item->nombre}}</option>
+                        <option value="{{$item->idEmpleado}}">{{$item->nombre}} {{$item->apellidos}}</option>
                     @endif
                 @endforeach
             </select>

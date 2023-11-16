@@ -23,7 +23,10 @@ class CapacitacionController extends Controller
             return redirect('');
         }
         $contratos = Contrato::all();
-        $personal = Empleado::all();
+        $EmpleadoCapacitacion = EmpleadoCapacitacion::all();
+        
+        // $personal = Empleado::all();
+        $personal = Empleado::whereNotNull('idEmpleado')->get();
 
         $user = auth()->user();
         $idemp = $user->idEmpleado;

@@ -310,6 +310,8 @@ class EmpleadoSeeder extends Seeder
 
 
 
+        // Gerente de ALmacén
+
         // Crear un contrato utilizando la fábrica ContratoFactory
         $contrato10 = Contrato::factory()->create([
             'fechaInicio' => now(),
@@ -340,6 +342,8 @@ class EmpleadoSeeder extends Seeder
 
 
 
+        // Personal de Almacén
+
         // Crear un contrato utilizando la fábrica ContratoFactory
         $contrato11 = Contrato::factory()->create([
             'fechaInicio' => now(),
@@ -369,6 +373,8 @@ class EmpleadoSeeder extends Seeder
         $user11->save();
 
 
+        // Contador
+
         // Crear un contrato utilizando la fábrica ContratoFactory
         $contrato12 = Contrato::factory()->create([
             'fechaInicio' => now(),
@@ -395,5 +401,129 @@ class EmpleadoSeeder extends Seeder
         $user12->password = '123456';
         $user12->idEmpleado = 12; // Asocia el usuario al empleado
         $user12->save();
+
+
+        // Personal de Almacén
+
+        // Crear un contrato utilizando la fábrica ContratoFactory
+        $contrato13 = Contrato::factory()->create([
+            'fechaInicio' => now(),
+            'duracionMeses' => 8,
+            'sueldo' => 1500,
+            'idRole' => 14, // Asigna el valor deseado para idRole
+            'idHorario' => 1,
+        ]);
+
+
+        // Crear un registro de empleado utilizando la fábrica EmpleadoFactory y asociarlo al contrato
+        $empleado13 = Empleado::factory()->create([
+            'nombre' => 'Ines',
+            'apellidos' => 'Mora',
+            'DNI' => '81248176',
+            'telefono' => '928179291',
+            'direccion' => 'La fora',
+            'idContrato' => 13, // Asocia el contrato al empleado
+        ]);
+
+        // Crear un usuario y asociarlo al empleado
+        $user13 = new User();
+        $user13->username = 'mora';
+        $user13->email = 'mora@gmail.com';
+        $user13->password = '123456';
+        $user13->idEmpleado = 13; // Asocia el usuario al empleado
+        $user13->save();
+
+
+        // Personal de Almacén
+
+        // Crear un contrato utilizando la fábrica ContratoFactory
+        $contrato14 = Contrato::factory()->create([
+            'fechaInicio' => now(),
+            'duracionMeses' => 8,
+            'sueldo' => 1500,
+            'idRole' => 14, // Asigna el valor deseado para idRole
+            'idHorario' => 1,
+        ]);
+
+
+        // Crear un registro de empleado utilizando la fábrica EmpleadoFactory y asociarlo al contrato
+        $empleado14 = Empleado::factory()->create([
+            'nombre' => 'David ',
+            'apellidos' => 'Rial',
+            'DNI' => '58844458',
+            'telefono' => '966899711',
+            'direccion' => 'El fato',
+            'idContrato' => 14, // Asocia el contrato al empleado
+        ]);
+
+        // Crear un usuario y asociarlo al empleado
+        $user14 = new User();
+        $user14->username = 'rial';
+        $user14->email = 'rial@gmail.com';
+        $user14->password = '123456';
+        $user14->idEmpleado = 14; // Asocia el usuario al empleado
+        $user14->save();
+
+
+        // Personal de Almacén
+
+        // Crear un contrato utilizando la fábrica ContratoFactory
+        $contrato15 = Contrato::factory()->create([
+            'fechaInicio' => now(),
+            'duracionMeses' => 8,
+            'sueldo' => 1500,
+            'idRole' => 14, // Asigna el valor deseado para idRole
+            'idHorario' => 2,
+        ]);
+
+
+        // Crear un registro de empleado utilizando la fábrica EmpleadoFactory y asociarlo al contrato
+        $empleado15 = Empleado::factory()->create([
+            'nombre' => 'Denis ',
+            'apellidos' => 'Quintana',
+            'DNI' => '32563721',
+            'telefono' => '963623157',
+            'direccion' => 'El faro',
+            'idContrato' => 14, // Asocia el contrato al empleado
+        ]);
+
+        // Crear un usuario y asociarlo al empleado
+        $user15 = new User();
+        $user15->username = 'quintana';
+        $user15->email = 'quintana@gmail.com';
+        $user15->password = '123456';
+        $user15->idEmpleado = 15; // Asocia el usuario al empleado
+        $user15->save();
+
+
+        // Recepcionista
+
+        // Crear un contrato utilizando la fábrica ContratoFactory
+        $contrato16 = Contrato::factory()->create([
+            'fechaInicio' => now(),
+            'duracionMeses' => 12,
+            'sueldo' => 1800,
+            'idRole' => 16, // Asigna el valor deseado para idRole
+            'idHorario' => 2,
+        ]);
+
+
+        // Crear un registro de empleado utilizando la fábrica EmpleadoFactory y asociarlo al contrato
+        $empleado16 = Empleado::factory()->create([
+            'nombre' => 'Koreli ',
+            'apellidos' => 'Miranda',
+            'DNI' => '84148846',
+            'telefono' => '919976148',
+            'direccion' => 'San josé',
+            'idContrato' => 16, // Asocia el contrato al empleado
+        ]);
+
+        // Crear un usuario y asociarlo al empleado
+        $user16 = new User();
+        $user16->username = 'miranda';
+        $user16->email = 'miranda@gmail.com';
+        $user16->password = '123456';
+        $user16->idEmpleado = 16; // Asocia el usuario al empleado
+        $user16->save();
     }
 }

@@ -40,7 +40,9 @@
                                     <td>{{($personal->find($item->idEmpleado))->nombre}} {{($personal->find($item->idEmpleado))->apellidos}}</td>
                                     <td>{{$item->areaCapacitacion}}</td>
                                     <td>{{$item->fechaCapacitacion}}</td>
-                                    <td>{{($personal->find($item->idInstructor))->nombre}} {{($personal->find($item->idInstructor))->apellidos}}</td>
+                                    {{-- <td>{{($personal->find($item->idInstructor))->nombre}} {{($personal->find($item->idInstructor))->apellidos}}</td> --}}
+                                    <td>{{($personal->find($item->idInstructor))->apellidos ?? 'Instructor despedido'}}</td>
+
                                     <td>{{$item->estadoCapacitacion }}</td>
 
                                     <td>
