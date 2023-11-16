@@ -51,7 +51,7 @@
                                         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$item->idCapacitacion}}">
                                             <i class="fas fa-trash"></i> Eliminar
                                         </button>
-                                    
+
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal-{{$item->idCapacitacion}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
