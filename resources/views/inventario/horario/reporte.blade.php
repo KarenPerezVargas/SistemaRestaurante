@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+v<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,7 +18,7 @@
         <h2 style="margin-top: 2rem">
             <center>Subsistema inventario</center>
         </h2>
-        <h3 style="margin-top: 4rem">Reporte de Proveedores</h3>
+        <h3 style="margin-top: 4rem">Reporte de horarios de entrega</h3>
         <div>
             <div class="">
                 <table width="100%" style="margin-top: 3rem">
@@ -28,22 +28,16 @@
                                 #
                             </th>
                             <th scope="col" class="py-3 px-6">
-                                Codigo
+                                Fecha
                             </th>
                             <th scope="col" class="py-3 px-6">
-                                Nombre
+                                Transporte
                             </th>
                             <th scope="col" class="py-3 px-6">
-                                Ciudad
+                                Hora de salida
                             </th>
                             <th scope="col" class="py-3 px-6">
-                                Dirección
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Email
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Telefono
+                                Hora de llegada
                             </th>
                         </tr>
                     </thead>
@@ -51,28 +45,22 @@
                         @php
                             $nb = 1;
                         @endphp
-                        @foreach ($proveedor as $item)
+                        @foreach ($horario as $item)
                         <tr>
                             <td class="py-3 px-6">
                                 {{$item->id}}
                             </td>
-                            <td class="py-3 px-6">
-                                {{$item->codigo_proveedor}}
-                            </td>
-                            <td class="py-3 px-6">
-                                {{$item->nombre_proveedor}}
+                            <td class="py-4 px-6">
+                                {{$item->fecha}}
                             </td>
                             <td class="py-4 px-6">
-                                {{$item->ciudad_proveedor}}
+                                {{$transporte->find($item->transporte_id)->trans_codigo }}
                             </td>
                             <td class="py-4 px-6">
-                                {{$item->direccion_proveedor}}
+                                {{$item->hora_salida}}
                             </td>
                             <td class="py-4 px-6">
-                                {{$item->email_proveedor}}
-                            </td>
-                            <td class="py-4 px-6">
-                                {{$item->telefono_proveedor}}
+                                {{$item->hora_esperada}}
                             </td>
                         </tr>
                         <tr class="">

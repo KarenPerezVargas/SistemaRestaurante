@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\HorarioEntrega;
 use Illuminate\Http\Request;
 use App\Models\Transporte;
+use PDF;
 
 class HorarioEntregaController extends Controller
 {
@@ -96,5 +97,20 @@ class HorarioEntregaController extends Controller
         $transporte = HorarioEntrega::find($id);
         $transporte->delete();
         return redirect()->route('horario');
+    }
+
+    public function pdf1()
+    {
+        $horario = HorarioEntrega::all();
+        $transporte = Transporte::all();
+
+        // Generamos el PDF
+        $pdf = PDF::loadView('inventario.horario.reporte', compact('horario','transporte'));
+
+        // Abrimos el PDF en una nueva pestaña
+        return $pdf->stream('Reporte de horarios.pdf', ['target' => '_blank']);
+
+        // return $pdf->stream();
+
     }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+v<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,7 +18,7 @@
         <h2 style="margin-top: 2rem">
             <center>Subsistema inventario</center>
         </h2>
-        <h3 style="margin-top: 4rem">Reporte de Proveedores</h3>
+        <h3 style="margin-top: 4rem">Reporte de productos</h3>
         <div>
             <div class="">
                 <table width="100%" style="margin-top: 3rem">
@@ -31,19 +31,10 @@
                                 Codigo
                             </th>
                             <th scope="col" class="py-3 px-6">
-                                Nombre
+                                Categoría
                             </th>
                             <th scope="col" class="py-3 px-6">
-                                Ciudad
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Dirección
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Email
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Telefono
+                                Producto
                             </th>
                         </tr>
                     </thead>
@@ -51,28 +42,19 @@
                         @php
                             $nb = 1;
                         @endphp
-                        @foreach ($proveedor as $item)
+                        @foreach ($producto as $item)
                         <tr>
                             <td class="py-3 px-6">
                                 {{$item->id}}
                             </td>
-                            <td class="py-3 px-6">
-                                {{$item->codigo_proveedor}}
-                            </td>
-                            <td class="py-3 px-6">
-                                {{$item->nombre_proveedor}}
+                            <td class="py-4 px-6">
+                                {{$item->producto_codigo}}
                             </td>
                             <td class="py-4 px-6">
-                                {{$item->ciudad_proveedor}}
+                                {{$item->producto_categoria}}
                             </td>
                             <td class="py-4 px-6">
-                                {{$item->direccion_proveedor}}
-                            </td>
-                            <td class="py-4 px-6">
-                                {{$item->email_proveedor}}
-                            </td>
-                            <td class="py-4 px-6">
-                                {{$item->telefono_proveedor}}
+                                {{$item->producto_nombre}}
                             </td>
                         </tr>
                         <tr class="">
