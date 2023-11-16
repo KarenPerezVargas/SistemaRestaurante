@@ -101,13 +101,18 @@ Route::get('/editarEmpleado/{id}', [PersonalController::class, 'edit'])->name('e
 Route::post('/actualizarEmpleado/{id}', [PersonalController::class, 'update'])->name('actualizarEmpleado');
 Route::post('/eliminarEmpleado/{id}', [PersonalController::class, 'destroy'])->name('eliminarEmpleado');
 
-Route::get('/personal/reporte', [PersonalController::class, 'pdfCompra'])->name('reportePersonal');
+Route::get('/personal/reporte', [PersonalController::class, 'pdfPersonal'])->name('reportePersonal');
 
 
 
 Route::get('/contratos', [ContratoController::class, 'index'])->name('contratos');
 Route::get('/crearContrato', [ContratoController::class, 'create'])->name('crearContrato');
 Route::post('/guardarContrato', [ContratoController::class, 'store'])->name('guardarContrato');
+Route::get('/editarContrato/{id}', [ContratoController::class, 'edit'])->name('editarContrato');
+Route::post('/actualizarContrato/{id}', [ContratoController::class, 'update'])->name('actualizarContrato');
+
+Route::get('/contratos/reporte', [ContratoController::class, 'pdfContratos'])->name('reporteContratos');
+
 
 Route::get('/capacitaciones', [CapacitacionController::class, 'index'])->name('capacitaciones');
 Route::get('/crearCapacitacion', [CapacitacionController::class, 'create'])->name('crearCapacitacion');

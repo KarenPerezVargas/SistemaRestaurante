@@ -170,6 +170,7 @@ class EmpleadoSeeder extends Seeder
 
         // Crear un usuario y asociarlo al empleado
         $user5 = new User();
+        
         $user5->username = 'steve';
         $user5->email = 'steve@gmail.com';
         $user5->password = '123456';

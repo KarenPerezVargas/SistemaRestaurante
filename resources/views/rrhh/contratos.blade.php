@@ -9,7 +9,8 @@
                 <div class="navbar">
                     <div class="container-fluid">
                         <h3><i>Contratos</i></h3>
-                        <a href="{{route('crearContrato')}}" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Nuevo Contrato</a>
+                        {{-- <a href="{{route('crearContrato')}}" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Nuevo Contrato</a> --}}
+                        <a href="{{route('reporteContratos')}}" class="btn btn-danger"><i class="fas fa-plus"></i>&nbsp;Reporte Contratos</a>
                     </div>
                 </div>
                 <div class="text-center">
@@ -19,9 +20,10 @@
                             <th>#</th>
                             <th>Empleado</th>
                             <th>Fecha de Inicio</th>
-                            <th>Duracion en Meses</th>
+                            <th>Duración en Meses</th>
                             <th>Fin de Contrato</th>
                             <th>Sueldo</th>
+                            <th>Acciones</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -40,6 +42,10 @@
                                         <td>{{$item->duracionMeses}}</td>
                                         <td>{{ date('Y-m-d', strtotime("$item->fechaInicio + $item->duracionMeses months")) }}</td>
                                         <td>{{$item->sueldo}}</td>
+                                        <td>
+                                            <a href="{{route('editarContrato', $item->idContrato)}}" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a>
+                                            &nbsp; &nbsp; &nbsp;
+                                        </td>
                                     </tr>
                                 @endif
                             @endforeach

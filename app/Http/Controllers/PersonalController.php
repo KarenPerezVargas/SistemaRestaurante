@@ -11,7 +11,9 @@ use App\Models\Contrato;
 use App\Models\Role;
 use App\Models\Horario;
 
-use PDF;
+use Illuminate\Support\Facades\App;
+// use PDF;
+
 
 class PersonalController extends Controller
 {
@@ -205,18 +207,16 @@ class PersonalController extends Controller
         return redirect()->route('personal');
     }
 
-    public function pdfCompra()
+    public function pdfPersonal()
     {
         $roles = Role::all();
         $contratos = Contrato::all();
         $personal = Empleado::all();
-            
-        // Generamos el PDF
-        $pdf = PDF::loadView('rrhh.personalpdf', compact('roles', 'contratos', 'personal'));
         
-        // Abrimos el PDF en una nueva pestaña
-        return $pdf->stream('Reporte de Empleados.pdf', ['target' => '_blank']);
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML(view('rrhh.personalPDF', compact('roles', 'contratos', 'personal')));
 
-        // return $pdf->stream();   
+        // return $pdf->download(); //Descarga automática
+        return $pdf->stream('Reporte de Empleados.pdf'); //Abre una pestaña
     }
 }

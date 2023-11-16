@@ -9,7 +9,8 @@ use App\Models\Capacitacion;
 use App\Models\EmpleadoEvaluacion;
 use App\Models\Evaluacion;
 
-use PDF;
+
+use Illuminate\Support\Facades\App;
 
 class ReporteController extends Controller
 {
@@ -67,16 +68,10 @@ class ReporteController extends Controller
         $empleado = Empleado::find($id);
         $registros = EmpleadoCapacitacion::where('idEmpleado' , $id)->get();
         $capacitaciones = Capacitacion::all();
-        // $capacitaciones = 22;
-    
-        // Generamos el PDF
-        $pdf = PDF::loadView('rrhh.desarrollopdf', compact('personal', 'empleado', 'registros', 'capacitaciones'));
-        
-        // Abrimos el PDF en una nueva pestaña
-        return $pdf->stream('Reporte de Capacitaciones.pdf', ['target' => '_blank']);
 
-        // return $pdf->stream();
-        
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML(view('rrhh.desarrollopdf', compact('personal', 'empleado', 'registros', 'capacitaciones')));
+        return $pdf->stream('Reporte de Capacitaciones.pdf'); //Abre una pestaña
     }
 
     public function pdf2($id)
@@ -84,6 +79,7 @@ class ReporteController extends Controller
         $empleado = Empleado::find($id);
         $registros = EmpleadoEvaluacion::where('idemple' , $id)->get();
         $evaluaciones = Evaluacion::all();
+        
         $pdf = PDF::loadView('rrhh.valoracionpdf', ['empleado'=>$empleado, 'registros'=>$registros, 'evaluaciones'=>$evaluaciones]);
         return $pdf->stream();
     }
