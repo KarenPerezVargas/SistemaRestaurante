@@ -138,7 +138,8 @@
             </p>
           </a>
 
-          <a href='{{ route('dashboardPersonal') }}' class="nav-link">
+
+          <a href='{{ route('dashboardProductos') }}' class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
