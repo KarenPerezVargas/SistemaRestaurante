@@ -6,7 +6,7 @@
         <form action="{{ route('actualizarKardex', $id) }}" method="post" class="col-md-8">
             <h5 class="title" style="font-family: Verdana, Geneva, Tahoma, sans-serif">
                 <strong>
-                    <center>Registro del movimiento</center>
+                    <center>Editar registro del movimiento</center>
                 </strong>
             </h5>
             @csrf
@@ -23,6 +23,7 @@
                 </div>
                 <div class="col-md-6">
                     <div>
+                        <label for="" class="form-label">Producto</label>
                         <select class="form-select mb-4" aria-label="Default select example" name="producto_id" required>
                             <option value="">Seleccione un producto</option>
                             @foreach ($producto as $producto)
@@ -39,7 +40,7 @@
             <div class="row m-5">
                 <div>
                     <label for="" class="form-label">Tipo de movimiento</label>
-                    <select class="form-select" aria-label="Default select example" name="kardex_movimiento" required>
+                    <select class="form-select" aria-label="Default select example" name="kardex_movimiento" value="{{$kardex->kardex_movimiento}}" required>
                         <option value="Entrada">Entrada</option>
                         <option value="Salida">Salida</option>
                     </select>

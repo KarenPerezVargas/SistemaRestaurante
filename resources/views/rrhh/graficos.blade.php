@@ -34,7 +34,7 @@
 
         <!----------------------------GRAFICO DE BARRAS------------------------------->
         <script>
-            var ctx = document.getElementById('barras').getContext('2d');
+        var ctx = document.getElementById('barras').getContext('2d');
 
         // Utiliza los datos enviados desde el controlador
         var empleados = {!! json_encode($empleado->pluck('idEmpleado')) !!};

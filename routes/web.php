@@ -37,6 +37,10 @@ use App\Http\Controllers\PagoReservaController;
 use App\Http\Controllers\GraficoReservasController;
 
 
+//----------------SISTEMA INVENTARIO-------------------
+use App\Http\Controllers\DashboardPersonalController;
+
+
 //----------------SISTEMA PEDIDOS-------------------
 use App\Http\Controllers\CostosController;
 use App\Http\Controllers\procesarPedidosController;
@@ -327,6 +331,11 @@ Route::post ('/eliminarHojaPresupuesto/{id}', [HojaPresupuestoController::class,
 Route::get('/compra/reporte', [CompraController::class, 'pdf1'])->name('reporteCompra');
 Route::get('/proveedor/reporte', [ProveedorController::class, 'pdf1'])->name('reporteProveedor');
 Route::get('/transporte/reporte', [TransporteController::class, 'pdf1'])->name('reporteTransporte');
+
+
+Route::get('/graficoProducto', [DashboardPersonalController::class, 'graficos'])->name('dashboardProductos');
+
+
 
 //---------------------------RESERVAS-------------------------//
 Route::get('/reserva', [ReservaController::class, 'index'])->name('reserva');

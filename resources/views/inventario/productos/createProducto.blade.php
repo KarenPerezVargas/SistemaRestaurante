@@ -17,10 +17,23 @@
                     </div>
                     <div class="mb-4">
                         <label for="" class="form-label">Categoría</label>
-                        <input type="text" class="form-control" name="producto_categoria" id="" required>
+                        <select class="form-select" aria-label="Default select example" name="producto_categoria" required>
+                            <option value="Bebidas gaseosas">Bebidas gaseosas</option>
+                            <option value="Bebidas lácteas">Bebidas lácteas"</option>
+                            <option value="Bebidas alcoholicas">Bebidas energizantes</option>
+                            <option value="Vegetales y hortalizas">Vegetales y hortalizas</option>
+                            <option value="Frutas y verduras">Frutas</option>
+                            <option value="Tubérculos">Tubérculos</option>
+                            <option value="Carnes">Carnes</option>
+                            <option value="Pescados y mariscos">Pescados y mariscos</option>
+                            <option value="Cereales">Cereales</option>
+                            <option value="Granos">Granos</option>
+                            <option value="Lácteos">Lácteos</option>
+                            <option value="Limpieza e higiene">Limpieza</option>
+                        </select>
                     </div>
                     <div class="mb-4">
-                        <label for="" class="form-label">Nombre</label>
+                        <label for="" class="form-label">Producto</label>
                         <input type="text" class="form-control" name="producto_nombre" id="" required>
                     </div>
                 </div>

@@ -379,7 +379,7 @@ class EmpleadoSeeder extends Seeder
         ]);
 
         // Crear un registro de empleado utilizando la fábrica EmpleadoFactory y asociarlo al contrato
-        $empleado11 = Empleado::factory()->create([
+        $empleado12 = Empleado::factory()->create([
             'nombre' => 'Karen',
             'apellidos' => 'Vargas',
             'DNI' => '73883989',
@@ -389,11 +389,11 @@ class EmpleadoSeeder extends Seeder
         ]);
 
         // Crear un usuario y asociarlo al empleado
-        $user11 = new User();
-        $user11->username = 'Karen';
-        $user11->email = 'karen@gmail.com';
-        $user11->password = '123456';
-        $user11->idEmpleado = 12; // Asocia el usuario al empleado
-        $user11->save();
+        $user12 = new User();
+        $user12->username = 'Karen';
+        $user12->email = 'karen@gmail.com';
+        $user12->password = '123456';
+        $user12->idEmpleado = 12; // Asocia el usuario al empleado
+        $user12->save();
     }
 }
