@@ -29,7 +29,7 @@
             <option value="Inventario" {{ old('areaCapacitacion') == 'Inventario' ? 'selected' : '' }}>Inventario</option>
         </select>
     </div>
-    
+
 
     <div class="mb-3">
         <label for="" class="form-label">Fecha</label>

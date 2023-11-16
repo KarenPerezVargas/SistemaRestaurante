@@ -331,7 +331,9 @@ Route::post ('/eliminarHojaPresupuesto/{id}', [HojaPresupuestoController::class,
 Route::get('/compra/reporte', [CompraController::class, 'pdf1'])->name('reporteCompra');
 Route::get('/proveedor/reporte', [ProveedorController::class, 'pdf1'])->name('reporteProveedor');
 Route::get('/transporte/reporte', [TransporteController::class, 'pdf1'])->name('reporteTransporte');
-
+Route::get('/producto/reporte', [ProductoController::class, 'pdf1'])->name('reporteProducto');
+Route::get('/kardex/reporte', [KardexController::class, 'pdf1'])->name('reporteKardex');
+Route::get('/horario/reporte', [HorarioEntregaController::class, 'pdf1'])->name('reporteHorario');
 
 Route::get('/graficoProducto', [DashboardPersonalController::class, 'graficos'])->name('dashboardProductos');
 

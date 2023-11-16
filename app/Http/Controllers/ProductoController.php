@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use PDF;
 
 class ProductoController extends Controller
 {
@@ -75,5 +76,19 @@ class ProductoController extends Controller
         $producto = Producto::find($id);
         $producto->delete();
         return redirect()->route('producto');
+    }
+
+    public function pdf1()
+    {
+        $producto = Producto::all();
+
+        // Generamos el PDF
+        $pdf = PDF::loadView('inventario.productos.reporte', compact('producto'));
+
+        // Abrimos el PDF en una nueva pestaña
+        return $pdf->stream('Reporte de productos.pdf', ['target' => '_blank']);
+
+        // return $pdf->stream();
+
     }
 }

@@ -63,9 +63,9 @@
                                 <td class="py-3 px-6">
                                     {{ $item->ruc }}
                                 </td>
-                                <th class="py-4 px-6">
+                                <td class="py-3 px-6">
                                     {{ $item->fecha }}
-                                </th>
+                                </td>
                                 <td class="py-4 px-6">
                                     {{ $proveedor->find($item->proveedor_id)->nombre_proveedor }}
                                 </td>

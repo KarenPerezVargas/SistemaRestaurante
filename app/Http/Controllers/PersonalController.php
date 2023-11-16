@@ -212,7 +212,7 @@ class PersonalController extends Controller
         $roles = Role::all();
         $contratos = Contrato::all();
         $personal = Empleado::all();
-        
+
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML(view('rrhh.personalPDF', compact('roles', 'contratos', 'personal')));
 

@@ -91,7 +91,7 @@ class CapacitacionController extends Controller
 
         return redirect()->route('capacitaciones');
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -133,7 +133,7 @@ class CapacitacionController extends Controller
         $capacitacion->fechaCapacitacion = $request->fechaCapacitacion;
         $capacitacion->idInstructor = $request->idInstructor;
         $capacitacion->estadoCapacitacion = $request->estadoCapacitacion;
-        
+
         $capacitacion->save();
         return redirect()->route('capacitaciones');
     }

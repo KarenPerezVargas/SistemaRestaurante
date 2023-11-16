@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kardex;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use PDF;
 
 class KardexController extends Controller
 {
@@ -88,5 +89,20 @@ class KardexController extends Controller
         $kardex = Kardex::find($id);
         $kardex->delete();
         return redirect()->route('kardex');
+    }
+
+    public function pdf1()
+    {
+        $kardex = Kardex::all();
+        $producto = Producto::all();
+
+        // Generamos el PDF
+        $pdf = PDF::loadView('inventario.kardex.reporte', compact('kardex','producto'));
+
+        // Abrimos el PDF en una nueva pestaña
+        return $pdf->stream('Reporte de movimientos.pdf', ['target' => '_blank']);
+
+        // return $pdf->stream();
+
     }
 }

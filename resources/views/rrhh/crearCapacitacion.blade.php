@@ -32,7 +32,7 @@
                 <option value="Inventario">Inventario</option>
             </select>
         </div>
-        
+
 
         <div class="mb-3">
             <label for="" class="form-label">Fecha</label>
@@ -49,7 +49,7 @@
                 @endforeach
             </select>
         </div>
-        
+
 
         <button type="button" class="btn btn-secondary" onclick="location.href='{{route('capacitaciones')}}'">Cancelar</button>
         <input type="submit" class="btn btn-primary" value="Guardar">
