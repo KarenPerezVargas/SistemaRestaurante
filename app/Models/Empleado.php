@@ -34,7 +34,7 @@ class Empleado extends Model
             $empleado->empleadoCapacitaciones->each->delete();
 
             // Eliminar los registros en la tabla "emple_eval" asociados si existen
-            $empleado->empleadoEvaluaciones->each->delete();
+            // $empleado->empleadoEvaluaciones->each->delete();
         });
     }
 
@@ -60,7 +60,7 @@ class Empleado extends Model
 
     public function empleadoEvaluaciones()
     {
-        return $this->hasMany(EmpleadoEvaluacion::class, 'idEmpleado');
+        // return $this->hasMany(EmpleadoEvaluacion::class, 'idEmpleado');
     }
 
     public function contrato()

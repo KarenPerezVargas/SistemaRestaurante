@@ -45,8 +45,10 @@ class GraficosPedidoController extends Controller
 
     public function reportePedidos(Request $request)
     {
-        $buscarpor = $request->get('buscarpor');
-        $pedido = Pedido::where('estado','=','1')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
+        // $buscarpor = $request->get('buscarpor');
+        // $pedido = Pedido::where('estado','=','1')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
+    
+        $pedido = Pedido::all();
 
         $html = view('pedidos.personalPedidos.consulta.reportePedidos', compact('pedido', 'buscarpor'))->render();
 

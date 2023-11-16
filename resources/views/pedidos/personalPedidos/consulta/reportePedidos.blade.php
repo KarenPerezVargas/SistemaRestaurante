@@ -66,6 +66,16 @@
                                 <p>{{$itempedido->tipo}}</p>
                                 
                             </td>
+
+                            <td style="padding-right: 30px; padding-top: 0px;" class="text-uppercase text-xxs mb-0 text-center">
+                                
+                                @if({{$itempedido->estado}}==1)
+                                    <p>NO PAGADO</p>
+
+                                    
+                                @endif
+                                
+                            </td>
                         </tr>
                         
                         @endforeach
