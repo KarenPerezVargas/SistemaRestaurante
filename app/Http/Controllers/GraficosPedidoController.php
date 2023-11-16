@@ -51,7 +51,8 @@ class GraficosPedidoController extends Controller
         $pedido = Pedido::all();
 
         $html = view('pedidos.personalPedidos.consulta.reportePedidos', compact('pedido', 'buscarpor'))->render();
-
+        // $pedido = Pedido::where('estado','=','2')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
+        
         $options = new Options();
         $options->set('isHtml5ParserEnabled', true);
 
@@ -60,7 +61,7 @@ class GraficosPedidoController extends Controller
 
         $dompdf->render();
 
-        $dompdf->stream("boleta_de_pago.pdf", array("Attachment" => false));
+        $dompdf->stream("Pedidos.pdf", array("Attachment" => false));
     }
 
     public function graficos(Request $request)

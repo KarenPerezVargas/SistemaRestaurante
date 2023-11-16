@@ -17,7 +17,6 @@
                     <thead class="table-dark">
                       <tr>
                         <th>#</th>
-                        <th>Fecha</th>
                         <th>Provincia</th>
                         <th>Distrito</th>
                         <th>Especificaciones</th>
@@ -32,7 +31,6 @@
                         @foreach ($zona as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td>{{$item->fecha}}</td>
                                 <td>{{$item->provincia}}</td>
                                 <td>{{$item->distrito}}</td>
                                 <td>{{$item->especificaciones}}</td>

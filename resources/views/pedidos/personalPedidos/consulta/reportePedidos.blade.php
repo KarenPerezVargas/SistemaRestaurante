@@ -27,6 +27,7 @@
                         <th style="padding-right: 30px; padding-top: 0px;" class="text-uppercase text-xxs mb-0 text-center" scope="col"><h4>Precio en (S/.)</h4></th>
                         <th style="padding-right: 30px; padding-top: 0px;" class="text-uppercase text-xxs mb-0 text-center" scope="col"><h4>Cantidad</h4></th>
                         <th style="padding-right: 30px; padding-top: 0px;" class="text-uppercase text-xxs mb-0 text-center" scope="col"><h4>Tipo Pedido</h4></th>
+                        <th style="padding-right: 30px; padding-top: 0px;" class="text-uppercase text-xxs mb-0 text-center" scope="col"><h4>Estado</h4></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -69,12 +70,11 @@
 
                             <td style="padding-right: 30px; padding-top: 0px;" class="text-uppercase text-xxs mb-0 text-center">
                                 
-                                @if({{$itempedido->estado}}==1)
+                                @if($itempedido->estado==1)
                                     <p>NO PAGADO</p>
-
-                                    
+                                    @else($itempedido->estado==2)
+                                        <p>PAGADO</p>
                                 @endif
-                                
                             </td>
                         </tr>
                         
