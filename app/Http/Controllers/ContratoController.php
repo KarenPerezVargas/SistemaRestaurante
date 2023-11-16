@@ -9,6 +9,9 @@ use App\Models\Contrato;
 use App\Models\Role;
 use App\Models\Horario;
 
+use Illuminate\Support\Facades\App;
+
+
 class ContratoController extends Controller
 {
     /**
@@ -50,6 +53,7 @@ class ContratoController extends Controller
         $contrato->sueldo = $request->sueldo;
         $contrato->idRole = $request->idRole;
         $contrato->idHorario = $request->idHorario;
+
         $contrato->save();
         $empleado = Empleado::find($request->idEmpleado);
         $empleado->idContrato = $contrato->idContrato;
@@ -57,12 +61,13 @@ class ContratoController extends Controller
         return redirect()->route('contratos');
     }
 
+
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**
@@ -70,15 +75,30 @@ class ContratoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $contrato = Contrato::find($id);
+        $personal = Empleado::all();
+        $roles = Role::all();
+        $horarios = Horario::all();
+        
+        return view('rrhh.editarContrato', compact('personal', 'contrato', 'roles', 'horarios', 'id'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        //
+    {   
+        $contrato = Contrato::find($id);
+
+        $contrato->fechaInicio = $request->fechaInicio;
+        $contrato->duracionMeses = $request->duracionMeses;
+        $contrato->sueldo = $request->sueldo;
+        $contrato->idRole = $request->idRole;
+        $contrato->idHorario = $request->idHorario;
+        
+        $contrato->save();
+
+        return redirect()->route('contratos');
     }
 
     /**
@@ -87,5 +107,17 @@ class ContratoController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function pdfContratos()
+    {
+        $personal = Empleado::all();
+        $contratos = Contrato::all();
+        
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML(view('rrhh.contratosPDF', compact('personal', 'contratos')));
+
+        // return $pdf->download(); //Descarga automática
+        return $pdf->stream('Reporte de Contratos.pdf'); //Abre una pestaña
     }
 }

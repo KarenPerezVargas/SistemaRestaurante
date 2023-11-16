@@ -11,6 +11,6 @@ class Zona extends Model
 
     protected $table = 'zona';
     protected $primaryKey='id';
-    protected $fillabed =  ['fecha','provincia', 'distrito', 'especificaciones'];
+    protected $fillabed =  ['provincia', 'distrito', 'especificaciones'];
     public $timestamps = false;
 }

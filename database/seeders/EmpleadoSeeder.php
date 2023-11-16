@@ -170,6 +170,7 @@ class EmpleadoSeeder extends Seeder
 
         // Crear un usuario y asociarlo al empleado
         $user5 = new User();
+        
         $user5->username = 'steve';
         $user5->email = 'steve@gmail.com';
         $user5->password = '123456';
@@ -235,8 +236,8 @@ class EmpleadoSeeder extends Seeder
 
         // Crear un usuario y asociarlo al empleado
         $user7 = new User();
-        $user7->username = 'quispe';
-        $user7->email = 'quispe@gmail.com';
+        $user7->username = 'moises';
+        $user7->email = 'moises@gmail.com';
         $user7->password = '123456';
         $user7->idEmpleado = 7; // Asocia el usuario al empleado
         $user7->save();
@@ -269,8 +270,8 @@ class EmpleadoSeeder extends Seeder
 
         // Crear un usuario y asociarlo al empleado
         $user8 = new User();
-        $user8->username = 'angulo';
-        $user8->email = 'angulo@gmail.com';
+        $user8->username = 'mario';
+        $user8->email = 'mario@gmail.com';
         $user8->password = '123456';
         $user8->idEmpleado = 8; // Asocia el usuario al empleado
         $user8->save();
