@@ -8,7 +8,7 @@
         <div class="row gx-lg-5">
             <div class="navbar">
                 <div class="container-fluid">
-                    <h3><i>Lista de movimientos</i></h3>
+                    <h3><i>Lista de horarios de entrega</i></h3>
                     <a href="{{ route('reporteHorario') }}" class="btn btn-secundary"><i
                             class="fas fa-file-pdf"></i>&nbsp;Generar PDF</a>
                 </div>
