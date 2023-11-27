@@ -47,12 +47,12 @@ class GraficosPedidoController extends Controller
     {
         // $buscarpor = $request->get('buscarpor');
         // $pedido = Pedido::where('estado','=','1')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
-    
+
         $pedido = Pedido::all();
 
-        $html = view('pedidos.personalPedidos.consulta.reportePedidos', compact('pedido', 'buscarpor'))->render();
+        $html = view('pedidos.personalPedidos.consulta.reportePedidos', compact('pedido'))->render();
         // $pedido = Pedido::where('estado','=','2')->where('descripcion','like','%'.$buscarpor.'%')->paginate($this::PAGINATION);
-        
+
         $options = new Options();
         $options->set('isHtml5ParserEnabled', true);
 

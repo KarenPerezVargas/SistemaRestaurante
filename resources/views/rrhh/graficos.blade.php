@@ -11,20 +11,19 @@
         <title>Gráfica Estadística</title>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
-    
+
     <body>
-        <div>
-            <div class="row">
-                <div style="width:50%;" class="col-6">
+        <div class="row">
+                <div class="col-6">
                     <h2>Cantidad de capacitaciones por Empleado</h2>
                     <canvas id="barras"></canvas>
                 </div>
                 {{-- <div style="width:50%;" class="col-6">
                     <canvas id="lineas"></canvas>
                 </div> --}}
-            </div>
+
             <br>
-            <div style="width:32%;" class="col-12">
+            <div class="col-4">
                 <h2>Estado de las Capacitaciones</h2>
                 <canvas id="circular"></canvas>
             </div>
@@ -40,12 +39,12 @@
         var empleados = {!! json_encode($empleado->pluck('idEmpleado')) !!};
         var nombres = {!! json_encode($empleado->pluck('nombre')) !!};
         var apellidos = {!! json_encode($empleado->pluck('apellidos')) !!};
-        
+
         // Combinar nombres y apellidos en una sola variable
         var nombresCompletos = nombres.map(function (nombre, index) {
             return nombre + ' ' + apellidos[index];
         });
-        
+
         var empleadoCapacitaciones = {!! json_encode($empleadoCapacitacion->pluck('idEmpleado')) !!};
 
         var cantidadCapacitaciones = empleados.map(function (empleadoId) {
@@ -83,20 +82,20 @@
             }
             });
         </script>
-        
+
 
 
         <!-- --------------------------GRAFICO CIRCULAR------------------------------>
 
     <script>
         var ctx = document.getElementById('circular').getContext('2d');
-        
+
         var capacitacionesPendientes = {{ $capacitacionesPendientes }};
         var capacitacionesEnCurso = {{ $capacitacionesEnCurso }};
         var capacitacionesFinalizadas = {{ $capacitacionesFinalizadas }};
 
         var totalCapacitaciones = capacitacionesPendientes + capacitacionesEnCurso + capacitacionesFinalizadas;
-        
+
         var porcentajePendientes = ((capacitacionesPendientes / totalCapacitaciones) * 100).toFixed(2);
         var porcentajeEnCurso = ((capacitacionesEnCurso / totalCapacitaciones) * 100).toFixed(2);
         var porcentajeFinalizadas = ((capacitacionesFinalizadas / totalCapacitaciones) * 100).toFixed(2);
