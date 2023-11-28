@@ -28,37 +28,41 @@
 
         <!----------------------------GRAFICO DE BARRAS------------------------------->
         <script>
-        var ctx = document.getElementById('barras').getContext('2d');
+            var ctx = document.getElementById('barras').getContext('2d');
 
-        
+            // Obtener los datos del controlador
+            var categorias = {!! json_encode($categorias ?? []) !!};
+            var cantidades = {!! json_encode($cantidades ?? []) !!};
 
-        var colores = $categorias.map(() => {
-                return 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ', 0.5)';
-        });
+            // Verificar que los datos sean válidos
+            if (categorias.length === 0 || cantidades.length === 0) {
+                console.error('Error: No se encontraron datos para generar la gráfica.');
+                // Aquí puedes mostrar un mensaje de error al usuario o hacer alguna otra acción
+            } else {
+                // Asignar los datos a las variables labels y data
+                var datos = {
+                    labels: categorias,
+                    datasets: [{
+                        label: 'Cantidad de productos',
+                        data: cantidades,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                };
 
-
-        var datos = {
-            labels: categorias,
-            datasets: [{
-                label: 'Cantidad de Capacitaciones',
-                data: cantidad,
-                backgroundColor: colores,
-                borderColor: colores.map(color => color.replace('0.2', '1')),
-                borderWidth: 1
-            }]
-        };
-
-            var barras = new Chart(ctx, {
-            type: 'bar',
-            data: datos,
-            options: {
-                scales: {
-                y: {
-                    beginAtZero: true
-                }
-                }
+                var barras = new Chart(ctx, {
+                    type: 'bar',
+                    data: datos,
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
             }
-            });
         </script>
         
     </body>
