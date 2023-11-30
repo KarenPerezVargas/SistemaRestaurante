@@ -9,6 +9,7 @@
                 <div class="navbar">
                     <div class="container-fluid">
                         <h3><i>Capacitaciones</i></h3>
+                        <a href="{{route('reporteCapacitaciones')}}" class="btn btn-danger"><i class="fas fa-plus"></i>&nbsp;Reporte Capacitaciones</a>
                         <a href="{{route('crearCapacitacion')}}" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Crear Capacitacion</a>
                     </div>
                 </div>

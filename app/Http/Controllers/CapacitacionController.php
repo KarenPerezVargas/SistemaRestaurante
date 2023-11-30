@@ -193,4 +193,20 @@ class CapacitacionController extends Controller
 
         return redirect()->route('capacitaciones');
     }
+
+
+    public function pdfCapacitaciones()
+    {
+        // $personal = Empleado::all();
+        $personal = Empleado::whereNotNull('idEmpleado')->get();
+        $capacitaciones = Capacitacion::all();
+
+        
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML(view('rrhh.capacitacionesPDF', compact('capacitaciones', 'personal')));
+
+        // return $pdf->download(); //Descarga automática
+        return $pdf->stream('Reporte de Capacitaciones.pdf'); //Abre una pestaña
+    }
+
 }

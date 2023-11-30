@@ -126,6 +126,9 @@ Route::get('/editarCapacitacion/{id}', [CapacitacionController::class, 'edit'])-
 Route::post('/actualizarCapacitacion/{id}', [CapacitacionController::class, 'update'])->name('actualizarCapacitacion');
 Route::post('/eliminarCapacitacion/{id}', [CapacitacionController::class, 'destroy'])->name('eliminarCapacitacion');
 
+Route::get('/capacitaciones/reporte', [ContratoController::class, 'pdfCapacitaciones'])->name('reporteCapacitaciones');
+
+
 Route::get('/inscripciones/{id}', [CapacitacionController::class, 'inscripciones'])->name('inscripciones');
 Route::post('/inscribir/{id}', [CapacitacionController::class, 'inscribir'])->name('inscribir');
 Route::get('/inscritos/{id}', [CapacitacionController::class, 'inscritos'])->name('inscritos');
