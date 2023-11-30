@@ -246,6 +246,24 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Pasarela de pagos
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{ route('layout') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Realizar pasarela de pagos</p>
+                </a>
+              </li>
+            </ul>
+          </li>
       </nav>
       <!-- /.sidebar-menu -->
     </div>

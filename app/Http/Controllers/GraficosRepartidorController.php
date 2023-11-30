@@ -46,9 +46,9 @@ class GraficosRepartidorController extends Controller
 
     public function graficosRepartidor(Request $request)
     {
-        $zona = Zona::all();
+        $zona = Zona::latest()->take(15)->get();
         $counts = $zona->groupBy('distrito')->map->count();
-        $horarioo = Horarioo::all();
+        $horarioo = Horarioo::latest()->take(15)->get();
 
         // Crear una nueva colección con la concatenación de fecha y hora
         $timestamps = $horarioo->map(function ($horarioo) {

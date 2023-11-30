@@ -66,8 +66,8 @@ class GraficosPedidoController extends Controller
 
     public function graficos(Request $request)
     {
-        $cliente = Cliente::all();
-        $pedido = Pedido::all();
+        $cliente = Cliente::latest()->take(15)->get();
+        $pedido = Pedido::latest()->take(15)->get();
         return view('pedidos.personalPedidos.consulta.graficos',compact('cliente','pedido'));
     }
 
