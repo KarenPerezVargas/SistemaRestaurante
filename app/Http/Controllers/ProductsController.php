@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
   
 use Illuminate\Http\Request;
-use App\Models\Producto; 
+use App\Models\Productos; 
   
 class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Producto::all();
+        $products = Productos::all();
         return view('products', compact('products'));
     }
   
@@ -19,7 +19,7 @@ class ProductsController extends Controller
     }
     public function addToCart($id)
     {
-        $product = Producto::findOrFail($id);
+        $product = Productos::findOrFail($id);
         $cart = session()->get('cart', []);
   
         if(isset($cart[$id])) {
@@ -27,15 +27,14 @@ class ProductsController extends Controller
         }  else {
             $cart[$id] = [
                 "product_name" => $product->producto_nombre,
-                "price" => $product->producto_categoria,
-                "photo" => $product->producto_foto,
+                "category" => $product->producto_categoria,
                 "price" => $product->producto_precio,
                 "quantity" => 1
             ];
         }
   
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product add to cart successfully!');
+        return redirect()->back()->with('success', 'Producto agregado al carro satisfactoriamente');
     }
   
     public function update(Request $request)
@@ -44,7 +43,7 @@ class ProductsController extends Controller
             $cart = session()->get('cart');
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
-            session()->flash('success', 'Cart successfully updated!');
+            session()->flash('success', 'Carta subida satisfactoriamente!');
         }
     }
   

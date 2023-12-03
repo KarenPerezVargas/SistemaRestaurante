@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.layoutpasarela')
     
 @section('content')
 <table id="cart" class="table table-hover table-condensed">
@@ -15,21 +15,20 @@
         @php $total = 0 @endphp
         @if(session('cart'))
             @foreach(session('cart') as $id => $details)
-                @php $total += $details['producto_precio'] * $details['cantidad'] @endphp
+                @php $total += $details['price'] * $details['quantity'] @endphp
                 <tr data-id="{{ $id }}">
                     <td data-th="Producto">
                         <div class="row">
-                            <div class="col-sm-3 hidden-xs"><img src="{{ asset('img') }}/{{ $details['producto_foto'] }}" width="100" height="100" class="img-responsive"/></div>
                             <div class="col-sm-9">
-                                <h4 class="nomargin">{{ $details['producto_nombre'] }}</h4>
+                                <h4 class="nomargin">{{ $details['product_name'] }}</h4>
                             </div>
                         </div>
                     </td>
-                    <td data-th="Producto_precio">${{ $details['producto_precio'] }}</td>
+                    <td data-th="Price">${{ $details['price'] }}</td>
                     <td data-th="Quantity">
                         <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity cart_update" min="1" />
                     </td>
-                    <td data-th="Subtotal" class="text-center">${{ $details['producto_precio'] * $details['cantidad'] }}</td>
+                    <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
                     <td class="actions" data-th="">
                         <button class="btn btn-danger btn-sm cart_remove"><i class="fa fa-trash-o"></i> Delete</button>
                     </td>

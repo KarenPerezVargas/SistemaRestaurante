@@ -43,8 +43,7 @@ create table personal (idEmpleado bigint unsigned auto_increment, nombre varchar
 
 create table bebidas(idbebida int auto_increment, descripcion varchar(40), precio float, cantidad int, tipo varchar(80), estado tinyint(4), primary key(idbebida));
 
-create table productos(idproducto int auto_increment, descripcion varchar(40), precio float, cantidad int, tipo varchar(80), estado tinyint(4), primary key(idproducto));
-
+create table productos(id int auto_increment, producto_codigo varchar(10),producto_categoria varchar(40),producto_nombre varchar(40),producto_precio float, producto_foto longblob, descripcion varchar(100), cantidad int, primary key(id));
 
 /**
 create table reservas(idreserva integer auto_increment, nombre varchar(50), direccion varchar(50), telefono char(9), correo varchar(50), fecha date, hora time, nroPersonas integer, area varchar(20), solicitudesAdicionales varchar(100), estadoReserva varchar(20), mesa varchar(10), idhistorial integer, idempleado integer , idmenu integer, idpago integer, estado tinyint(4), primary key(idreserva));

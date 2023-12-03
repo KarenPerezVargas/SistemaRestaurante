@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
+use App\Models\Productos; 
  
 class StripeController extends Controller
 {
     public function index(){
-        return view ('layout');
+        // return view ('layout');
+        $products = Productos::all();
+        return view('products', compact('products'));
     }
  
     public function session(Request $request)
@@ -18,25 +21,25 @@ class StripeController extends Controller
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
  
         foreach (session('cart') as $id => $details) {
- 
-            $product_name = $details['producto_nombre'];
-            $total = $details['producto_precio'];
-            $quantity = $details['cantidad'];
- 
-            $two0 = "00";
-            $unit_amount = "$total$two0";
- 
+            $product_name = $details['product_name'];
+            $total = $details['price'];
+            $quantity = $details['quantity'];
+        
+            // Convertir el precio total a un formato adecuado (por ejemplo, dos decimales)
+            $total = number_format($total, 2, '.', '');
+        
             $productItems[] = [
                 'price_data' => [
                     'product_data' => [
                         'name' => $product_name,
                     ],
                     'currency'     => 'USD',
-                    'unit_amount'  => $unit_amount,
+                    'unit_amount'  => $total * 100, // Multiplicar por 100 para convertir a centavos
                 ],
-                'quantity' => $quantity
+                'quantity' => $quantity,
             ];
         }
+        
  
         $checkoutSession = \Stripe\Checkout\Session::create([
             'line_items'            => [$productItems],
@@ -55,7 +58,16 @@ class StripeController extends Controller
  
     public function success()
     {
-        return "Thanks for you order You have just completed your payment. The seeler will reach out to you as soon as possible";
+        // Limpia todo el carrito
+        session()->forget('cart');
+
+        // Opcionalmente, puedes recrear el carrito vacío si es necesario
+        // session()->put('cart', []);
+
+        session()->flash('success', 'Carrito limpiado satisfactoriamente!');
+
+        $products = Productos::all();
+        return view('products', compact('products'));
     }
  
     public function cancel()

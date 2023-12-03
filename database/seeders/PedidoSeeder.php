@@ -62,10 +62,107 @@ class PedidoSeeder extends Seeder
             ['fecha' => '2023-11-22', 'hora' => '14:50'],
         ];
 
+        $productos = [
+            [
+                'producto_codigo' => '001',
+                'producto_categoria' => 'Entrada',
+                'producto_nombre' => 'Ensalada César',
+                'producto_precio' => 8.99,
+                'producto_foto' => '',
+                'descripcion' => 'Clásica ensalada César con pollo a la parrilla, lechuga romana, aderezo y crutones.',
+                'cantidad' => 1
+            ],
+            [
+                'producto_codigo' => '002',
+                'producto_categoria' => 'Plato Principal',
+                'producto_nombre' => 'Filete Mignon',
+                'producto_precio' => 24.99,
+                'producto_foto' => '',
+                'descripcion' => 'Exquisito filete mignon acompañado de puré de papas y espárragos.',
+                'cantidad' => 1
+            ],
+            [
+                'producto_codigo' => '003',
+                'producto_categoria' => 'Postre',
+                'producto_nombre' => 'Tarta de Chocolate',
+                'producto_precio' => 6.99,
+                'producto_foto' => '',
+                'descripcion' => 'Deliciosa tarta de chocolate con ganache y fresas frescas.',
+                'cantidad' => 1
+            ],
+            [
+                'producto_codigo' => '004',
+                'producto_categoria' => 'Entrada',
+                'producto_nombre' => 'Bruschetta de Tomate',
+                'producto_precio' => 6.50,
+                'producto_foto' => '',
+                'descripcion' => 'Pan tostado con tomate fresco, albahaca y aceite de oliva.',
+                'cantidad' => 1
+            ],
+            [
+                'producto_codigo' => '005',
+                'producto_categoria' => 'Plato Principal',
+                'producto_nombre' => 'Pasta Alfredo con Camarones',
+                'producto_precio' => 18.99,
+                'producto_foto' => '',
+                'descripcion' => 'Fettuccine en salsa Alfredo cremosa con camarones tiernos.',
+                'cantidad' => 1
+            ],
+            [
+                'producto_codigo' => '006',
+                'producto_categoria' => 'Bebida',
+                'producto_nombre' => 'Margarita de Mango',
+                'producto_precio' => 7.50,
+                'producto_foto' => '',
+                'descripcion' => 'Refrescante margarita con puré de mango y borde de sal.',
+                'cantidad' => 1
+            ],
+            [
+                'producto_codigo' => '007',
+                'producto_categoria' => 'Postre',
+                'producto_nombre' => 'Helado de Vainilla con Caramelo',
+                'producto_precio' => 5.99,
+                'producto_foto' => '',
+                'descripcion' => 'Helado de vainilla cubierto con deliciosa salsa de caramelo.',
+                'cantidad' => 1
+            ],
+            [
+                'producto_codigo' => '008',
+                'producto_categoria' => 'Plato Principal',
+                'producto_nombre' => 'Sushi Variado',
+                'producto_precio' => 22.50,
+                'producto_foto' => '',
+                'descripcion' => 'Selección de sushi con nigiri, sashimi y rollos variados.',
+                'cantidad' => 1
+            ],
+            [
+                'producto_codigo' => '009',
+                'producto_categoria' => 'Bebida',
+                'producto_nombre' => 'Smoothie de Frutas Tropicales',
+                'producto_precio' => 6.99,
+                'producto_foto' => '',
+                'descripcion' => 'Batido refrescante con mezcla de frutas tropicales y yogur.',
+                'cantidad' => 1
+            ],
+            [
+                'producto_codigo' => '010',
+                'producto_categoria' => 'Entrada',
+                'producto_nombre' => 'Tacos de Pescado',
+                'producto_precio' => 9.50,
+                'producto_foto' => '',
+                'descripcion' => 'Tacos de pescado fresco con repollo rallado y salsa de aguacate.',
+                'cantidad' => 1
+            ],
+        ];
+        
+        
+
         // Insertar los datos en la tabla "mesas"
         DB::table('pedidos')->insert($pedido);
         DB::table('zona')->insert($zona);
         DB::table('horarioo')->insert($horarioo);
+        DB::table('productos')->insert($productos);
+        
     } 
     
 }
