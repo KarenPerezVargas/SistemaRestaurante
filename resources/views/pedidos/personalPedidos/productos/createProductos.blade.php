@@ -47,7 +47,7 @@
             </div>
 
             <div class="mb-2" style="text-align: center">
-                <button type="button" class="btn btn-secondary" onclick="location.href='{{ route('productos') }}'">Atrás</button>
+                <button type="button" class="btn btn-secondary" onclick="location.href='{{ route('productosVenta') }}'">Atrás</button>
                 <input type="submit" class="btn btn-primary" value="Guardar">
             </div>
         </form>

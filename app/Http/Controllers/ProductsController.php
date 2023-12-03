@@ -29,6 +29,7 @@ class ProductsController extends Controller
                 "product_name" => $product->producto_nombre,
                 "category" => $product->producto_categoria,
                 "price" => $product->producto_precio,
+                "photo" => $product->producto_foto,
                 "quantity" => 1
             ];
         }

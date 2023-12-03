@@ -19,6 +19,7 @@
                 <tr data-id="{{ $id }}">
                     <td data-th="Producto">
                         <div class="row">
+                            <div class="col-sm-3 hidden-xs"><img src="{{ asset('../productos') }}/{{ $details['photo'] }}" width="100" height="100" class="img-responsive"/></div>
                             <div class="col-sm-9">
                                 <h4 class="nomargin">{{ $details['product_name'] }}</h4>
                             </div>

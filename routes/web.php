@@ -254,13 +254,15 @@ Route::get('reporteHorarioo',[GraficosRepartidorController::class,'reporteHorari
 Route::get('graficosRepartidor.graficosRepartidor',[GraficosRepartidorController::class,'graficosRepartidor'])->name('repartidor.graficosRepartidor');
 
 // --------PRODUCTOS-----------
-Route::get('/productos', [ProductosController::class, 'index'])->name('productos.productos');
+
+Route::get('/productosVenta', [ProductosController::class, 'index'])->name('productosVenta');
 Route::get('/createProductos', [ProductosController::class, 'create'])->name('createProductos');
 Route::post('/guardarProductos', [ProductosController::class, 'store'])->name('guardarProductos');
 Route::get('/editProductos/{id}', [ProductosController::class, 'edit'])->name('editProductos');
 Route::post('/actualizarProductos/{id}', [ProductosController::class, 'update'])->name('actualizarProductos');
 Route::post('/eliminarProductos/{id}', [ProductosController::class, 'destroy'])->name('eliminarProductos');
 
+Route::get('/productos/reporte', [ProductosController::class, 'pdf1'])->name('reporteProductos');
 
 
 ////////////////////////////////////////////////////////////////
@@ -424,8 +426,10 @@ Route::get('/programa/reporte', [ProgramaController::class, 'pdf1'])->name('repo
 Route::get('/promocion/reporte', [PromocionController::class, 'pdf1'])->name('reportePromocion');
 
 
-// PASARELA DE PAGOS
- 
+//----------------- PASARELA DE PAGOS -----------------
+
+Route::get('/productos', [ProductosController::class, 'index'])->name('productos');
+
 Route::get('/pasarela', [StripeController::class, 'index'])->name('layout');
 
 Route::post('/session', [StripeController::class, 'session'])->name('session');

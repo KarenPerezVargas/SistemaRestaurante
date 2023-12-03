@@ -20,7 +20,7 @@
                         <div class="mb-2">
                             <label for="" class="form-label">Cantidad</label>
                             <input type="number" class="form-control" name="cantidad"
-                                value="{{ $productos->cantidad }}" id="" placeholder="1" disabled>
+                                value="{{ $productos->cantidad }}" id="" disabled>
                         </div>
                         <div class="mb-4">
                             <label for="" class="form-label">Categoría</label>
@@ -70,7 +70,7 @@
 
                 <div class="mb-2" style="text-align: center">
                     <button type="button" class="btn btn-secondary"
-                        onclick="location.href='{{ route('productos') }}'">Atrás</button>
+                        onclick="location.href='{{ route('productosVenta') }}'">Atrás</button>
                     <input type="submit" class="btn btn-primary" value="Guardar">
                 </div>
             </form>

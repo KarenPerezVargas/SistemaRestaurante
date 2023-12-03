@@ -9,7 +9,7 @@
             <div class="navbar">
                 <div class="container-fluid">
                     <h3><i>Lista de productos</i></h3>
-                    <a href="{{ route('reporteProducto') }}" class="btn btn-secundary"><i
+                    <a href="{{ route('reporteProductos') }}" class="btn btn-secundary"><i
                             class="fas fa-file-pdf"></i>&nbsp;Generar PDF</a>
                 </div>
             </div>

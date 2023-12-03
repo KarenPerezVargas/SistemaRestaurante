@@ -39,7 +39,7 @@ class ProductosController extends Controller
         $productos->descripcion = $request->descripcion;
         $productos->cantidad = $request->cantidad;
         $productos->save();
-        return redirect()->route('productos');
+        return redirect()->route('productosVenta');
     }
 
     /**
@@ -47,7 +47,7 @@ class ProductosController extends Controller
      */
     public function show(Productos $producto)
     {
-        //
+        // 
     }
 
     /**
@@ -71,9 +71,8 @@ class ProductosController extends Controller
         $productos->producto_precio = $request->producto_precio;
         $productos->producto_foto = $request->producto_foto;
         $productos->descripcion = $request->descripcion;
-        $productos->cantidad = $request->cantidad;
         $productos->save();
-        return redirect()->route('productos');
+        return redirect()->route('productosVenta');
     }
 
     /**
@@ -83,7 +82,7 @@ class ProductosController extends Controller
     {
         $productos = Productos::find($id);
         $productos->delete();
-        return redirect()->route('productos');
+        return redirect()->route('productosVenta');
     }
 
     public function pdf1()
