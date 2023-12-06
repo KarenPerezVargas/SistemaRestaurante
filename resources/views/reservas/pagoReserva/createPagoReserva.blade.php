@@ -26,7 +26,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Monto pagado</label>
-                    <input type="number" class="form-control" step="0.10" id="" min="{{$reserva->precio}}" name="monto" required>
+                    <input type="number" class="form-control" step="0.1" id="" min="{{$reserva->precio}}" name="monto" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Metodo de pago</label>

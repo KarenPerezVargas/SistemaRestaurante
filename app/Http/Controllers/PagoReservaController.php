@@ -107,6 +107,7 @@ class PagoReservaController extends Controller
     }
 
     // Crear pdf para el reporte
+
     public function pdf1()
     {
         $pagoReservas = PagoReserva::all();

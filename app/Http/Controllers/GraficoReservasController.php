@@ -23,9 +23,9 @@ class GraficoReservasController extends Controller
         $now = now(); // Obten la fecha actual
         $lastYear = $now->subYear(); // Resta un año a la fecha actual
 
-        $reservasPorMes = Reserva::where('created_at', '>=', $lastYear)
-        ->groupBy(DB::raw('MONTH(created_at)'))
-        ->selectRaw('MONTH(created_at) as month, count(*) as total')
+        $reservasPorMes = Reserva::where('fecha_reserva', '>=', $lastYear)
+        ->groupBy(DB::raw('MONTH(fecha_reserva)'))
+        ->selectRaw('MONTH(fecha_reserva) as month, count(*) as total')
         ->get();
 
         // DATOS DE BD
@@ -54,9 +54,9 @@ class GraficoReservasController extends Controller
         $now = now(); // Obten la fecha actual
         $lastYear = $now->subYear(); // Resta un año a la fecha actual
 
-        $reservasPorMes = Reserva::where('created_at', '>=', $lastYear)
-            ->groupBy(DB::raw('MONTH(created_at)'))
-            ->selectRaw('MONTH(created_at) as month, count(*) as total')
+        $reservasPorMes = Reserva::where('fecha_reserva', '>=', $lastYear)
+            ->groupBy(DB::raw('MONTH(fecha_reserva)'))
+            ->selectRaw('MONTH(fecha_reserva) as month, count(*) as total')
             ->get();
 
         return view('reservas.grafico.grafico2', compact('reservasPorMes'));

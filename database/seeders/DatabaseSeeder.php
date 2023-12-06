@@ -23,9 +23,10 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(EmpleadoSeeder::class);
-        $this->call(ClientesSeeder::class);
+        $this->call(ClienteSeeder::class);
         $this->call(MesasSeeder::class);
         $this->call(PedidoSeeder::class);
         $this->call(InventarioSeeder::class);
+        $this->call(ReservasSeeder::class);
     }
 }

@@ -35,7 +35,7 @@ use App\Http\Controllers\MesaController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\PagoReservaController;
 use App\Http\Controllers\GraficoReservasController;
-
+use App\Http\Controllers\BoletaPagoController;
 
 //----------------SISTEMA INVENTARIO-------------------
 use App\Http\Controllers\DashboardPersonalController;
@@ -387,6 +387,8 @@ Route::post('/eliminarPagoReserva/{id}', [PagoReservaController::class, 'destroy
 
 Route::get('/pagoReserva/reporte', [PagoReservaController::class, 'pdf1'])->name('reportePagoReserva');
 
+Route::get('/generarBoletaPago/{id}', [BoletaPagoController::class, 'generarBoletaPago'])->name('generarBoletaPago');;
+
 Route::get('graficos',[GraficoReservasController::class,'graficos'])->name('graficos');
 Route::get('grafico1',[GraficoReservasController::class,'grafico1'])->name('grafico1');
 Route::get('grafico2',[GraficoReservasController::class,'grafico2'])->name('grafico2');
@@ -435,7 +437,7 @@ Route::get('/pasarela', [StripeController::class, 'index'])->name('layout');
 Route::post('/session', [StripeController::class, 'session'])->name('session');
 Route::get('/success', [StripeController::class, 'success'])->name('success');
 Route::get('/cancel', [StripeController::class, 'cancel'])->name('cancel');
- 
+
 
 Route::get('cart', [ProductsController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [ProductsController::class, 'addToCart'])->name('add_to_cart');

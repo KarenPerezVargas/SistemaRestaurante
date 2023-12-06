@@ -49,9 +49,6 @@ class EmpleadoSeeder extends Seeder
         $user->idEmpleado = 1; // Asocia el usuario al empleado
         $user->save();
 
-
-
-
         //INSTRUCTOR
 
         // Crear un contrato utilizando la fábrica ContratoFactory
@@ -80,8 +77,6 @@ class EmpleadoSeeder extends Seeder
         $user2->password = '123456';
         $user2->idEmpleado = 2; // Asocia el usuario al empleado
         $user2->save();
-
-
 
         //INSTRUCTOR
 
@@ -112,8 +107,6 @@ class EmpleadoSeeder extends Seeder
         $user3->idEmpleado = 3; // Asocia el usuario al empleado
         $user3->save();
 
-
-
         //SUPERVISOR
 
         // Crear un contrato utilizando la fábrica ContratoFactory
@@ -143,8 +136,6 @@ class EmpleadoSeeder extends Seeder
         $user4->password = '123456';
         $user4->idEmpleado = 4; // Asocia el usuario al empleado
         $user4->save();
-
-
 
         //GERENTE DE RECURSOS HUMANOS
 
@@ -177,8 +168,6 @@ class EmpleadoSeeder extends Seeder
         $user5->idEmpleado = 5; // Asocia el usuario al empleado
         $user5->save();
 
-
-
         //PERSONAL DE PEDIDOS
 
         // Crear un contrato utilizando la fábrica ContratoFactory
@@ -189,7 +178,6 @@ class EmpleadoSeeder extends Seeder
             'idRole' => 6, // Asigna el valor deseado para idRole
             'idHorario' => 1,
         ]);
-
 
         // Crear un registro de empleado utilizando la fábrica EmpleadoFactory y asociarlo al contrato
         $empleado6 = Empleado::factory()->create([
@@ -208,9 +196,6 @@ class EmpleadoSeeder extends Seeder
         $user6->password = '123456';
         $user6->idEmpleado = 6; // Asocia el usuario al empleado
         $user6->save();
-
-
-
 
         //PERSONAL DE PEDIDOS
 
@@ -242,10 +227,6 @@ class EmpleadoSeeder extends Seeder
         $user7->idEmpleado = 7; // Asocia el usuario al empleado
         $user7->save();
 
-
-
-
-
         //REPARTIDOR
 
         // Crear un contrato utilizando la fábrica ContratoFactory
@@ -275,8 +256,6 @@ class EmpleadoSeeder extends Seeder
         $user8->password = '123456';
         $user8->idEmpleado = 8; // Asocia el usuario al empleado
         $user8->save();
-
-
 
         //REPARTIDOR
 
@@ -308,8 +287,6 @@ class EmpleadoSeeder extends Seeder
         $user9->idEmpleado = 9; // Asocia el usuario al empleado
         $user9->save();
 
-
-
         // Gerente de ALmacén
 
         // Crear un contrato utilizando la fábrica ContratoFactory
@@ -320,7 +297,6 @@ class EmpleadoSeeder extends Seeder
             'idRole' => 13, // Asigna el valor deseado para idRole
             'idHorario' => 2,
         ]);
-
 
         // Crear un registro de empleado utilizando la fábrica EmpleadoFactory y asociarlo al contrato
         $empleado10 = Empleado::factory()->create([
@@ -340,8 +316,6 @@ class EmpleadoSeeder extends Seeder
         $user10->idEmpleado = 10; // Asocia el usuario al empleado
         $user10->save();
 
-
-
         // Personal de Almacén
 
         // Crear un contrato utilizando la fábrica ContratoFactory
@@ -352,7 +326,6 @@ class EmpleadoSeeder extends Seeder
             'idRole' => 14, // Asigna el valor deseado para idRole
             'idHorario' => 2,
         ]);
-
 
         // Crear un registro de empleado utilizando la fábrica EmpleadoFactory y asociarlo al contrato
         $empleado11 = Empleado::factory()->create([
@@ -510,8 +483,8 @@ class EmpleadoSeeder extends Seeder
 
         // Crear un registro de empleado utilizando la fábrica EmpleadoFactory y asociarlo al contrato
         $empleado16 = Empleado::factory()->create([
-            'nombre' => 'Koreli ',
-            'apellidos' => 'Miranda',
+            'nombre' => 'Edward ',
+            'apellidos' => 'Faichin',
             'DNI' => '84148846',
             'telefono' => '919976148',
             'direccion' => 'San josé',
@@ -520,8 +493,8 @@ class EmpleadoSeeder extends Seeder
 
         // Crear un usuario y asociarlo al empleado
         $user16 = new User();
-        $user16->username = 'miranda';
-        $user16->email = 'miranda@gmail.com';
+        $user16->username = 'edward';
+        $user16->email = 'edward@gmail.com';
         $user16->password = '123456';
         $user16->idEmpleado = 16; // Asocia el usuario al empleado
         $user16->save();

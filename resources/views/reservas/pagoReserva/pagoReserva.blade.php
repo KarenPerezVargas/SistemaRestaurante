@@ -48,6 +48,7 @@
                     <tr>
                         <td class="text-xxs mb-0 text-center">{{$item->id}}</td>
                         <td class="text-xxs mb-0 text-center">{{$item->reserva_id}}</td>
+
                         {{-- Aqui va el cliente --}}
                         <td class="text-xxs mb-0 text-center">{{$item->reserva->cliente->nombres}} {{$item->reserva->cliente->apellidos}}</td>
 
@@ -62,6 +63,8 @@
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$item->id}}">
                                         <i class="fas fa-trash"></i> Eliminar
                             </button>
+
+                            <a href="{{ route('generarBoletaPago', [$item->id]) }}" target="_blank" class="btn btn-primary"><i class="fas fa-file-pdf"></i> Boleta</a>
 
                             <div class="modal fade" id="exampleModal-{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
