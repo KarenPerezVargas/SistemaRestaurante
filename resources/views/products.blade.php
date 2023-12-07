@@ -1,12 +1,12 @@
 @extends('layouts.layoutpasarela')
-     
+
 @section('content')
-      
+
 <div class="row">
     @foreach($products as $product)
         <div class="col-xs-18 col-sm-6 col-md-4" style="margin-top:10px;">
             <div class="img_thumbnail productlist">
-                <img src="{{ asset('../productos') }}/{{ $product->producto_foto }}"  style="width: 250px; height: 200px;" class="img-fluid">
+                <img src="{{ asset('../productos') }}/{{ $product->producto_foto }}"  style="width: auto; height: 200px;" class="img-fluid">
                 <div class="caption">
                     <h4>{{ $product->producto_nombre }}</h4>
                     <p>{{ $product->producto_categoria }}</p>
@@ -17,5 +17,5 @@
         </div>
     @endforeach
 </div>
-      
+
 @endsection

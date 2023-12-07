@@ -27,7 +27,6 @@ use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\CapacidadController;
 use App\Http\Controllers\BlogController;
-use App\Models\Blog;
 
 //----------------SISTEMA RESERVAS-------------------
 use App\Http\Controllers\ClienteController;
@@ -50,14 +49,13 @@ use App\Http\Controllers\AsesoramientoController;
 use App\Http\Controllers\BebidasController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ClientePedidoController;
-use App\Models\HorarioEntrega;
 use App\Http\Controllers\GraficosPedidoController;
 use App\Http\Controllers\GraficosRepartidorController;
-use App\Models\PagoReserva;
 
 // PASARELA DE PAGOS
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\VentaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -430,16 +428,17 @@ Route::get('/promocion/reporte', [PromocionController::class, 'pdf1'])->name('re
 
 //----------------- PASARELA DE PAGOS -----------------
 
-Route::get('/productos', [ProductosController::class, 'index'])->name('productos');
-
 Route::get('/pasarela', [StripeController::class, 'index'])->name('layout');
-
 Route::post('/session', [StripeController::class, 'session'])->name('session');
 Route::get('/success', [StripeController::class, 'success'])->name('success');
 Route::get('/cancel', [StripeController::class, 'cancel'])->name('cancel');
-
 
 Route::get('cart', [ProductsController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [ProductsController::class, 'addToCart'])->name('add_to_cart');
 Route::patch('update-cart', [ProductsController::class, 'update'])->name('update_cart');
 Route::delete('remove-from-cart', [ProductsController::class, 'remove'])->name('remove_from_cart');
+
+//----------------- PASARELA DE PAGOS -----------------
+Route::get('/venta', [VentaController::class, 'index'])->name('venta');
+
+Route::get('/boletaVenta/{id}', [BoletaPagoController::class, 'generarBoletaPagoVenta'])->name('boletaVenta');;

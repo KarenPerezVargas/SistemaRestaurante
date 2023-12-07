@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Productos;
 use Illuminate\Http\Request;
-use PDF;
+use Barryvdh\DomPDF\PDF;
 
 class ProductosController extends Controller
 {
@@ -47,7 +47,7 @@ class ProductosController extends Controller
      */
     public function show(Productos $producto)
     {
-        // 
+        //
     }
 
     /**
